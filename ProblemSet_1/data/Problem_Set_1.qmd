@@ -1,0 +1,108 @@
+---
+title: "Problem Set 1"
+author: "Behram Radmanesh"
+format: html
+---
+
+## Problem 1
+
+The first step in working with data is to import it into the r-session. Prior to doing this I glanced at the 'wine.names' file and identified all the relevant columns.  
+
+
+```{r}
+## Set correct working directory and import the label the relevant data
+setwd("C:/Users/beh_2/Documents/STATS506/ProblemSet_1/data")
+wine <- read.table("wine.data", sep=",", col.names = c("Class", "Alcohol", "Malic_Acid", "Ash", "Alcalinity_of_ash", "Magnesium", "Total_phenols"
+                                                    ,"Flavanoids", "Nonflavanoid_phenols", "Proanthocyanins", "Color_intensity", "Hue",
+                                                    "OD280/OD315_of_diluted_wines", "Proline"))
+head(wine)
+```
+
+### Question 1: What is the correlation between alcohol content and color intensity?
+
+This question can be answered by using the linear regression function and setting 'Alcohol' ~ 'Color_intensity'.
+
+```{r}
+q1 <- lm(Alcohol ~ Color_intensity, data=wine)
+q1
+```
+There is very little correlation between alcohol content and color intensity, 0.1913.
+
+### Question 2: Which class has the highest correlation? Which has the lowest?
+
+
+```{r}
+class1 <- which(wine$Class==1)
+lmClass1 <- lm(Alcohol ~ Color_intensity, data=wine[class1,])
+lmClass1
+
+class2 <- which(wine$Class==2)
+lmClass2 <- lm(Alcohol ~ Color_intensity, data=wine[class2,])
+lmClass2
+
+class3 <- which(wine$Class==3)
+lmClass3 <- lm(Alcohol ~ Color_intensity, data=wine[class3,])
+lmClass3
+```
+
+It seems as though the wine from Class 2 has the highest correlation at 0.1569 while the wine from Class 3 has the lowest correlation at 0.08039.
+
+### Question 3: What is the alcohol content of the wine with the highest color intensity?
+
+This question can be answered by some simple data exploration using a combination of the which and max functions.
+
+```{r}
+## Identify row with the wine having the highest color intensity
+which(wine$Color_intensity==max(wine$Color_intensity))
+
+## Use the identified row '159' to identify the wine's alcohol content
+wine[159, c("Alcohol", "Color_intensity")]
+```
+
+The wine with the highest color intensity of 13 has an alcohol content of 14.34.
+
+### Question 4: What percentage of wines had a higher content of proanthocyanins compared to ash?
+
+This question was solved by calculating the number of wines having a higher Proanthocyanin content compared to Ash. After that number was determined it was simply divided by the total number of wines available.
+
+```{r}
+## Use the which and length functions to create a fraction that determines a percentage
+(length(which(wine$Proanthocyanins>wine$Ash))/length(wine$Proanthocyanins))*100
+
+```
+About 8.43% of the wines had a higher Proanthocyanins content compared to Ash.
+
+### Table containing the requested information.
+
+```{r}
+calculate_attribute_means <- function(df, group_by = NULL) {
+  # Check if the input is a data frame
+  if (!is.data.frame(df)) {
+    stop("Input must be a data frame.")
+  }
+
+  # Extract numeric columns
+  numeric_cols <- sapply(df, is.numeric)
+
+  # Check if grouping is specified
+  if (!is.null(group_by)) {
+    # Group by specified columns and calculate means
+    means <- aggregate(df[, numeric_cols], by = list(df[, group_by]), mean)
+    colnames(means)[1] <- "Group"
+  } else {
+    # Calculate means without grouping
+    means <- colMeans(df[, numeric_cols], na.rm = TRUE)
+    means <- data.frame(Mean = means)
+  }
+  
+  # Return the table
+  return(means)
+}
+groupMeansDF <- calculate_attribute_means(wine, group_by = "Class")
+groupMeansDF
+nonGroupMeansDF <- calculate_attribute_means(wine[2:14])
+nonGroupMeansDF
+finalDataFrame <- rbind(groupMeansDF[,2:15],nonGroupMeansDF)
+
+```
+
