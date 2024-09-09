@@ -98,11 +98,17 @@ calculate_attribute_means <- function(df, group_by = NULL) {
   # Return the table
   return(means)
 }
-groupMeansDF <- calculate_attribute_means(wine, group_by = "Class")
-groupMeansDF
-nonGroupMeansDF <- calculate_attribute_means(wine[2:14])
-nonGroupMeansDF
-finalDataFrame <- rbind(groupMeansDF[,2:15],nonGroupMeansDF)
 
+## Call 'calculate_attribute_means' function to group means by Class
+groupMeansDF <- calculate_attribute_means(wine, group_by = "Class")
+modifiedDF <- groupMeansDF[,2:15] # subset the new df
+rownames(modifiedDF) <- groupMeansDF[,"Class"] # set 'Class' values as index
+
+## Call 'calculate_attribute_means' function w/out specifying group 'Class'
+nonGroupMeansDF <- calculate_attribute_means(wine[2:14])# subset out 'Class'
+
+## Use 'rbind' to append the overall averages to the 'modifiedDf'
+finalDataFrame <- rbind(modifiedDF[,2:14], nonGroupMeansDF[[1]])
+finalDataFrame
 ```
 
