@@ -112,3 +112,21 @@ finalDataFrame <- rbind(modifiedDF[,2:14], nonGroupMeansDF[[1]])
 finalDataFrame
 ```
 
+### T-Test Phenol Levels ~ Class
+
+The question as to determine is there is any difference in the level of Phenols and the 3 different classes of wines.
+
+```{r}
+## T-test for Class 1 vs 2
+with(wine, t.test(Total_phenols[Class==1], Total_phenols[Class==2]))
+
+## T-test for Class 1 vs 3
+with(wine, t.test(Total_phenols[Class==1], Total_phenols[Class==3]))
+
+## T-test for Class 2 vs 3
+with(wine, t.test(Total_phenols[Class==2], Total_phenols[Class==3]))
+
+```
+
+It seems that according to the t-tests all three classes of wines have significantly varying levels of phenols.
+
