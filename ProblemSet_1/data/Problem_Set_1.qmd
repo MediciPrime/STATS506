@@ -130,3 +130,12 @@ with(wine, t.test(Total_phenols[Class==2], Total_phenols[Class==3]))
 
 It seems that according to the t-tests all three classes of wines have significantly varying levels of phenols.
 
+## Problem 2
+
+This problem requests that I perform some data manipulation and cleaning.
+
+```{r}
+## Once again the first step is to import the data
+salary <- read.table("AskAManager.csv", sep=",", col.names = c("Person", "Time", "Age", "Industry", "Job_Title", "Job_Title_Context", "Annual_Salary", "Misc_Compensation", "Currency", "Other_Currency", "Salary_Context", "Country", "State", "City", "Overall_Experience", "Field_Specific_Experience", "Education", "Gender", "Race"), skip = 1)
+
+```
