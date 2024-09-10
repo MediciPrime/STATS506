@@ -237,3 +237,12 @@ nextPalindrome <- function(num) {
 }
 ```
 
+The following are tests to check if the 'nextPalindrome' function works.
+
+```{r}
+nextPalindrome(391)
+nextPalindrome(9928)
+nextPalindrome(19272719)
+nextPalindrome(109)
+nextPalindrome(2)
+```
