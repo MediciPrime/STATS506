@@ -174,6 +174,33 @@ salaryFin <- salaryFin[salaryFin$Annual_Salary>1200,] ## person is from Myanmar 
 summary(salaryFin$Annual_Salary)
 salaryFin[salaryFin$Annual_Salary==1442,] ## person is an 'Associate Team Lead -Revenue Cycle' w/ 'Some college' making $1442 & $3010; can't justify removing
 
+## Final Sample Size
+dim(salaryFin)
 
 ```
+Final sample size includes 23,281 individuals.
 
+## Problem 3
+
+This problem asks for the creation of a function that checks for Palindromic Numbers.
+
+```{r}
+## Create the isPalindrome Function
+isPalindrome <- function(word) {
+  
+  # Convert numeric to string
+  word <- as.character(word)
+  
+  # Remove spaces and convert to lowercase for case-insensitive comparison
+  word <- tolower(gsub(" ", "", word))
+
+  # Reverse the word
+  reversed_word <- rev(strsplit(word, "")[[1]])
+  
+  # Turn into word again
+  reversed_word <- paste(reversed_word, collapse="")
+
+  # Check if the original and reversed words are equal
+  return(all(word == reversed_word))
+}
+```
