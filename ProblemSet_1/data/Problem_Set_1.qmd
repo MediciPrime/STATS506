@@ -186,7 +186,7 @@ This problem asks for the creation of a function that checks for Palindromic Num
 
 ```{r}
 ## Create the isPalindrome Function
-isPalindrome <- function(word) {
+isPalindromic <- function(word) {
   
   # Convert numeric to string
   word <- as.character(word)
