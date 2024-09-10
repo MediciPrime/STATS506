@@ -193,14 +193,21 @@ isPalindromic <- function(word) {
   
   # Remove spaces and convert to lowercase for case-insensitive comparison
   word <- tolower(gsub(" ", "", word))
+  
+  # TODO: Add statement to check from 0 at end.
 
   # Reverse the word
   reversed_word <- rev(strsplit(word, "")[[1]])
   
   # Turn into word again
   reversed_word <- paste(reversed_word, collapse="")
+  
+  return_list <- c("Palindrome" = all(word==reversed_word), 
+                   "Reversed Word" = reversed_word)
 
   # Check if the original and reversed words are equal
-  return(all(word == reversed_word))
+  return(return_list)
 }
 ```
+
+The next question asks 
