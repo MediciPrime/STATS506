@@ -186,10 +186,10 @@ This problem asks for the creation of a function that checks for Palindromic Num
 
 ```{r}
 ## Create the isPalindrome Function
-isPalindromic <- function(word) {
+isPalindromic <- function(val) {
   
   # Convert numeric to string
-  word <- as.character(word)
+  word <- as.character(val)
   
   # Remove spaces and convert to lowercase for case-insensitive comparison
   word <- tolower(gsub(" ", "", word))
@@ -210,4 +210,30 @@ isPalindromic <- function(word) {
 }
 ```
 
-The next question asks 
+The next question asks to create a function that will find the next palindrome. 
+
+```{r}
+nextPalindrome <- function(num) {
+  # Check if numeric was inputted
+  if(is.numeric(num)==FALSE) {
+   print("Please enter a number.")
+    break
+  }
+  
+  # Increase number by 1
+  num <- num + 1
+  
+  # Convert number to string
+  num_str <- as.character(num)
+
+  # Increment the number until a palindrome is found
+  while (isPalindromic(num_str)[[1]]==FALSE) {
+    num <- num + 1
+    num_str <- as.character(num)
+  }
+
+  # Return the palindrome
+  return(as.numeric(num_str))
+}
+```
+
