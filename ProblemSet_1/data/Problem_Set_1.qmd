@@ -143,4 +143,37 @@ salary <- read.table("AskAManager.csv", sep=",", col.names = c("Person", "Time",
 ## Restrict data to only have individuals paid in USD
 salaryUSD <- salary[salary$Currency=="USD",]
 
+## Show number of individuals dropped after restriction
+dim(salary)[1]-dim(salaryUSD)[1]
+
+## Remove anyone that is 'under 18'
+salaryAge <- salaryUSD[salaryUSD$Age!='under 18',]
+
+## Remove anyone who's Age and Experience don't make sense
+## TODO: Need to check efficient way to go about this 
+salaryAge$Age=="25-34" & (salaryAge$Overall_Experience==c("8-10 years") | salaryAge$Field_Specific_Experience==c("8-10 years"))
+
+## Obtain summary statistics for salary range
+summary(salaryAge$Annual_Salary)
+salaryFin <- salaryAge[salaryAge$Annual_Salary<102000000,] ## eat the billionare
+summary(salaryFin$Annual_Salary)
+salaryFin <- salaryFin[salaryFin$Annual_Salary<10000000,] ## the person's job title is 'bum' but makes $10 million
+summary(salaryFin$Annual_Salary)
+salaryFin <- salaryFin[salaryFin$Annual_Salary<5000044 ,] ## person is an 'inside sales manager' that makes $5million
+summary(salaryFin$Annual_Salary)
+
+salaryFin[salaryFin$Annual_Salary==3000000, ] ## can't justify removing an 'Art & Design' 'Owner and CEO' that makes $3million
+
+summary(salaryFin$Annual_Salary)
+salaryFin <- salaryFin[salaryFin$Annual_Salary>1000 ,]
+summary(salaryFin$Annual_Salary)
+
+salaryFin[salaryFin$Annual_Salary==1200,]
+salaryFin <- salaryFin[salaryFin$Annual_Salary>1200,] ## person is from Myanmar Colorado making $1200 as a risk management associate
+
+summary(salaryFin$Annual_Salary)
+salaryFin[salaryFin$Annual_Salary==1442,] ## person is an 'Associate Team Lead -Revenue Cycle' w/ 'Some college' making $1442 & $3010; can't justify removing
+
+
 ```
+
