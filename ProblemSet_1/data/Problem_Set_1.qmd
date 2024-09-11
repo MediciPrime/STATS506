@@ -75,6 +75,13 @@ About 8.43% of the wines had a higher Proanthocyanins content compared to Ash.
 ### Table containing the requested information.
 
 ```{r}
+## Create a function that calculates means, grouped or not
+#' Calculate Dataframe Means
+#'
+#' @param df 
+#' @param group_by 
+#'
+#' @return df contains means
 calculate_attribute_means <- function(df, group_by = NULL) {
   # Check if the input is a data frame
   if (!is.data.frame(df)) {
@@ -221,6 +228,11 @@ This problem asks for the creation of a function that checks for Palindromic Num
 
 ```{r}
 ## Create the isPalindrome Function
+#' Check If Palindrome
+#'
+#' @param val 
+#'
+#' @return list original number and palindrome
 isPalindromic <- function(val) {
   
   # Convert numeric to string
@@ -246,6 +258,12 @@ isPalindromic <- function(val) {
 The next question asks to create a function that will find the next palindrome. 
 
 ```{r}
+## Create a function that produces the next palindrome
+#' Find Next Palindrome
+#'
+#' @param num 
+#'
+#' @return numeric
 nextPalindrome <- function(num) {
   # Check if numeric was inputted
   if(is.numeric(num)==FALSE) {
