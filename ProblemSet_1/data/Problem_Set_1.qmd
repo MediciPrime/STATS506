@@ -229,8 +229,6 @@ isPalindromic <- function(val) {
   # Remove spaces and convert to lowercase for case-insensitive comparison
   word <- tolower(gsub(" ", "", word))
   
-  # TODO: Add statement to check from 0 at end.
-
   # Reverse the word
   reversed_word <- rev(strsplit(word, "")[[1]])
   
