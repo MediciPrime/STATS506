@@ -148,10 +148,44 @@ dim(salary)[1]-dim(salaryUSD)[1]
 
 ## Remove anyone that is 'under 18'
 salaryAge <- salaryUSD[salaryUSD$Age!='under 18',]
+dim(salaryAge)
 
-## Remove anyone who's Age and Experience don't make sense
-## TODO: Need to check efficient way to go about this 
-salaryAge$Age=="25-34" & (salaryAge$Overall_Experience==c("8-10 years") | salaryAge$Field_Specific_Experience==c("8-10 years"))
+## Remove anyone that is '18-24' w/ >5-7 years of overall work experience
+salaryAge <- salaryAge[!(salaryAge$Age=="18-24"&salaryAge$Overall_Experience=="8 - 10 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="18-24"&salaryAge$Overall_Experience=="11 - 20 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="18-24"&salaryAge$Overall_Experience=="21 - 30 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="18-24"&salaryAge$Overall_Experience=="31 - 40 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="18-24"&salaryAge$Overall_Experience=="41 years or more"),]
+dim(salaryAge)
+
+## Remove anyone that is '25-34' w/ > 11-20 years of overall work experience
+salaryAge <- salaryAge[!(salaryAge$Age=="25-34"&salaryAge$Overall_Experience=="21 - 30 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="25-34"&salaryAge$Overall_Experience=="31 - 40 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="25-34"&salaryAge$Overall_Experience=="41 years or more"),]
+dim(salaryAge)
+
+## Remove anyone that is '35-44' w/ >21-30 years of overall work experience
+salaryAge <- salaryAge[!(salaryAge$Age=="35-44"&salaryAge$Overall_Experience=="31 - 40 years"),]
+dim(salaryAge)
+
+salaryAge <- salaryAge[!(salaryAge$Age=="35-44"&salaryAge$Overall_Experience=="41 years or more"),]
+dim(salaryAge)
+
+##Remove anyone that is '45-54' w/ >31-40 years of overall work experience
+salaryAge <- salaryAge[!(salaryAge$Age=="45-54"&salaryAge$Overall_Experience=="41 years or more"),]
+dim(salaryAge)
 
 ## Obtain summary statistics for salary range
 summary(salaryAge$Annual_Salary)
@@ -176,9 +210,10 @@ salaryFin[salaryFin$Annual_Salary==1442,] ## person is an 'Associate Team Lead -
 
 ## Final Sample Size
 dim(salaryFin)
+summary(salaryFin$Annual_Salary)
 
 ```
-Final sample size includes 23,281 individuals.
+Final sample size includes 23,254 individuals.
 
 ## Problem 3
 
