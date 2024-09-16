@@ -1,12 +1,21 @@
 ---
 title: "Problem Set 2"
 author: "Behram Radmanesh"
-format: html
+format: 
+  html:
+      code-fold: true
+      code-tools: true
+toc: true
 ---
+
+Link for Github: <
 
 ## Problem 1 - Dice Game
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+This problem asks to create a function that codes for a dice game that abides by the following rules:
+- The game uses a 6-sided dice and costs $2 to play
+- Winning roll requires a 3 or 5; anything else you lose
+- 
 
 ## Running Code
 
