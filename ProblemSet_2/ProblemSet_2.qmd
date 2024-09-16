@@ -8,7 +8,7 @@ format:
 toc: true
 ---
 
-Link for Github: <
+[Github Link](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_2)
 
 ## Problem 1 - Dice Game
 
