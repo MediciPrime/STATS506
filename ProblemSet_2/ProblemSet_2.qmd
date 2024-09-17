@@ -20,7 +20,14 @@ This problem asks to create a function that codes for a dice game abiding by the
 ### Loop Implementation
 
 ```{r}
-
+loop <- function(num) {
+  ## Check if input is numeric
+  if (class(num) != class(1)) {
+    print("Please Insert A Number")
+    break
+  }
+  
+}
 
 ```
 
