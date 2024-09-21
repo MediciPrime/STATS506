@@ -17,7 +17,8 @@ This problem asks to create a function that codes for a dice game abiding by the
 - Winning roll requires a 3 or 5; anything else and you lose
 - Winning value 3 produces 6 dollars; while value 5 produces 10 dollars
 
-### Loop Implementation
+### Part A
+#### Loop Implementation
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
@@ -74,7 +75,7 @@ loop <- function(num) {
 
 ```
 
-## Vetorized Function Implementation
+#### Vetorized Function Implementation
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
@@ -128,7 +129,7 @@ vectorized <- function(num) {
 
 ```
 
-## Vectorized with Tables
+#### Vectorized with Tables
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
@@ -183,7 +184,7 @@ tableVectorized <- function(num) {
 
 ```
 
-## Loop with Apply
+#### Loop with Apply
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
@@ -221,6 +222,15 @@ loopApply <- function(num) {
   
   ## Create player deficit
   deficit = -(2*num)
+  
+  ## Simulate 'n'= num Dice Rolls
+  rolls <- sample(1:6, num, replace=TRUE)
+  
+  ## create a vector specifying winnings for each roll
+  rollWinnings <- c(0, 0, 6, 0, 10, 0)
+  
+  ## Using the vapply function to sum up the winnings
+  winnings <- sum(mapply(sum, rollWinnings[rolls]))
   
   return(cat("Total Winnings: ", winnings+deficit))
 }
