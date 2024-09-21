@@ -49,11 +49,31 @@ loop <- function(num) {
 
 ```
 
-You can add options to executable code like this 
+## Vetorized Function Implementation
 
 ```{r}
-#| echo: false
-2 * 2
-```
+## Function takes as input the number of dice rolls to play
+vectorized <- function(num) {
+  ## Check if input is numeric
+  if (class(num) != class(1)) {
+    print("Please Insert A Number")
+    break
+  }
+  
+  ## Create player deficit
+  deficit = -(2*num)
+  
+  ## Simulate 'n'= num Dice Rolls
+  rolls <- sample(1:6, num, replace=TRUE)
+  
+  ## create a vector specifying winnings for each roll
+  rollWinnings <- c(0, 0, 6, 0, 10, 0)
+  
+  ## using 'rolls' to index over the 'rollWinnings' vector
+  ## sum over all the possible winnings
+  winnings <- sum(rollWinnings[rolls])
+  
+  return(winnings+deficit)
+}
 
-The `echo: false` option disables the printing of code (only output is displayed).
+```
