@@ -22,9 +22,34 @@ This problem asks to create a function that codes for a dice game abiding by the
 ```{r}
 ## Function takes as input the number of dice rolls to play
 loop <- function(num) {
+  
   ## Check if input is numeric
-  if (class(num) != class(1)) {
-    print("Please Insert A Number")
+  if (is.double(num) == TRUE) {
+    
+    ## If numeric then check if contains decimal
+    if (num-as.integer(num) == 0) {
+      
+      ## Given it's not a decimal convert to integer
+      num <- as.integer(num)
+    }
+    
+    ## Given decimal check if a negative number was given
+    else if (num-as.integer(num) < 0) {
+      
+      ## If negative decimal then tell user how number for converted
+      cat("Negative entered value:", num, "was converted to", as.integer(-num), "\n")
+      num <- as.integer(-num)
+    }
+    
+    else {
+      
+      ## Given positive decimal convert accordingly
+      cat("Entered value:", num, "converted to", as.integer(num), "\n")
+      num <- as.integer(num)
+    }
+  }
+  else if (is.numeric(num) == FALSE) {
+    print("Please enter a natural number, eg. 1, 2, 3, ...")
     break
   }
   
@@ -54,9 +79,34 @@ loop <- function(num) {
 ```{r}
 ## Function takes as input the number of dice rolls to play
 vectorized <- function(num) {
-  ## Check if input is numeric
-  if (class(num) != class(1)) {
-    print("Please Insert A Number")
+  
+ ## Check if input is numeric
+  if (is.double(num) == TRUE) {
+    
+    ## If numeric then check if contains decimal
+    if (num-as.integer(num) == 0) {
+      
+      ## Given it's not a decimal convert to integer
+      num <- as.integer(num)
+    }
+    
+    ## Given decimal check if a negative number was given
+    else if (num-as.integer(num) < 0) {
+      
+      ## If negative decimal then tell user how number for converted
+      cat("Negative entered value:", num, "was converted to", as.integer(-num), "\n")
+      num <- as.integer(-num)
+    }
+    
+    else {
+      
+      ## Given positive decimal convert accordingly
+      cat("Entered value:", num, "converted to", as.integer(num), "\n")
+      num <- as.integer(num)
+    }
+  }
+  else if (is.numeric(num) == FALSE) {
+    print("Please enter a natural number, eg. 1, 2, 3, ...")
     break
   }
   
@@ -77,3 +127,103 @@ vectorized <- function(num) {
 }
 
 ```
+
+## Vectorized with Tables
+
+```{r}
+## Function takes as input the number of dice rolls to play
+tableVectorized <- function(num) {
+  
+  ## Check if input is numeric
+  if (is.double(num) == TRUE) {
+    
+    ## If numeric then check if contains decimal
+    if (num-as.integer(num) == 0) {
+      
+      ## Given it's not a decimal convert to integer
+      num <- as.integer(num)
+    }
+    
+    ## Given decimal check if a negative number was given
+    else if (num-as.integer(num) < 0) {
+      
+      ## If negative decimal then tell user how number for converted
+      cat("Negative entered value:", num, "was converted to", as.integer(-num), "\n")
+      num <- as.integer(-num)
+    }
+    
+    else {
+      
+      ## Given positive decimal convert accordingly
+      cat("Entered value:", num, "converted to", as.integer(num), "\n")
+      num <- as.integer(num)
+    }
+  }
+  else if (is.numeric(num) == FALSE) {
+    print("Please enter a natural number, eg. 1, 2, 3, ...")
+    break
+  }
+  
+  ## Create player deficit
+  deficit = -(2*num)
+  
+  ## Simulate 'n'= num Dice Rolls & place the results into a table
+  tRolls <- table(sample(1:6, num, replace=TRUE))
+  
+  ## create a vector specifying winnings for each roll
+  rollWinnings <- c(0, 0, 6, 0, 10, 0)
+  
+  ## using 'tRolls' table to index over the 'rollWinnings' vector
+  ## the table form avoids unnecessary looping over the rolls
+  ## sum over all the possible winnings
+  winnings <- sum(rollWinnings[as.numeric(names(tRolls))] * tRolls)
+  
+  return(cat("Total Winnings: ", winnings+deficit))
+}
+
+```
+
+## Loop with Apply
+
+```{r}
+## Function takes as input the number of dice rolls to play
+loopApply <- function(num) {
+  
+  ## Check if input is numeric
+  if (is.double(num) == TRUE) {
+    
+    ## If numeric then check if contains decimal
+    if (num-as.integer(num) == 0) {
+      
+      ## Given it's not a decimal convert to integer
+      num <- as.integer(num)
+    }
+    
+    ## Given decimal check if a negative number was given
+    else if (num-as.integer(num) < 0) {
+      
+      ## If negative decimal then tell user how number for converted
+      cat("Negative entered value:", num, "was converted to", as.integer(-num), "\n")
+      num <- as.integer(-num)
+    }
+    
+    else {
+      
+      ## Given positive decimal convert accordingly
+      cat("Entered value:", num, "converted to", as.integer(num), "\n")
+      num <- as.integer(num)
+    }
+  }
+  else if (is.numeric(num) == FALSE) {
+    print("Please enter a natural number, eg. 1, 2, 3, ...")
+    break
+  }
+  
+  ## Create player deficit
+  deficit = -(2*num)
+  
+  return(cat("Total Winnings: ", winnings+deficit))
+}
+
+```
+
