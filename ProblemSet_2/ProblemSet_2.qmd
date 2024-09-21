@@ -20,6 +20,7 @@ This problem asks to create a function that codes for a dice game abiding by the
 ### Loop Implementation
 
 ```{r}
+## Function takes as input the number of dice rolls to play
 loop <- function(num) {
   ## Check if input is numeric
   if (class(num) != class(1)) {
