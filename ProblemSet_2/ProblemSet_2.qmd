@@ -329,3 +329,34 @@ loopApply(3)
 ## Input of 3000
 loopApply(3000)
 ```
+
+### Part D
+
+The 'microbenchmark' package will now be used to calculate the speed for each of the implementations.
+
+#### Simple Loop
+```{r}
+library("microbenchmark")
+
+## Input of 1000 vs 100,000
+microbenchmark(loop(1000), loop(100000))
+
+```
+
+#### Vectorized Function
+```{r}
+## Input 1,000 vs 100,000
+microbenchmark(vectorized(1000), vectorized(100000))
+```
+
+#### Vectorized with Tables
+```{r}
+## Input 1,000 vs 100,000
+microbenchmark(tableVectorized(1000), tableVectorized(100000))
+```
+
+#### Loop with Apply
+```{r}
+## Input 1,000 vs 100,000
+microbenchmark(loopApply(1000), loopApply(100000))
+```
