@@ -56,21 +56,24 @@ loop <- function(num) {
   
   ## Create player deficit
   winnings = -(2*num)
+  
   ## Simulate 'n'= num Dice Rolls
   rolls <- sample(1:6, num, replace=TRUE)
   
   ## Use for loop to calculate total winnings
   for (i in rolls) {
+    
     ## if 3 is rolled add $6 to the winnings
     if (i == 3) {
       winnings <- winnings + 6
     }
+    
     ## if 5 is rolled add $10 to the winnings
     else if (i == 5) {
       winnings <- winnings + 10
     }
   }
-  return(winnings)
+  return(cat("Total Winnings:", winnings))
 }
 
 ```
@@ -124,7 +127,7 @@ vectorized <- function(num) {
   ## sum over all the possible winnings
   winnings <- sum(rollWinnings[rolls])
   
-  return(winnings+deficit)
+  return(cat("Total Winnings:", winnings+deficit))
 }
 
 ```
