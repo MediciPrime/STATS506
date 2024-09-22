@@ -281,3 +281,51 @@ loopApply(3)
 loopApply(3000)
 ```
 
+### Part C
+
+Set a seed in order to demonstrate that each of the 4 functions output the same results.
+
+#### Simple Loop
+```{r}
+set.seed(10)
+
+## Input of 3
+loop(3)
+
+## Input of 3000
+loop(3000)
+
+```
+
+#### Vectorized Function
+```{r}
+set.seed(10)
+
+## Input of 3
+vectorized(3)
+
+## Input of 3000
+vectorized(3000)
+```
+
+#### Vectorized with Tables
+```{r}
+set.seed(10)
+
+## Input of 3
+tableVectorized(3)
+
+## Input of 3000
+tableVectorized(3000)
+```
+
+#### Loop with Apply
+```{r}
+set.seed(10)
+
+## Input of 3
+loopApply(3)
+
+## Input of 3000
+loopApply(3000)
+```
