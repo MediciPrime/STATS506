@@ -345,8 +345,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
 <span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
 <span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Using the vapply function to sum up the winnings</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">mapply</span>(sum, rollWinnings[rolls]))</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Using the apply function to sum up the winnings</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">as.matrix</span>(rollWinnings[rolls]), <span class="dv">2</span>, sum)</span>
 <span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings: "</span>, winnings<span class="sc">+</span>deficit))</span>
 <span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -366,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings: 6</code></pre>
+<pre><code>Total Winnings: 10</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -374,7 +374,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings: 2026</code></pre>
+<pre><code>Total Winnings: 2102</code></pre>
 </div>
 </div>
 </section>
@@ -387,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings: -6</code></pre>
+<pre><code>Total Winnings: 6</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -395,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings: 2018</code></pre>
+<pre><code>Total Winnings: 1888</code></pre>
 </div>
 </div>
 </section>
@@ -408,7 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings:  10</code></pre>
+<pre><code>Total Winnings:  0</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -416,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings:  2160</code></pre>
+<pre><code>Total Winnings:  1906</code></pre>
 </div>
 </div>
 </section>
@@ -437,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings:  1772</code></pre>
+<pre><code>Total Winnings:  2388</code></pre>
 </div>
 </div>
 </section>
@@ -556,9 +556,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr    min      lq     mean median      uq     max neval
-  loop(1000)   77.3   85.55  103.586   94.6  115.00   178.1   100
- loop(1e+05) 6815.5 7208.90 7439.958 7312.0 7459.45 11903.8   100</code></pre>
+        expr    min     lq     mean median      uq     max neval
+  loop(1000)   78.9   86.9  114.175  118.1  129.50   251.7   100
+ loop(1e+05) 7175.3 7666.8 7987.300 7928.8 8171.85 13298.6   100</code></pre>
 </div>
 </div>
 </section>
@@ -575,9 +575,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-              expr    min      lq     mean  median      uq    max neval
-  vectorized(1000)   52.9   60.05   69.576   65.90   73.95  154.0   100
- vectorized(1e+05) 4685.5 4987.15 5148.919 5069.85 5168.60 9344.3   100</code></pre>
+              expr    min     lq     mean  median     uq    max neval
+  vectorized(1000)   52.6   58.3   84.040   70.75   95.2  279.7   100
+ vectorized(1e+05) 4618.5 4998.9 5390.143 5183.50 5637.0 9989.2   100</code></pre>
 </div>
 </div>
 </section>
@@ -594,9 +594,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-                   expr    min      lq      mean median      uq     max neval
-  tableVectorized(1000)  134.5  168.90   242.943  230.0   284.6   632.1   100
- tableVectorized(1e+05) 7791.4 9402.85 10343.522 9834.3 10731.7 17462.5   100</code></pre>
+                   expr    min     lq      mean   median       uq     max neval
+  tableVectorized(1000)  139.5  175.0   277.517   285.40   321.40   651.2   100
+ tableVectorized(1e+05) 8180.3 9745.8 10826.062 10332.75 11257.05 18763.3   100</code></pre>
 </div>
 </div>
 </section>
@@ -613,11 +613,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-             expr     min       lq      mean   median       uq      max neval
-  loopApply(1000)   384.7   452.00  1299.731   506.65   617.15  61949.8   100
- loopApply(1e+05) 44835.8 57031.85 82536.867 71789.35 98099.55 234689.6   100</code></pre>
+             expr    min     lq     mean  median      uq     max neval
+  loopApply(1000)   77.5   89.4  138.140  133.65  162.40   306.4   100
+ loopApply(1e+05) 5498.7 6686.3 7286.355 7028.70 7360.15 12139.2   100</code></pre>
 </div>
 </div>
+<p>I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table’s index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function.</p>
+<p>Thus in order of the fastest to the slowest:</p>
+<ol type="1">
+<li>vectorized</li>
+<li>loopApply</li>
+<li>loop ‘simple loop’</li>
+<li>tableVectorized</li>
+</ol>
 <!-- -->
 
 </section>
@@ -1320,8 +1328,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb49-240"><a href="#cb49-240" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
 <span id="cb49-241"><a href="#cb49-241" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
 <span id="cb49-242"><a href="#cb49-242" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb49-243"><a href="#cb49-243" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Using the vapply function to sum up the winnings</span></span>
-<span id="cb49-244"><a href="#cb49-244" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">mapply</span>(sum, rollWinnings[rolls]))</span>
+<span id="cb49-243"><a href="#cb49-243" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Using the apply function to sum up the winnings</span></span>
+<span id="cb49-244"><a href="#cb49-244" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">as.matrix</span>(rollWinnings[rolls]), <span class="dv">2</span>, sum)</span>
 <span id="cb49-245"><a href="#cb49-245" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb49-246"><a href="#cb49-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings: "</span>, winnings<span class="sc">+</span>deficit))</span>
 <span id="cb49-247"><a href="#cb49-247" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -1448,6 +1456,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb49-392"><a href="#cb49-392" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
 <span id="cb49-393"><a href="#cb49-393" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">loopApply</span>(<span class="dv">1000</span>), <span class="fu">loopApply</span>(<span class="dv">100000</span>))</span>
 <span id="cb49-394"><a href="#cb49-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb49-395"><a href="#cb49-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-396"><a href="#cb49-396" aria-hidden="true" tabindex="-1"></a>I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table's index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function. </span>
+<span id="cb49-397"><a href="#cb49-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-398"><a href="#cb49-398" aria-hidden="true" tabindex="-1"></a>Thus in order of the fastest to the slowest: </span>
+<span id="cb49-399"><a href="#cb49-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-400"><a href="#cb49-400" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>vectorized</span>
+<span id="cb49-401"><a href="#cb49-401" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>loopApply</span>
+<span id="cb49-402"><a href="#cb49-402" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>loop 'simple loop'</span>
+<span id="cb49-403"><a href="#cb49-403" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>tableVectorized</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

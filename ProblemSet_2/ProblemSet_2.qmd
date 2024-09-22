@@ -232,8 +232,8 @@ loopApply <- function(num) {
   ## create a vector specifying winnings for each roll
   rollWinnings <- c(0, 0, 6, 0, 10, 0)
   
-  ## Using the vapply function to sum up the winnings
-  winnings <- sum(mapply(sum, rollWinnings[rolls]))
+  ## Using the apply function to sum up the winnings
+  winnings <- apply(as.matrix(rollWinnings[rolls]), 2, sum)
   
   return(cat("Total Winnings: ", winnings+deficit))
 }
@@ -360,3 +360,12 @@ microbenchmark(tableVectorized(1000), tableVectorized(100000))
 ## Input 1,000 vs 100,000
 microbenchmark(loopApply(1000), loopApply(100000))
 ```
+
+I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table's index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function. 
+
+Thus in order of the fastest to the slowest: 
+
+1. vectorized
+2. loopApply
+3. loop 'simple loop'
+4. tableVectorized
