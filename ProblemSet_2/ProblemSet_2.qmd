@@ -237,3 +237,44 @@ loopApply <- function(num) {
 
 ```
 
+### Part B
+
+The following bit of code is here to demonstrate through examples that each of the functions work.
+
+#### Simple Loop
+```{r}
+## Input of 3
+loop(3)
+
+## Input of 3000
+loop(3000)
+
+```
+
+#### Vectorized Function
+```{r}
+## Input of 3
+vectorized(3)
+
+## Input of 3000
+vectorized(3000)
+```
+
+#### Vectorized with Tables
+```{r}
+## Input of 3
+tableVectorized(3)
+
+## Input of 3000
+tableVectorized(3000)
+```
+
+#### Loop with Apply
+```{r}
+## Input of 3
+loopApply(3)
+
+## Input of 3000
+loopApply(3000)
+```
+
