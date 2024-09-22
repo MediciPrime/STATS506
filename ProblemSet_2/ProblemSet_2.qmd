@@ -369,3 +369,7 @@ Thus in order of the fastest to the slowest:
 2. loopApply
 3. loop 'simple loop'
 4. tableVectorized
+
+### Part E
+#### Monte Carlo Simulation
+The idea of a game being fair in my opinion relies upon an equal chance for the player to make money vs lose money. For example, in a game of tossing a coin and calling a side, the player would have an equal chance of both winning and losing. Thus according to me a game is fair if the P(X=a) = P(X=b) where event 'a' and 'b' represent winning and losing the exact same amount of money, respectively. 
