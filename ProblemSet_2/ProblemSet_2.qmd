@@ -467,10 +467,16 @@ unique(cSub$fType)
 
 ## Part C
 
-The
+After plotting the highway MPG data onto a histogram it was observed that there was an outlier. For some reason the 2011 Chevy Silvarado hybrid was getting 223 hMPG and throwing off the distribution. I have a hunch that it's an input error so it was removed from the data. The distribution is much more reasonable and will be used for the rest of the analysis.
 
 ```{r}
 ## examine the distribution
+hist(cSub$hMPG)
+
+## remove the 2011 Chevy Silvarado w/ 223 hMPG!
+cSub = subset(cSub, cSub$hMPG<223)
+
+## use the histogram to check distribution
 hist(cSub$hMPG)
 
 ```
