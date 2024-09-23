@@ -376,25 +376,32 @@ The idea of a game being fair in my opinion relies upon an equal chance for the 
 
 ```{r}
 ## Monte Carlo simulation
-monte <- function(reps, rolls=1) {
-  v <- vector(length = reps)
-  for (i in seq_len(reps)) {
-    v[i] <- vectorized(rolls)
+monte <- function(reps) {
+  
+  ## roll the dice from 1 to 1000 on various increments
+  for (rolls in c(1,2,10,20,40,60,80,100,1000)) {
+    
+    ## create an empty vector sized according to the reps
+    v <- vector(length = reps)
+  
+    ## cycle through the reps and calculate the total winnings
+    for (i in seq_len(reps)) {
+      v[i] <- vectorized(rolls)
+    }
+    
+    ## save rolls and their winnings as a table
+    winnings <- table(v)
+    ## calculate probability to rolls that result in a profit
+    profit <- sum(winnings[as.numeric(names(winnings))>(0)])/reps
+     
+    ## print the current roll and the amount profit
+    cat("Rolls:", rolls, "\n",
+        "P(Profit)=", profit, "\n")
   }
-  hist(v)
-  return(table(v)/reps)
+  ## at the very end return the final histogram containing the
+  ## user defined repetitions
+  return(hist(v, main=paste("Histogram of", reps, "Repetition")))
 }
-```
-
-##### Various Simulations
-```{r}
-## Reps=1,000,000 & Rolls=1
-monte(100000)
-
-## Reps=1,000,000 & Rolls=6
-monte(reps=100000, rolls=6)
-
-## Reps=1,000,000 & Rolls=100
-monte(reps = 100000, rolls=100)
 
 ```
+
