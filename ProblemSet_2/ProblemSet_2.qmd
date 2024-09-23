@@ -481,3 +481,52 @@ hist(cSub$hMPG)
 
 ```
 
+## Part D
+
+A linear regression model was created predicting for highway MPG w/ respect to torque and controlling for horsepower, dimensions of the car and the year the car was released set as a categorical variable. Overall, it seems that most of the predictors have a very small impact (positive OR negative) on the highway MPG of the vehicle. Torque has a very small negative impact (.052 decrease in hMPG) while only Horsepower, Height and Year2012 are statistically significant as controls for Torque. Horsepower and Height contribute minimally to increasing the highway MPG, while the year 2012 had the most impact by increasing highway MPG about 1.29. 
+
+```{r}
+## set 'Year' as.factor to be treated as a categorical variable
+cSub$Year <- as.factor(cSub$Year)
+
+## create lm model w/ hMPG~Torque+Horsepower+Height+Length+Width+Year
+mod1 <- lm(hMPG ~ Torque + Horsepower + Height + Length + Width 
+           + Year, data = cSub)
+
+summary(mod1)
+```
+
+## Part E
+
+Not sure how to approach this, checkout tomorrow's lecture.
+
+```{r}
+library(interactions)
+
+mod2 <- lm(hMPG ~ (Torque+Horsepower)*factor(Year), data = cSub)
+
+emmip(mod2, factor(Year) ~ Horsepower,
+      at=list(Horsepower=c(100:700)))
+
+```
+
+## Part F
+
+Manually fit the model.matrix from Part D. As shown by the code the manual model matrix is equal to mod1$coefficients.
+
+```{r}
+## the formula describing the interactions
+form <- hMPG ~ Torque + Horsepower + Height + Length + Width + Year
+
+## create a design matrix
+mm <- model.matrix(form, data = cSub)
+
+## lm calculations
+manualLM <- solve(t(mm) %*% mm) %*% t(mm) %*% as.matrix(cSub$hMPG)
+
+## Check if mod1$coefficients is approx. equal to manualLM
+all.equal(manualLM[,1], mod1$coefficients)
+manualLM[,1]
+mod1$coefficients
+
+```
