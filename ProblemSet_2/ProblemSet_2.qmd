@@ -432,3 +432,24 @@ According to the simulation it seems that this game is very much in favor of the
 
 
 ## Problem 2
+
+### Part A
+
+The cars data was read into RStudio and the column names were modified to a resonable length. 
+```{r}
+## Set correct working directory and import the label the relevant data
+setwd("C:/Users/beh_2/Documents/STATS506/ProblemSet_2/data")
+
+cars <- read.csv("cars.csv", header = FALSE, skip=1)
+
+## remove unnecessary columns based on question to be answered
+keep <- c("V1", "V2", "V3", "V9", "V10", "V11", "V16", "V17", "V18")
+cars <- subset(cars, select = keep)
+
+## rename columns
+names(cars) <- c("Height", "Length", "Width", "cMPG", "fType", "hMPG",
+                 "Year", "Horsepower", "Torque")
+
+```
+
+## Part B
