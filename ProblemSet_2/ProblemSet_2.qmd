@@ -12,12 +12,10 @@ toc: true
 
 ## Problem 1 - Dice Game
 
-This problem asks to create a function that codes for a dice game abiding by the following rules:
-- The game uses a 6-sided dice and costs $2 to play per die rolled
-- Winning roll requires a 3 or 5; anything else and you lose
-- Winning value 3 produces 6 dollars; while value 5 produces 10 dollars
+This problem asks to create a function that codes for a dice game abiding by the following rules: - The game uses a 6-sided dice and costs \$2 to play per die rolled - Winning roll requires a 3 or 5; anything else and you lose - Winning value 3 produces 6 dollars; while value 5 produces 10 dollars
 
 ### Part A
+
 #### Simple Loop
 
 ```{r}
@@ -245,6 +243,7 @@ loopApply <- function(num) {
 The following bit of code is here to demonstrate through examples that each of the functions work.
 
 #### Simple Loop
+
 ```{r}
 ## Input of 3
 loop(3)
@@ -255,6 +254,7 @@ loop(3000)
 ```
 
 #### Vectorized Function
+
 ```{r}
 ## Input of 3
 vectorized(3)
@@ -264,6 +264,7 @@ vectorized(3000)
 ```
 
 #### Vectorized with Tables
+
 ```{r}
 ## Input of 3
 tableVectorized(3)
@@ -273,6 +274,7 @@ tableVectorized(3000)
 ```
 
 #### Loop with Apply
+
 ```{r}
 ## Input of 3
 loopApply(3)
@@ -286,6 +288,7 @@ loopApply(3000)
 Set a seed in order to demonstrate that each of the 4 functions output the same results.
 
 #### Simple Loop
+
 ```{r}
 set.seed(10)
 
@@ -298,6 +301,7 @@ loop(3000)
 ```
 
 #### Vectorized Function
+
 ```{r}
 set.seed(10)
 
@@ -309,6 +313,7 @@ vectorized(3000)
 ```
 
 #### Vectorized with Tables
+
 ```{r}
 set.seed(10)
 
@@ -320,6 +325,7 @@ tableVectorized(3000)
 ```
 
 #### Loop with Apply
+
 ```{r}
 set.seed(10)
 
@@ -335,6 +341,7 @@ loopApply(3000)
 The 'microbenchmark' package will now be used to calculate the speed for each of the implementations.
 
 #### Simple Loop
+
 ```{r}
 library("microbenchmark")
 
@@ -344,39 +351,47 @@ microbenchmark(loop(1000), loop(100000))
 ```
 
 #### Vectorized Function
+
 ```{r}
 ## Input 1,000 vs 100,000
 microbenchmark(vectorized(1000), vectorized(100000))
 ```
 
 #### Vectorized with Tables
+
 ```{r}
 ## Input 1,000 vs 100,000
 microbenchmark(tableVectorized(1000), tableVectorized(100000))
 ```
 
 #### Loop with Apply
+
 ```{r}
 ## Input 1,000 vs 100,000
 microbenchmark(loopApply(1000), loopApply(100000))
 ```
 
-I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table's index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function. 
+I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table's index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function.
 
-Thus in order of the fastest to the slowest: 
+Thus in order of the fastest to the slowest:
 
-1. vectorized
-2. loopApply
-3. loop 'simple loop'
-4. tableVectorized
+1.  vectorized
+2.  loopApply
+3.  loop 'simple loop'
+4.  tableVectorized
 
 ### Part E
+
 #### Monte Carlo Simulation
-The idea of a game being fair in my opinion relies upon an equal chance for the player to make money vs lose money. For example, in a game of tossing a coin and calling a side, the player would have an equal chance of both winning and losing.  
+
+The idea of a game being fair in my opinion relies upon an equal chance for the player to make money vs lose money. For example, in a game of tossing a coin and calling a side, the player would have an equal chance of both winning and losing.
 
 ```{r}
 ## Monte Carlo simulation
 monte <- function(reps) {
+  
+  ## create an empty Prob(Profit) data.frame
+  pProfit <- data.frame()
   
   ## roll the dice from 1 to 1000 on various increments
   for (rolls in c(1,2,10,20,40,60,80,100,1000)) {
@@ -395,16 +410,25 @@ monte <- function(reps) {
     profit <- sum(winnings[as.numeric(names(winnings))>(0)])/reps
      
     ## print the current roll and the amount profit
-    cat("Rolls:", rolls, "\n",
-        "P(Profit)=", profit, "\n")
+    pProfit <- rbind(pProfit, list(rolls, profit))
+    
   }
   ## at the very end return the final histogram containing the
   ## user defined repetitions
-  return(hist(v, main=paste("Histogram of", reps, "Repetition")))
+  names(pProfit)[1] <- "Current Roll"
+  names(pProfit)[2] <- "Prob(Profit)"
+  
+  return(pProfit)
+  ##return(hist(v, main=paste("Histogram of", reps, "Repetition")))
 }
 
-## run a simulation for 10,000 reps
-monte(10000)
 ```
 
-According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn't very 'fair' for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5. 
+```{r}
+#monte(10)
+```
+
+According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn't very 'fair' for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5.
+
+
+## Problem 2

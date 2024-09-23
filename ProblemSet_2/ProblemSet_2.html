@@ -375,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings: 2040</code></pre>
+<pre><code>Total Winnings: 1936</code></pre>
 </div>
 </div>
 </section>
@@ -396,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings: 1932</code></pre>
+<pre><code>Total Winnings: 1860</code></pre>
 </div>
 </div>
 </section>
@@ -417,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings:  1518</code></pre>
+<pre><code>Total Winnings:  2046</code></pre>
 </div>
 </div>
 </section>
@@ -430,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings:  4</code></pre>
+<pre><code>Total Winnings:  0</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -438,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Winnings:  2312</code></pre>
+<pre><code>Total Winnings:  2232</code></pre>
 </div>
 </div>
 </section>
@@ -557,9 +557,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-        expr    min     lq     mean median     uq     max neval
-  loop(1000)   71.6   83.4  104.140   95.3  116.0   386.2   100
- loop(1e+05) 6587.4 7282.6 7506.026 7508.9 7639.2 12289.1   100</code></pre>
+        expr    min     lq     mean median      uq     max neval
+  loop(1000)   78.1   83.3   95.194   90.5  100.35   205.0   100
+ loop(1e+05) 6987.5 7187.6 7344.642 7268.5 7378.15 11119.4   100</code></pre>
 </div>
 </div>
 </section>
@@ -576,9 +576,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-              expr    min      lq     mean  median     uq    max neval
-  vectorized(1000)   50.5   60.95   78.258   69.15   89.8  175.4   100
- vectorized(1e+05) 4508.9 4918.70 5346.567 5239.90 5519.4 9294.4   100</code></pre>
+              expr    min      lq     mean  median      uq    max neval
+  vectorized(1000)   51.3   55.70   65.578   60.15   66.95  225.3   100
+ vectorized(1e+05) 4314.4 4579.35 4874.928 4704.50 5014.45 9154.8   100</code></pre>
 </div>
 </div>
 </section>
@@ -595,9 +595,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-                   expr    min      lq      mean  median       uq     max neval
-  tableVectorized(1000)  134.1  166.55   228.597  220.00   269.85   495.2   100
- tableVectorized(1e+05) 7387.1 8965.30 10012.608 9701.45 10591.15 14292.5   100</code></pre>
+                   expr    min      lq     mean median      uq     max neval
+  tableVectorized(1000)  115.7  142.35  184.086  177.3  207.55   473.0   100
+ tableVectorized(1e+05) 6602.7 7764.75 8447.932 8101.8 8605.95 13565.4   100</code></pre>
 </div>
 </div>
 </section>
@@ -614,9 +614,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-             expr    min     lq     mean  median      uq     max neval
-  loopApply(1000)   68.2   78.9  117.366  107.25  131.20   376.2   100
- loopApply(1e+05) 5246.5 6147.5 6689.237 6434.05 6873.45 11983.8   100</code></pre>
+             expr    min     lq     mean  median     uq     max neval
+  loopApply(1000)   65.9   75.7   97.807   91.40  108.4   347.6   100
+ loopApply(1e+05) 5155.2 5864.6 6306.068 6104.95 6332.0 10240.8   100</code></pre>
 </div>
 </div>
 <p>I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table’s index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function.</p>
@@ -640,30 +640,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Monte Carlo simulation</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>monte <span class="ot">&lt;-</span> <span class="cf">function</span>(reps) {</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## roll the dice from 1 to 1000 on various increments</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rolls <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">1000</span>)) {</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create an empty vector sized according to the reps</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">length =</span> reps)</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="do">## cycle through the reps and calculate the total winnings</span></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(reps)) {</span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>      v[i] <span class="ot">&lt;-</span> <span class="fu">vectorized</span>(rolls)</span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>    <span class="do">## save rolls and their winnings as a table</span></span>
-<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>    winnings <span class="ot">&lt;-</span> <span class="fu">table</span>(v)</span>
-<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>    <span class="do">## calculate probability to rolls that result in a profit</span></span>
-<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>    profit <span class="ot">&lt;-</span> <span class="fu">sum</span>(winnings[<span class="fu">as.numeric</span>(<span class="fu">names</span>(winnings))<span class="sc">&gt;</span>(<span class="dv">0</span>)])<span class="sc">/</span>reps</span>
-<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>    <span class="do">## print the current roll and the amount profit</span></span>
-<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Rolls:"</span>, rolls, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"P(Profit)="</span>, profit, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a>  <span class="do">## at the very end return the final histogram containing the</span></span>
-<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a>  <span class="do">## user defined repetitions</span></span>
-<span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">hist</span>(v, <span class="at">main=</span><span class="fu">paste</span>(<span class="st">"Histogram of"</span>, reps, <span class="st">"Repetition"</span>)))</span>
-<span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create an empty Prob(Profit) data.frame</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  pProfit <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## roll the dice from 1 to 1000 on various increments</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rolls <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">1000</span>)) {</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create an empty vector sized according to the reps</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">length =</span> reps)</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>    <span class="do">## cycle through the reps and calculate the total winnings</span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(reps)) {</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>      v[i] <span class="ot">&lt;-</span> <span class="fu">vectorized</span>(rolls)</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>    <span class="do">## save rolls and their winnings as a table</span></span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>    winnings <span class="ot">&lt;-</span> <span class="fu">table</span>(v)</span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>    <span class="do">## calculate probability to rolls that result in a profit</span></span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>    profit <span class="ot">&lt;-</span> <span class="fu">sum</span>(winnings[<span class="fu">as.numeric</span>(<span class="fu">names</span>(winnings))<span class="sc">&gt;</span>(<span class="dv">0</span>)])<span class="sc">/</span>reps</span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>    <span class="do">## print the current roll and the amount profit</span></span>
+<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a>    pProfit <span class="ot">&lt;-</span> <span class="fu">rbind</span>(pProfit, <span class="fu">list</span>(rolls, profit))</span>
+<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a>  <span class="do">## at the very end return the final histogram containing the</span></span>
+<span id="cb49-28"><a href="#cb49-28" aria-hidden="true" tabindex="-1"></a>  <span class="do">## user defined repetitions</span></span>
+<span id="cb49-29"><a href="#cb49-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(pProfit)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Current Roll"</span></span>
+<span id="cb49-30"><a href="#cb49-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(pProfit)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"Prob(Profit)"</span></span>
+<span id="cb49-31"><a href="#cb49-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pProfit)</span>
+<span id="cb49-33"><a href="#cb49-33" aria-hidden="true" tabindex="-1"></a>  <span class="do">##return(hist(v, main=paste("Histogram of", reps, "Repetition")))</span></span>
+<span id="cb49-34"><a href="#cb49-34" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#monte(10)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn’t very ‘fair’ for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5.</p>
@@ -1135,414 +1148,437 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb50" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Problem Set 2"</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Behram Radmanesh"</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">      code-fold: true</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co">      code-tools: true</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Github Link</span><span class="co">](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_2)</span></span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 1 - Dice Game</span></span>
-<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>This problem asks to create a function that codes for a dice game abiding by the following rules:</span>
-<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The game uses a 6-sided dice and costs $2 to play per die rolled</span>
-<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Winning roll requires a 3 or 5; anything else and you lose</span>
-<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Winning value 3 produces 6 dollars; while value 5 produces 10 dollars</span>
-<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
-<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
-<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
-<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a>loop <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
-<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if input is numeric</span></span>
-<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-32"><a href="#cb50-32" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
-<span id="cb50-33"><a href="#cb50-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb50-34"><a href="#cb50-34" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-35"><a href="#cb50-35" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
-<span id="cb50-36"><a href="#cb50-36" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-37"><a href="#cb50-37" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-38"><a href="#cb50-38" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-39"><a href="#cb50-39" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
-<span id="cb50-40"><a href="#cb50-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb50-41"><a href="#cb50-41" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-42"><a href="#cb50-42" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
-<span id="cb50-43"><a href="#cb50-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-44"><a href="#cb50-44" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
-<span id="cb50-45"><a href="#cb50-45" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-46"><a href="#cb50-46" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-47"><a href="#cb50-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
-<span id="cb50-48"><a href="#cb50-48" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-49"><a href="#cb50-49" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
-<span id="cb50-50"><a href="#cb50-50" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-51"><a href="#cb50-51" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-52"><a href="#cb50-52" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-53"><a href="#cb50-53" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-54"><a href="#cb50-54" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb50-55"><a href="#cb50-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
-<span id="cb50-56"><a href="#cb50-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb50-57"><a href="#cb50-57" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-58"><a href="#cb50-58" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-59"><a href="#cb50-59" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
-<span id="cb50-60"><a href="#cb50-60" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
-<span id="cb50-61"><a href="#cb50-61" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-62"><a href="#cb50-62" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls</span></span>
-<span id="cb50-63"><a href="#cb50-63" aria-hidden="true" tabindex="-1"></a>  rolls <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb50-64"><a href="#cb50-64" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-65"><a href="#cb50-65" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Use for loop to calculate total winnings</span></span>
-<span id="cb50-66"><a href="#cb50-66" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> rolls) {</span>
-<span id="cb50-67"><a href="#cb50-67" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-68"><a href="#cb50-68" aria-hidden="true" tabindex="-1"></a>    <span class="do">## if 3 is rolled add $6 to the winnings</span></span>
-<span id="cb50-69"><a href="#cb50-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) {</span>
-<span id="cb50-70"><a href="#cb50-70" aria-hidden="true" tabindex="-1"></a>      winnings <span class="ot">&lt;-</span> winnings <span class="sc">+</span> <span class="dv">6</span></span>
-<span id="cb50-71"><a href="#cb50-71" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-72"><a href="#cb50-72" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-73"><a href="#cb50-73" aria-hidden="true" tabindex="-1"></a>    <span class="do">## if 5 is rolled add $10 to the winnings</span></span>
-<span id="cb50-74"><a href="#cb50-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">5</span>) {</span>
-<span id="cb50-75"><a href="#cb50-75" aria-hidden="true" tabindex="-1"></a>      winnings <span class="ot">&lt;-</span> winnings <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb50-76"><a href="#cb50-76" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-77"><a href="#cb50-77" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-78"><a href="#cb50-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings:"</span>, winnings))</span>
-<span id="cb50-79"><a href="#cb50-79" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb50-80"><a href="#cb50-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-81"><a href="#cb50-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-82"><a href="#cb50-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-83"><a href="#cb50-83" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vetorized Function</span></span>
-<span id="cb50-84"><a href="#cb50-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-87"><a href="#cb50-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-88"><a href="#cb50-88" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
-<span id="cb50-89"><a href="#cb50-89" aria-hidden="true" tabindex="-1"></a>vectorized <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
-<span id="cb50-90"><a href="#cb50-90" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-91"><a href="#cb50-91" aria-hidden="true" tabindex="-1"></a> <span class="do">## Check if input is numeric</span></span>
-<span id="cb50-92"><a href="#cb50-92" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb50-93"><a href="#cb50-93" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-94"><a href="#cb50-94" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
-<span id="cb50-95"><a href="#cb50-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb50-96"><a href="#cb50-96" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-97"><a href="#cb50-97" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
-<span id="cb50-98"><a href="#cb50-98" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-99"><a href="#cb50-99" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-100"><a href="#cb50-100" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-101"><a href="#cb50-101" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
-<span id="cb50-102"><a href="#cb50-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb50-103"><a href="#cb50-103" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-104"><a href="#cb50-104" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
-<span id="cb50-105"><a href="#cb50-105" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-106"><a href="#cb50-106" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
-<span id="cb50-107"><a href="#cb50-107" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-108"><a href="#cb50-108" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-109"><a href="#cb50-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
-<span id="cb50-110"><a href="#cb50-110" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-111"><a href="#cb50-111" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
-<span id="cb50-112"><a href="#cb50-112" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-113"><a href="#cb50-113" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-114"><a href="#cb50-114" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-115"><a href="#cb50-115" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-116"><a href="#cb50-116" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb50-117"><a href="#cb50-117" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
-<span id="cb50-118"><a href="#cb50-118" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb50-119"><a href="#cb50-119" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-120"><a href="#cb50-120" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-121"><a href="#cb50-121" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
-<span id="cb50-122"><a href="#cb50-122" aria-hidden="true" tabindex="-1"></a>  deficit <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
-<span id="cb50-123"><a href="#cb50-123" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-124"><a href="#cb50-124" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls</span></span>
-<span id="cb50-125"><a href="#cb50-125" aria-hidden="true" tabindex="-1"></a>  rolls <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb50-126"><a href="#cb50-126" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-127"><a href="#cb50-127" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
-<span id="cb50-128"><a href="#cb50-128" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
-<span id="cb50-129"><a href="#cb50-129" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-130"><a href="#cb50-130" aria-hidden="true" tabindex="-1"></a>  <span class="do">## using 'rolls' to index over the 'rollWinnings' vector</span></span>
-<span id="cb50-131"><a href="#cb50-131" aria-hidden="true" tabindex="-1"></a>  <span class="do">## sum over all the possible winnings</span></span>
-<span id="cb50-132"><a href="#cb50-132" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(rollWinnings[rolls])</span>
-<span id="cb50-133"><a href="#cb50-133" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-134"><a href="#cb50-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings:"</span>, winnings<span class="sc">+</span>deficit))</span>
-<span id="cb50-135"><a href="#cb50-135" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb50-136"><a href="#cb50-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-137"><a href="#cb50-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-138"><a href="#cb50-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-139"><a href="#cb50-139" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
-<span id="cb50-140"><a href="#cb50-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-143"><a href="#cb50-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-144"><a href="#cb50-144" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
-<span id="cb50-145"><a href="#cb50-145" aria-hidden="true" tabindex="-1"></a>tableVectorized <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
-<span id="cb50-146"><a href="#cb50-146" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-147"><a href="#cb50-147" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if input is numeric</span></span>
-<span id="cb50-148"><a href="#cb50-148" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb50-149"><a href="#cb50-149" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-150"><a href="#cb50-150" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
-<span id="cb50-151"><a href="#cb50-151" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb50-152"><a href="#cb50-152" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-153"><a href="#cb50-153" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
-<span id="cb50-154"><a href="#cb50-154" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-155"><a href="#cb50-155" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-156"><a href="#cb50-156" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-157"><a href="#cb50-157" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
-<span id="cb50-158"><a href="#cb50-158" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb50-159"><a href="#cb50-159" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-160"><a href="#cb50-160" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
-<span id="cb50-161"><a href="#cb50-161" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-162"><a href="#cb50-162" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
-<span id="cb50-163"><a href="#cb50-163" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-164"><a href="#cb50-164" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-165"><a href="#cb50-165" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
-<span id="cb50-166"><a href="#cb50-166" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-167"><a href="#cb50-167" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
-<span id="cb50-168"><a href="#cb50-168" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-169"><a href="#cb50-169" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-170"><a href="#cb50-170" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-171"><a href="#cb50-171" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-172"><a href="#cb50-172" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb50-173"><a href="#cb50-173" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
-<span id="cb50-174"><a href="#cb50-174" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb50-175"><a href="#cb50-175" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-176"><a href="#cb50-176" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-177"><a href="#cb50-177" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
-<span id="cb50-178"><a href="#cb50-178" aria-hidden="true" tabindex="-1"></a>  deficit <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
-<span id="cb50-179"><a href="#cb50-179" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-180"><a href="#cb50-180" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls &amp; place the results into a table</span></span>
-<span id="cb50-181"><a href="#cb50-181" aria-hidden="true" tabindex="-1"></a>  tRolls <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>))</span>
-<span id="cb50-182"><a href="#cb50-182" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-183"><a href="#cb50-183" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
-<span id="cb50-184"><a href="#cb50-184" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
-<span id="cb50-185"><a href="#cb50-185" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-186"><a href="#cb50-186" aria-hidden="true" tabindex="-1"></a>  <span class="do">## using 'tRolls' table to index over the 'rollWinnings' vector</span></span>
-<span id="cb50-187"><a href="#cb50-187" aria-hidden="true" tabindex="-1"></a>  <span class="do">## the table form avoids unnecessary looping over the rolls</span></span>
-<span id="cb50-188"><a href="#cb50-188" aria-hidden="true" tabindex="-1"></a>  <span class="do">## sum over all the possible winnings</span></span>
-<span id="cb50-189"><a href="#cb50-189" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(rollWinnings[<span class="fu">as.numeric</span>(<span class="fu">names</span>(tRolls))] <span class="sc">*</span> tRolls)</span>
-<span id="cb50-190"><a href="#cb50-190" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-191"><a href="#cb50-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings: "</span>, winnings<span class="sc">+</span>deficit))</span>
-<span id="cb50-192"><a href="#cb50-192" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb50-193"><a href="#cb50-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-194"><a href="#cb50-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-195"><a href="#cb50-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-196"><a href="#cb50-196" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
-<span id="cb50-197"><a href="#cb50-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-200"><a href="#cb50-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-201"><a href="#cb50-201" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
-<span id="cb50-202"><a href="#cb50-202" aria-hidden="true" tabindex="-1"></a>loopApply <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
-<span id="cb50-203"><a href="#cb50-203" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-204"><a href="#cb50-204" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if input is numeric</span></span>
-<span id="cb50-205"><a href="#cb50-205" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb50-206"><a href="#cb50-206" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-207"><a href="#cb50-207" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
-<span id="cb50-208"><a href="#cb50-208" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb50-209"><a href="#cb50-209" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-210"><a href="#cb50-210" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
-<span id="cb50-211"><a href="#cb50-211" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-212"><a href="#cb50-212" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-213"><a href="#cb50-213" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-214"><a href="#cb50-214" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
-<span id="cb50-215"><a href="#cb50-215" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb50-216"><a href="#cb50-216" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-217"><a href="#cb50-217" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
-<span id="cb50-218"><a href="#cb50-218" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-219"><a href="#cb50-219" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
-<span id="cb50-220"><a href="#cb50-220" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-221"><a href="#cb50-221" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-222"><a href="#cb50-222" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
-<span id="cb50-223"><a href="#cb50-223" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb50-224"><a href="#cb50-224" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
-<span id="cb50-225"><a href="#cb50-225" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-226"><a href="#cb50-226" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
-<span id="cb50-227"><a href="#cb50-227" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-228"><a href="#cb50-228" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-229"><a href="#cb50-229" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb50-230"><a href="#cb50-230" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
-<span id="cb50-231"><a href="#cb50-231" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb50-232"><a href="#cb50-232" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-233"><a href="#cb50-233" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-234"><a href="#cb50-234" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
-<span id="cb50-235"><a href="#cb50-235" aria-hidden="true" tabindex="-1"></a>  deficit <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
-<span id="cb50-236"><a href="#cb50-236" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-237"><a href="#cb50-237" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls</span></span>
-<span id="cb50-238"><a href="#cb50-238" aria-hidden="true" tabindex="-1"></a>  rolls <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb50-239"><a href="#cb50-239" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-240"><a href="#cb50-240" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
-<span id="cb50-241"><a href="#cb50-241" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
-<span id="cb50-242"><a href="#cb50-242" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-243"><a href="#cb50-243" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Using the apply function to sum up the winnings</span></span>
-<span id="cb50-244"><a href="#cb50-244" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">as.matrix</span>(rollWinnings[rolls]), <span class="dv">2</span>, sum)</span>
-<span id="cb50-245"><a href="#cb50-245" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-246"><a href="#cb50-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings: "</span>, winnings<span class="sc">+</span>deficit))</span>
-<span id="cb50-247"><a href="#cb50-247" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb50-248"><a href="#cb50-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-249"><a href="#cb50-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-250"><a href="#cb50-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-251"><a href="#cb50-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
-<span id="cb50-252"><a href="#cb50-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-253"><a href="#cb50-253" aria-hidden="true" tabindex="-1"></a>The following bit of code is here to demonstrate through examples that each of the functions work.</span>
-<span id="cb50-254"><a href="#cb50-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-255"><a href="#cb50-255" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
-<span id="cb50-258"><a href="#cb50-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-259"><a href="#cb50-259" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-260"><a href="#cb50-260" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3</span>)</span>
-<span id="cb50-261"><a href="#cb50-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-262"><a href="#cb50-262" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-263"><a href="#cb50-263" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-264"><a href="#cb50-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-265"><a href="#cb50-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-266"><a href="#cb50-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-267"><a href="#cb50-267" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized Function</span></span>
-<span id="cb50-270"><a href="#cb50-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-271"><a href="#cb50-271" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-272"><a href="#cb50-272" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3</span>)</span>
-<span id="cb50-273"><a href="#cb50-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-274"><a href="#cb50-274" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-275"><a href="#cb50-275" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-276"><a href="#cb50-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-277"><a href="#cb50-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-278"><a href="#cb50-278" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
-<span id="cb50-281"><a href="#cb50-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-282"><a href="#cb50-282" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-283"><a href="#cb50-283" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3</span>)</span>
-<span id="cb50-284"><a href="#cb50-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-285"><a href="#cb50-285" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-286"><a href="#cb50-286" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-287"><a href="#cb50-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-288"><a href="#cb50-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-289"><a href="#cb50-289" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
-<span id="cb50-292"><a href="#cb50-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-293"><a href="#cb50-293" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-294"><a href="#cb50-294" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3</span>)</span>
-<span id="cb50-295"><a href="#cb50-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-296"><a href="#cb50-296" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-297"><a href="#cb50-297" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-298"><a href="#cb50-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-299"><a href="#cb50-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-300"><a href="#cb50-300" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
-<span id="cb50-301"><a href="#cb50-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-302"><a href="#cb50-302" aria-hidden="true" tabindex="-1"></a>Set a seed in order to demonstrate that each of the 4 functions output the same results.</span>
-<span id="cb50-303"><a href="#cb50-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-304"><a href="#cb50-304" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
-<span id="cb50-307"><a href="#cb50-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-308"><a href="#cb50-308" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb50-309"><a href="#cb50-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-310"><a href="#cb50-310" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-311"><a href="#cb50-311" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3</span>)</span>
-<span id="cb50-312"><a href="#cb50-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-313"><a href="#cb50-313" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-314"><a href="#cb50-314" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-315"><a href="#cb50-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-316"><a href="#cb50-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-317"><a href="#cb50-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-318"><a href="#cb50-318" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized Function</span></span>
-<span id="cb50-321"><a href="#cb50-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-322"><a href="#cb50-322" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb50-323"><a href="#cb50-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-324"><a href="#cb50-324" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-325"><a href="#cb50-325" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3</span>)</span>
-<span id="cb50-326"><a href="#cb50-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-327"><a href="#cb50-327" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-328"><a href="#cb50-328" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-329"><a href="#cb50-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-330"><a href="#cb50-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-331"><a href="#cb50-331" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
-<span id="cb50-334"><a href="#cb50-334" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-335"><a href="#cb50-335" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb50-336"><a href="#cb50-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-337"><a href="#cb50-337" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-338"><a href="#cb50-338" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3</span>)</span>
-<span id="cb50-339"><a href="#cb50-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-340"><a href="#cb50-340" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-341"><a href="#cb50-341" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-342"><a href="#cb50-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-343"><a href="#cb50-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-344"><a href="#cb50-344" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
-<span id="cb50-347"><a href="#cb50-347" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-348"><a href="#cb50-348" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb50-349"><a href="#cb50-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-350"><a href="#cb50-350" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
-<span id="cb50-351"><a href="#cb50-351" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3</span>)</span>
-<span id="cb50-352"><a href="#cb50-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-353"><a href="#cb50-353" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
-<span id="cb50-354"><a href="#cb50-354" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3000</span>)</span>
-<span id="cb50-355"><a href="#cb50-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-356"><a href="#cb50-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-357"><a href="#cb50-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part D</span></span>
-<span id="cb50-358"><a href="#cb50-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-359"><a href="#cb50-359" aria-hidden="true" tabindex="-1"></a>The 'microbenchmark' package will now be used to calculate the speed for each of the implementations.</span>
-<span id="cb50-360"><a href="#cb50-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-361"><a href="#cb50-361" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
-<span id="cb50-364"><a href="#cb50-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-365"><a href="#cb50-365" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"microbenchmark"</span>)</span>
-<span id="cb50-366"><a href="#cb50-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-367"><a href="#cb50-367" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 1000 vs 100,000</span></span>
-<span id="cb50-368"><a href="#cb50-368" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">loop</span>(<span class="dv">1000</span>), <span class="fu">loop</span>(<span class="dv">100000</span>))</span>
-<span id="cb50-369"><a href="#cb50-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-370"><a href="#cb50-370" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-371"><a href="#cb50-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-372"><a href="#cb50-372" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized Function</span></span>
-<span id="cb50-375"><a href="#cb50-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-376"><a href="#cb50-376" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
-<span id="cb50-377"><a href="#cb50-377" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">vectorized</span>(<span class="dv">1000</span>), <span class="fu">vectorized</span>(<span class="dv">100000</span>))</span>
-<span id="cb50-378"><a href="#cb50-378" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-379"><a href="#cb50-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-380"><a href="#cb50-380" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
-<span id="cb50-383"><a href="#cb50-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-384"><a href="#cb50-384" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
-<span id="cb50-385"><a href="#cb50-385" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">tableVectorized</span>(<span class="dv">1000</span>), <span class="fu">tableVectorized</span>(<span class="dv">100000</span>))</span>
-<span id="cb50-386"><a href="#cb50-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-387"><a href="#cb50-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-388"><a href="#cb50-388" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
-<span id="cb50-391"><a href="#cb50-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-392"><a href="#cb50-392" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
-<span id="cb50-393"><a href="#cb50-393" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">loopApply</span>(<span class="dv">1000</span>), <span class="fu">loopApply</span>(<span class="dv">100000</span>))</span>
-<span id="cb50-394"><a href="#cb50-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-395"><a href="#cb50-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-396"><a href="#cb50-396" aria-hidden="true" tabindex="-1"></a>I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table's index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function. </span>
-<span id="cb50-397"><a href="#cb50-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-398"><a href="#cb50-398" aria-hidden="true" tabindex="-1"></a>Thus in order of the fastest to the slowest: </span>
-<span id="cb50-399"><a href="#cb50-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-400"><a href="#cb50-400" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>vectorized</span>
-<span id="cb50-401"><a href="#cb50-401" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>loopApply</span>
-<span id="cb50-402"><a href="#cb50-402" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>loop 'simple loop'</span>
-<span id="cb50-403"><a href="#cb50-403" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>tableVectorized</span>
-<span id="cb50-404"><a href="#cb50-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-405"><a href="#cb50-405" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part E</span></span>
-<span id="cb50-406"><a href="#cb50-406" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Monte Carlo Simulation</span></span>
-<span id="cb50-407"><a href="#cb50-407" aria-hidden="true" tabindex="-1"></a>The idea of a game being fair in my opinion relies upon an equal chance for the player to make money vs lose money. For example, in a game of tossing a coin and calling a side, the player would have an equal chance of both winning and losing.  </span>
-<span id="cb50-408"><a href="#cb50-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-411"><a href="#cb50-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb50-412"><a href="#cb50-412" aria-hidden="true" tabindex="-1"></a><span class="do">## Monte Carlo simulation</span></span>
-<span id="cb50-413"><a href="#cb50-413" aria-hidden="true" tabindex="-1"></a>monte <span class="ot">&lt;-</span> <span class="cf">function</span>(reps) {</span>
-<span id="cb50-414"><a href="#cb50-414" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-415"><a href="#cb50-415" aria-hidden="true" tabindex="-1"></a>  <span class="do">## roll the dice from 1 to 1000 on various increments</span></span>
-<span id="cb50-416"><a href="#cb50-416" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rolls <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">1000</span>)) {</span>
-<span id="cb50-417"><a href="#cb50-417" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-418"><a href="#cb50-418" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create an empty vector sized according to the reps</span></span>
-<span id="cb50-419"><a href="#cb50-419" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">length =</span> reps)</span>
-<span id="cb50-420"><a href="#cb50-420" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb50-421"><a href="#cb50-421" aria-hidden="true" tabindex="-1"></a>    <span class="do">## cycle through the reps and calculate the total winnings</span></span>
-<span id="cb50-422"><a href="#cb50-422" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(reps)) {</span>
-<span id="cb50-423"><a href="#cb50-423" aria-hidden="true" tabindex="-1"></a>      v[i] <span class="ot">&lt;-</span> <span class="fu">vectorized</span>(rolls)</span>
-<span id="cb50-424"><a href="#cb50-424" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-425"><a href="#cb50-425" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb50-426"><a href="#cb50-426" aria-hidden="true" tabindex="-1"></a>    <span class="do">## save rolls and their winnings as a table</span></span>
-<span id="cb50-427"><a href="#cb50-427" aria-hidden="true" tabindex="-1"></a>    winnings <span class="ot">&lt;-</span> <span class="fu">table</span>(v)</span>
-<span id="cb50-428"><a href="#cb50-428" aria-hidden="true" tabindex="-1"></a>    <span class="do">## calculate probability to rolls that result in a profit</span></span>
-<span id="cb50-429"><a href="#cb50-429" aria-hidden="true" tabindex="-1"></a>    profit <span class="ot">&lt;-</span> <span class="fu">sum</span>(winnings[<span class="fu">as.numeric</span>(<span class="fu">names</span>(winnings))<span class="sc">&gt;</span>(<span class="dv">0</span>)])<span class="sc">/</span>reps</span>
-<span id="cb50-430"><a href="#cb50-430" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb50-431"><a href="#cb50-431" aria-hidden="true" tabindex="-1"></a>    <span class="do">## print the current roll and the amount profit</span></span>
-<span id="cb50-432"><a href="#cb50-432" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Rolls:"</span>, rolls, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb50-433"><a href="#cb50-433" aria-hidden="true" tabindex="-1"></a>        <span class="st">"P(Profit)="</span>, profit, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb50-434"><a href="#cb50-434" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb50-435"><a href="#cb50-435" aria-hidden="true" tabindex="-1"></a>  <span class="do">## at the very end return the final histogram containing the</span></span>
-<span id="cb50-436"><a href="#cb50-436" aria-hidden="true" tabindex="-1"></a>  <span class="do">## user defined repetitions</span></span>
-<span id="cb50-437"><a href="#cb50-437" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">hist</span>(v, <span class="at">main=</span><span class="fu">paste</span>(<span class="st">"Histogram of"</span>, reps, <span class="st">"Repetition"</span>)))</span>
-<span id="cb50-438"><a href="#cb50-438" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb50-439"><a href="#cb50-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-440"><a href="#cb50-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb50-441"><a href="#cb50-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-442"><a href="#cb50-442" aria-hidden="true" tabindex="-1"></a>According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn't very 'fair' for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5. </span>
+<div class="sourceCode" id="cb51" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Problem Set 2"</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Behram Radmanesh"</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co">      code-fold: true</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co">      code-tools: true</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Github Link</span><span class="co">](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_2)</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 1 - Dice Game</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>This problem asks to create a function that codes for a dice game abiding by the following rules: - The game uses a 6-sided dice and costs \$2 to play per die rolled - Winning roll requires a 3 or 5; anything else and you lose - Winning value 3 produces 6 dollars; while value 5 produces 10 dollars</span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
+<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>loop <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
+<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if input is numeric</span></span>
+<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
+<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb51-32"><a href="#cb51-32" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-33"><a href="#cb51-33" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
+<span id="cb51-34"><a href="#cb51-34" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-35"><a href="#cb51-35" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-36"><a href="#cb51-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
+<span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb51-39"><a href="#cb51-39" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-40"><a href="#cb51-40" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
+<span id="cb51-41"><a href="#cb51-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-42"><a href="#cb51-42" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
+<span id="cb51-43"><a href="#cb51-43" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-44"><a href="#cb51-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-45"><a href="#cb51-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
+<span id="cb51-46"><a href="#cb51-46" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-47"><a href="#cb51-47" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
+<span id="cb51-48"><a href="#cb51-48" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-49"><a href="#cb51-49" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-50"><a href="#cb51-50" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb51-53"><a href="#cb51-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
+<span id="cb51-54"><a href="#cb51-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb51-55"><a href="#cb51-55" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-56"><a href="#cb51-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-57"><a href="#cb51-57" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
+<span id="cb51-58"><a href="#cb51-58" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
+<span id="cb51-59"><a href="#cb51-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-60"><a href="#cb51-60" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls</span></span>
+<span id="cb51-61"><a href="#cb51-61" aria-hidden="true" tabindex="-1"></a>  rolls <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb51-62"><a href="#cb51-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-63"><a href="#cb51-63" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Use for loop to calculate total winnings</span></span>
+<span id="cb51-64"><a href="#cb51-64" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> rolls) {</span>
+<span id="cb51-65"><a href="#cb51-65" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-66"><a href="#cb51-66" aria-hidden="true" tabindex="-1"></a>    <span class="do">## if 3 is rolled add $6 to the winnings</span></span>
+<span id="cb51-67"><a href="#cb51-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb51-68"><a href="#cb51-68" aria-hidden="true" tabindex="-1"></a>      winnings <span class="ot">&lt;-</span> winnings <span class="sc">+</span> <span class="dv">6</span></span>
+<span id="cb51-69"><a href="#cb51-69" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-70"><a href="#cb51-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-71"><a href="#cb51-71" aria-hidden="true" tabindex="-1"></a>    <span class="do">## if 5 is rolled add $10 to the winnings</span></span>
+<span id="cb51-72"><a href="#cb51-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">5</span>) {</span>
+<span id="cb51-73"><a href="#cb51-73" aria-hidden="true" tabindex="-1"></a>      winnings <span class="ot">&lt;-</span> winnings <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb51-74"><a href="#cb51-74" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-75"><a href="#cb51-75" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-76"><a href="#cb51-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings:"</span>, winnings))</span>
+<span id="cb51-77"><a href="#cb51-77" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-78"><a href="#cb51-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-79"><a href="#cb51-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-80"><a href="#cb51-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-81"><a href="#cb51-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vetorized Function</span></span>
+<span id="cb51-82"><a href="#cb51-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-85"><a href="#cb51-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-86"><a href="#cb51-86" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
+<span id="cb51-87"><a href="#cb51-87" aria-hidden="true" tabindex="-1"></a>vectorized <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
+<span id="cb51-88"><a href="#cb51-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-89"><a href="#cb51-89" aria-hidden="true" tabindex="-1"></a> <span class="do">## Check if input is numeric</span></span>
+<span id="cb51-90"><a href="#cb51-90" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb51-91"><a href="#cb51-91" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-92"><a href="#cb51-92" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
+<span id="cb51-93"><a href="#cb51-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb51-94"><a href="#cb51-94" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-95"><a href="#cb51-95" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
+<span id="cb51-96"><a href="#cb51-96" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-97"><a href="#cb51-97" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-98"><a href="#cb51-98" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-99"><a href="#cb51-99" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
+<span id="cb51-100"><a href="#cb51-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb51-101"><a href="#cb51-101" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-102"><a href="#cb51-102" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
+<span id="cb51-103"><a href="#cb51-103" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-104"><a href="#cb51-104" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
+<span id="cb51-105"><a href="#cb51-105" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-106"><a href="#cb51-106" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-107"><a href="#cb51-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
+<span id="cb51-108"><a href="#cb51-108" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-109"><a href="#cb51-109" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
+<span id="cb51-110"><a href="#cb51-110" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-111"><a href="#cb51-111" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-112"><a href="#cb51-112" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-113"><a href="#cb51-113" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-114"><a href="#cb51-114" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb51-115"><a href="#cb51-115" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
+<span id="cb51-116"><a href="#cb51-116" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb51-117"><a href="#cb51-117" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-118"><a href="#cb51-118" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-119"><a href="#cb51-119" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
+<span id="cb51-120"><a href="#cb51-120" aria-hidden="true" tabindex="-1"></a>  deficit <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
+<span id="cb51-121"><a href="#cb51-121" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-122"><a href="#cb51-122" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls</span></span>
+<span id="cb51-123"><a href="#cb51-123" aria-hidden="true" tabindex="-1"></a>  rolls <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb51-124"><a href="#cb51-124" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-125"><a href="#cb51-125" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
+<span id="cb51-126"><a href="#cb51-126" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
+<span id="cb51-127"><a href="#cb51-127" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-128"><a href="#cb51-128" aria-hidden="true" tabindex="-1"></a>  <span class="do">## using 'rolls' to index over the 'rollWinnings' vector</span></span>
+<span id="cb51-129"><a href="#cb51-129" aria-hidden="true" tabindex="-1"></a>  <span class="do">## sum over all the possible winnings</span></span>
+<span id="cb51-130"><a href="#cb51-130" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(rollWinnings[rolls])</span>
+<span id="cb51-131"><a href="#cb51-131" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-132"><a href="#cb51-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings:"</span>, winnings<span class="sc">+</span>deficit))</span>
+<span id="cb51-133"><a href="#cb51-133" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-134"><a href="#cb51-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-135"><a href="#cb51-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-136"><a href="#cb51-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-137"><a href="#cb51-137" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
+<span id="cb51-138"><a href="#cb51-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-141"><a href="#cb51-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-142"><a href="#cb51-142" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
+<span id="cb51-143"><a href="#cb51-143" aria-hidden="true" tabindex="-1"></a>tableVectorized <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
+<span id="cb51-144"><a href="#cb51-144" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-145"><a href="#cb51-145" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if input is numeric</span></span>
+<span id="cb51-146"><a href="#cb51-146" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb51-147"><a href="#cb51-147" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-148"><a href="#cb51-148" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
+<span id="cb51-149"><a href="#cb51-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb51-150"><a href="#cb51-150" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-151"><a href="#cb51-151" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
+<span id="cb51-152"><a href="#cb51-152" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-153"><a href="#cb51-153" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-154"><a href="#cb51-154" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-155"><a href="#cb51-155" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
+<span id="cb51-156"><a href="#cb51-156" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb51-157"><a href="#cb51-157" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-158"><a href="#cb51-158" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
+<span id="cb51-159"><a href="#cb51-159" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-160"><a href="#cb51-160" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
+<span id="cb51-161"><a href="#cb51-161" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-162"><a href="#cb51-162" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-163"><a href="#cb51-163" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
+<span id="cb51-164"><a href="#cb51-164" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-165"><a href="#cb51-165" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
+<span id="cb51-166"><a href="#cb51-166" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-167"><a href="#cb51-167" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-168"><a href="#cb51-168" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-169"><a href="#cb51-169" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-170"><a href="#cb51-170" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb51-171"><a href="#cb51-171" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
+<span id="cb51-172"><a href="#cb51-172" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb51-173"><a href="#cb51-173" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-174"><a href="#cb51-174" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-175"><a href="#cb51-175" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
+<span id="cb51-176"><a href="#cb51-176" aria-hidden="true" tabindex="-1"></a>  deficit <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
+<span id="cb51-177"><a href="#cb51-177" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-178"><a href="#cb51-178" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls &amp; place the results into a table</span></span>
+<span id="cb51-179"><a href="#cb51-179" aria-hidden="true" tabindex="-1"></a>  tRolls <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>))</span>
+<span id="cb51-180"><a href="#cb51-180" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-181"><a href="#cb51-181" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
+<span id="cb51-182"><a href="#cb51-182" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
+<span id="cb51-183"><a href="#cb51-183" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-184"><a href="#cb51-184" aria-hidden="true" tabindex="-1"></a>  <span class="do">## using 'tRolls' table to index over the 'rollWinnings' vector</span></span>
+<span id="cb51-185"><a href="#cb51-185" aria-hidden="true" tabindex="-1"></a>  <span class="do">## the table form avoids unnecessary looping over the rolls</span></span>
+<span id="cb51-186"><a href="#cb51-186" aria-hidden="true" tabindex="-1"></a>  <span class="do">## sum over all the possible winnings</span></span>
+<span id="cb51-187"><a href="#cb51-187" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(rollWinnings[<span class="fu">as.numeric</span>(<span class="fu">names</span>(tRolls))] <span class="sc">*</span> tRolls)</span>
+<span id="cb51-188"><a href="#cb51-188" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-189"><a href="#cb51-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings: "</span>, winnings<span class="sc">+</span>deficit))</span>
+<span id="cb51-190"><a href="#cb51-190" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-191"><a href="#cb51-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-192"><a href="#cb51-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-193"><a href="#cb51-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-194"><a href="#cb51-194" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
+<span id="cb51-195"><a href="#cb51-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-198"><a href="#cb51-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-199"><a href="#cb51-199" aria-hidden="true" tabindex="-1"></a><span class="do">## Function takes as input the number of dice rolls to play</span></span>
+<span id="cb51-200"><a href="#cb51-200" aria-hidden="true" tabindex="-1"></a>loopApply <span class="ot">&lt;-</span> <span class="cf">function</span>(num) {</span>
+<span id="cb51-201"><a href="#cb51-201" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-202"><a href="#cb51-202" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Check if input is numeric</span></span>
+<span id="cb51-203"><a href="#cb51-203" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.double</span>(num) <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb51-204"><a href="#cb51-204" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-205"><a href="#cb51-205" aria-hidden="true" tabindex="-1"></a>    <span class="do">## If numeric then check if contains decimal</span></span>
+<span id="cb51-206"><a href="#cb51-206" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb51-207"><a href="#cb51-207" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-208"><a href="#cb51-208" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given it's not a decimal convert to integer</span></span>
+<span id="cb51-209"><a href="#cb51-209" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-210"><a href="#cb51-210" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-211"><a href="#cb51-211" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-212"><a href="#cb51-212" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Given decimal check if a negative number was given</span></span>
+<span id="cb51-213"><a href="#cb51-213" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> (num<span class="sc">-</span><span class="fu">as.integer</span>(num) <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb51-214"><a href="#cb51-214" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-215"><a href="#cb51-215" aria-hidden="true" tabindex="-1"></a>      <span class="do">## If negative decimal then tell user how number for converted</span></span>
+<span id="cb51-216"><a href="#cb51-216" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Negative entered value:"</span>, num, <span class="st">"was converted to"</span>, <span class="fu">as.integer</span>(<span class="sc">-</span>num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-217"><a href="#cb51-217" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="sc">-</span>num)</span>
+<span id="cb51-218"><a href="#cb51-218" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-219"><a href="#cb51-219" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-220"><a href="#cb51-220" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
+<span id="cb51-221"><a href="#cb51-221" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb51-222"><a href="#cb51-222" aria-hidden="true" tabindex="-1"></a>      <span class="do">## Given positive decimal convert accordingly</span></span>
+<span id="cb51-223"><a href="#cb51-223" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Entered value:"</span>, num, <span class="st">"converted to"</span>, <span class="fu">as.integer</span>(num), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb51-224"><a href="#cb51-224" aria-hidden="true" tabindex="-1"></a>      num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(num)</span>
+<span id="cb51-225"><a href="#cb51-225" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-226"><a href="#cb51-226" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-227"><a href="#cb51-227" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.numeric</span>(num) <span class="sc">==</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb51-228"><a href="#cb51-228" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Please enter a natural number, eg. 1, 2, 3, ..."</span>)</span>
+<span id="cb51-229"><a href="#cb51-229" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb51-230"><a href="#cb51-230" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-231"><a href="#cb51-231" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-232"><a href="#cb51-232" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Create player deficit</span></span>
+<span id="cb51-233"><a href="#cb51-233" aria-hidden="true" tabindex="-1"></a>  deficit <span class="ot">=</span> <span class="sc">-</span>(<span class="dv">2</span><span class="sc">*</span>num)</span>
+<span id="cb51-234"><a href="#cb51-234" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-235"><a href="#cb51-235" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Simulate 'n'= num Dice Rolls</span></span>
+<span id="cb51-236"><a href="#cb51-236" aria-hidden="true" tabindex="-1"></a>  rolls <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, num, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb51-237"><a href="#cb51-237" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-238"><a href="#cb51-238" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create a vector specifying winnings for each roll</span></span>
+<span id="cb51-239"><a href="#cb51-239" aria-hidden="true" tabindex="-1"></a>  rollWinnings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</span>
+<span id="cb51-240"><a href="#cb51-240" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-241"><a href="#cb51-241" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Using the apply function to sum up the winnings</span></span>
+<span id="cb51-242"><a href="#cb51-242" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="fu">as.matrix</span>(rollWinnings[rolls]), <span class="dv">2</span>, sum)</span>
+<span id="cb51-243"><a href="#cb51-243" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-244"><a href="#cb51-244" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">"Total Winnings: "</span>, winnings<span class="sc">+</span>deficit))</span>
+<span id="cb51-245"><a href="#cb51-245" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-246"><a href="#cb51-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-247"><a href="#cb51-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-248"><a href="#cb51-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-249"><a href="#cb51-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
+<span id="cb51-250"><a href="#cb51-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-251"><a href="#cb51-251" aria-hidden="true" tabindex="-1"></a>The following bit of code is here to demonstrate through examples that each of the functions work.</span>
+<span id="cb51-252"><a href="#cb51-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-253"><a href="#cb51-253" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
+<span id="cb51-254"><a href="#cb51-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-257"><a href="#cb51-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-258"><a href="#cb51-258" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-259"><a href="#cb51-259" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3</span>)</span>
+<span id="cb51-260"><a href="#cb51-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-261"><a href="#cb51-261" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-262"><a href="#cb51-262" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-263"><a href="#cb51-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-264"><a href="#cb51-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-265"><a href="#cb51-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-266"><a href="#cb51-266" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized Function</span></span>
+<span id="cb51-267"><a href="#cb51-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-270"><a href="#cb51-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-271"><a href="#cb51-271" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-272"><a href="#cb51-272" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3</span>)</span>
+<span id="cb51-273"><a href="#cb51-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-274"><a href="#cb51-274" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-275"><a href="#cb51-275" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-276"><a href="#cb51-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-277"><a href="#cb51-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-278"><a href="#cb51-278" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
+<span id="cb51-279"><a href="#cb51-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-282"><a href="#cb51-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-283"><a href="#cb51-283" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-284"><a href="#cb51-284" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3</span>)</span>
+<span id="cb51-285"><a href="#cb51-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-286"><a href="#cb51-286" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-287"><a href="#cb51-287" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-288"><a href="#cb51-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-289"><a href="#cb51-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-290"><a href="#cb51-290" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
+<span id="cb51-291"><a href="#cb51-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-294"><a href="#cb51-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-295"><a href="#cb51-295" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-296"><a href="#cb51-296" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3</span>)</span>
+<span id="cb51-297"><a href="#cb51-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-298"><a href="#cb51-298" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-299"><a href="#cb51-299" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-300"><a href="#cb51-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-301"><a href="#cb51-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-302"><a href="#cb51-302" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
+<span id="cb51-303"><a href="#cb51-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-304"><a href="#cb51-304" aria-hidden="true" tabindex="-1"></a>Set a seed in order to demonstrate that each of the 4 functions output the same results.</span>
+<span id="cb51-305"><a href="#cb51-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-306"><a href="#cb51-306" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
+<span id="cb51-307"><a href="#cb51-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-310"><a href="#cb51-310" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-311"><a href="#cb51-311" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb51-312"><a href="#cb51-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-313"><a href="#cb51-313" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-314"><a href="#cb51-314" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3</span>)</span>
+<span id="cb51-315"><a href="#cb51-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-316"><a href="#cb51-316" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-317"><a href="#cb51-317" aria-hidden="true" tabindex="-1"></a><span class="fu">loop</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-318"><a href="#cb51-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-319"><a href="#cb51-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-320"><a href="#cb51-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-321"><a href="#cb51-321" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized Function</span></span>
+<span id="cb51-322"><a href="#cb51-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-325"><a href="#cb51-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-326"><a href="#cb51-326" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb51-327"><a href="#cb51-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-328"><a href="#cb51-328" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-329"><a href="#cb51-329" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3</span>)</span>
+<span id="cb51-330"><a href="#cb51-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-331"><a href="#cb51-331" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-332"><a href="#cb51-332" aria-hidden="true" tabindex="-1"></a><span class="fu">vectorized</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-333"><a href="#cb51-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-334"><a href="#cb51-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-335"><a href="#cb51-335" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
+<span id="cb51-336"><a href="#cb51-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-339"><a href="#cb51-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-340"><a href="#cb51-340" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb51-341"><a href="#cb51-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-342"><a href="#cb51-342" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-343"><a href="#cb51-343" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3</span>)</span>
+<span id="cb51-344"><a href="#cb51-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-345"><a href="#cb51-345" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-346"><a href="#cb51-346" aria-hidden="true" tabindex="-1"></a><span class="fu">tableVectorized</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-347"><a href="#cb51-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-348"><a href="#cb51-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-349"><a href="#cb51-349" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
+<span id="cb51-350"><a href="#cb51-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-353"><a href="#cb51-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-354"><a href="#cb51-354" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb51-355"><a href="#cb51-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-356"><a href="#cb51-356" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3</span></span>
+<span id="cb51-357"><a href="#cb51-357" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3</span>)</span>
+<span id="cb51-358"><a href="#cb51-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-359"><a href="#cb51-359" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 3000</span></span>
+<span id="cb51-360"><a href="#cb51-360" aria-hidden="true" tabindex="-1"></a><span class="fu">loopApply</span>(<span class="dv">3000</span>)</span>
+<span id="cb51-361"><a href="#cb51-361" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-362"><a href="#cb51-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-363"><a href="#cb51-363" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part D</span></span>
+<span id="cb51-364"><a href="#cb51-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-365"><a href="#cb51-365" aria-hidden="true" tabindex="-1"></a>The 'microbenchmark' package will now be used to calculate the speed for each of the implementations.</span>
+<span id="cb51-366"><a href="#cb51-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-367"><a href="#cb51-367" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Simple Loop</span></span>
+<span id="cb51-368"><a href="#cb51-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-371"><a href="#cb51-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-372"><a href="#cb51-372" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"microbenchmark"</span>)</span>
+<span id="cb51-373"><a href="#cb51-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-374"><a href="#cb51-374" aria-hidden="true" tabindex="-1"></a><span class="do">## Input of 1000 vs 100,000</span></span>
+<span id="cb51-375"><a href="#cb51-375" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">loop</span>(<span class="dv">1000</span>), <span class="fu">loop</span>(<span class="dv">100000</span>))</span>
+<span id="cb51-376"><a href="#cb51-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-377"><a href="#cb51-377" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-378"><a href="#cb51-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-379"><a href="#cb51-379" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized Function</span></span>
+<span id="cb51-380"><a href="#cb51-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-383"><a href="#cb51-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-384"><a href="#cb51-384" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
+<span id="cb51-385"><a href="#cb51-385" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">vectorized</span>(<span class="dv">1000</span>), <span class="fu">vectorized</span>(<span class="dv">100000</span>))</span>
+<span id="cb51-386"><a href="#cb51-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-387"><a href="#cb51-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-388"><a href="#cb51-388" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vectorized with Tables</span></span>
+<span id="cb51-389"><a href="#cb51-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-392"><a href="#cb51-392" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-393"><a href="#cb51-393" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
+<span id="cb51-394"><a href="#cb51-394" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">tableVectorized</span>(<span class="dv">1000</span>), <span class="fu">tableVectorized</span>(<span class="dv">100000</span>))</span>
+<span id="cb51-395"><a href="#cb51-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-396"><a href="#cb51-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-397"><a href="#cb51-397" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Loop with Apply</span></span>
+<span id="cb51-398"><a href="#cb51-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-401"><a href="#cb51-401" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-402"><a href="#cb51-402" aria-hidden="true" tabindex="-1"></a><span class="do">## Input 1,000 vs 100,000</span></span>
+<span id="cb51-403"><a href="#cb51-403" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">loopApply</span>(<span class="dv">1000</span>), <span class="fu">loopApply</span>(<span class="dv">100000</span>))</span>
+<span id="cb51-404"><a href="#cb51-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-405"><a href="#cb51-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-406"><a href="#cb51-406" aria-hidden="true" tabindex="-1"></a>I was surprised to see that the Vectorized function which utilized a table was slower than all the other functions. I was under the assumption that using a table would have at least reduced the calculation time over the for loop used for the simple loop function, since we could use the table's index. Aside from that surprising result, loopApply was faster than the simple loop function but the fastest was the purely vectorized function.</span>
+<span id="cb51-407"><a href="#cb51-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-408"><a href="#cb51-408" aria-hidden="true" tabindex="-1"></a>Thus in order of the fastest to the slowest:</span>
+<span id="cb51-409"><a href="#cb51-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-410"><a href="#cb51-410" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>vectorized</span>
+<span id="cb51-411"><a href="#cb51-411" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>loopApply</span>
+<span id="cb51-412"><a href="#cb51-412" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>loop 'simple loop'</span>
+<span id="cb51-413"><a href="#cb51-413" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>tableVectorized</span>
+<span id="cb51-414"><a href="#cb51-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-415"><a href="#cb51-415" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part E</span></span>
+<span id="cb51-416"><a href="#cb51-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-417"><a href="#cb51-417" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Monte Carlo Simulation</span></span>
+<span id="cb51-418"><a href="#cb51-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-419"><a href="#cb51-419" aria-hidden="true" tabindex="-1"></a>The idea of a game being fair in my opinion relies upon an equal chance for the player to make money vs lose money. For example, in a game of tossing a coin and calling a side, the player would have an equal chance of both winning and losing.</span>
+<span id="cb51-420"><a href="#cb51-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-423"><a href="#cb51-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-424"><a href="#cb51-424" aria-hidden="true" tabindex="-1"></a><span class="do">## Monte Carlo simulation</span></span>
+<span id="cb51-425"><a href="#cb51-425" aria-hidden="true" tabindex="-1"></a>monte <span class="ot">&lt;-</span> <span class="cf">function</span>(reps) {</span>
+<span id="cb51-426"><a href="#cb51-426" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-427"><a href="#cb51-427" aria-hidden="true" tabindex="-1"></a>  <span class="do">## create an empty Prob(Profit) data.frame</span></span>
+<span id="cb51-428"><a href="#cb51-428" aria-hidden="true" tabindex="-1"></a>  pProfit <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb51-429"><a href="#cb51-429" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-430"><a href="#cb51-430" aria-hidden="true" tabindex="-1"></a>  <span class="do">## roll the dice from 1 to 1000 on various increments</span></span>
+<span id="cb51-431"><a href="#cb51-431" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (rolls <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">1000</span>)) {</span>
+<span id="cb51-432"><a href="#cb51-432" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-433"><a href="#cb51-433" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create an empty vector sized according to the reps</span></span>
+<span id="cb51-434"><a href="#cb51-434" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">length =</span> reps)</span>
+<span id="cb51-435"><a href="#cb51-435" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-436"><a href="#cb51-436" aria-hidden="true" tabindex="-1"></a>    <span class="do">## cycle through the reps and calculate the total winnings</span></span>
+<span id="cb51-437"><a href="#cb51-437" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(reps)) {</span>
+<span id="cb51-438"><a href="#cb51-438" aria-hidden="true" tabindex="-1"></a>      v[i] <span class="ot">&lt;-</span> <span class="fu">vectorized</span>(rolls)</span>
+<span id="cb51-439"><a href="#cb51-439" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb51-440"><a href="#cb51-440" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-441"><a href="#cb51-441" aria-hidden="true" tabindex="-1"></a>    <span class="do">## save rolls and their winnings as a table</span></span>
+<span id="cb51-442"><a href="#cb51-442" aria-hidden="true" tabindex="-1"></a>    winnings <span class="ot">&lt;-</span> <span class="fu">table</span>(v)</span>
+<span id="cb51-443"><a href="#cb51-443" aria-hidden="true" tabindex="-1"></a>    <span class="do">## calculate probability to rolls that result in a profit</span></span>
+<span id="cb51-444"><a href="#cb51-444" aria-hidden="true" tabindex="-1"></a>    profit <span class="ot">&lt;-</span> <span class="fu">sum</span>(winnings[<span class="fu">as.numeric</span>(<span class="fu">names</span>(winnings))<span class="sc">&gt;</span>(<span class="dv">0</span>)])<span class="sc">/</span>reps</span>
+<span id="cb51-445"><a href="#cb51-445" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb51-446"><a href="#cb51-446" aria-hidden="true" tabindex="-1"></a>    <span class="do">## print the current roll and the amount profit</span></span>
+<span id="cb51-447"><a href="#cb51-447" aria-hidden="true" tabindex="-1"></a>    pProfit <span class="ot">&lt;-</span> <span class="fu">rbind</span>(pProfit, <span class="fu">list</span>(rolls, profit))</span>
+<span id="cb51-448"><a href="#cb51-448" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-449"><a href="#cb51-449" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb51-450"><a href="#cb51-450" aria-hidden="true" tabindex="-1"></a>  <span class="do">## at the very end return the final histogram containing the</span></span>
+<span id="cb51-451"><a href="#cb51-451" aria-hidden="true" tabindex="-1"></a>  <span class="do">## user defined repetitions</span></span>
+<span id="cb51-452"><a href="#cb51-452" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(pProfit)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Current Roll"</span></span>
+<span id="cb51-453"><a href="#cb51-453" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(pProfit)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"Prob(Profit)"</span></span>
+<span id="cb51-454"><a href="#cb51-454" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb51-455"><a href="#cb51-455" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pProfit)</span>
+<span id="cb51-456"><a href="#cb51-456" aria-hidden="true" tabindex="-1"></a>  <span class="do">##return(hist(v, main=paste("Histogram of", reps, "Repetition")))</span></span>
+<span id="cb51-457"><a href="#cb51-457" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-458"><a href="#cb51-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-459"><a href="#cb51-459" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-460"><a href="#cb51-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-463"><a href="#cb51-463" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-464"><a href="#cb51-464" aria-hidden="true" tabindex="-1"></a><span class="co">#monte(10)</span></span>
+<span id="cb51-465"><a href="#cb51-465" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-466"><a href="#cb51-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-467"><a href="#cb51-467" aria-hidden="true" tabindex="-1"></a>According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn't very 'fair' for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
