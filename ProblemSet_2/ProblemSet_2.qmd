@@ -403,6 +403,8 @@ monte <- function(reps) {
   return(hist(v, main=paste("Histogram of", reps, "Repetition")))
 }
 
+## run a simulation for 10,000 reps
+monte(10000)
 ```
 
 According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn't very 'fair' for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5. 
