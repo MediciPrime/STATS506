@@ -444,10 +444,10 @@ cars <- read.csv("cars.csv", header = FALSE, skip=1)
 
 ## remove unnecessary columns based on question to be answered
 keep <- c("V1", "V2", "V3", "V9", "V10", "V11", "V16", "V17", "V18")
-cars <- subset(cars, select = keep)
+cSub <- subset(cars, select = keep)
 
 ## rename columns
-names(cars) <- c("Height", "Length", "Width", "cMPG", "fType", "hMPG",
+names(cSub) <- c("Height", "Length", "Width", "cMPG", "fType", "hMPG",
                  "Year", "Horsepower", "Torque")
 
 ```
@@ -458,10 +458,10 @@ The data will now be restricted to only have cars that consume gasoline.
 
 ```{r}
 ## Subset data.frame to only contain gasoline
-cars = subset(cars, cars$fType=="Gasoline")
+cSub = subset(cSub, cSub$fType=="Gasoline")
 
 ## display that is worked
-unique(cars$fType)
+unique(cSub$fType)
 
 ```
 
@@ -470,6 +470,8 @@ unique(cars$fType)
 The
 
 ```{r}
+## examine the distribution
+hist(cSub$hMPG)
 
 ```
 
