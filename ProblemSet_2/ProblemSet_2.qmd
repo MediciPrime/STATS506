@@ -453,3 +453,23 @@ names(cars) <- c("Height", "Length", "Width", "cMPG", "fType", "hMPG",
 ```
 
 ## Part B
+
+The data will now be restricted to only have cars that consume gasoline.
+
+```{r}
+## Subset data.frame to only contain gasoline
+cars = subset(cars, cars$fType=="Gasoline")
+
+## display that is worked
+unique(cars$fType)
+
+```
+
+## Part C
+
+The
+
+```{r}
+
+```
+
