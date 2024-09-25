@@ -5,6 +5,7 @@ format:
   html:
       code-fold: true
       code-tools: true
+      embed-resources: true
 toc: true
 ---
 
@@ -20,6 +21,11 @@ This problem asks to create a function that codes for a dice game abiding by the
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
+#' Dice Rolling using a For Loop
+#'
+#' @param num 
+#'
+#' @return Output displaying the total winnings
 loop <- function(num) {
   
   ## Check if input is numeric
@@ -80,7 +86,13 @@ loop <- function(num) {
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
-vectorized <- function(num) {
+#' Dice Rolls via Vectorization
+#'
+#' @param num
+#' @param nice = Parameter used to create tables for a downstream function
+#'
+#' @return Output displaying the total winnings
+vectorized <- function(num, nice=1) {
   
  ## Check if input is numeric
   if (is.double(num) == TRUE) {
@@ -96,7 +108,8 @@ vectorized <- function(num) {
     else if (num-as.integer(num) < 0) {
       
       ## If negative decimal then tell user how number for converted
-      cat("Negative entered value:", num, "was converted to", as.integer(-num), "\n")
+      cat("Negative entered value:", num, "was converted to",
+          as.integer(-num), "\n")
       num <- as.integer(-num)
     }
     
@@ -125,7 +138,14 @@ vectorized <- function(num) {
   ## sum over all the possible winnings
   winnings <- sum(rollWinnings[rolls])
   
-  return(cat("Total Winnings:", winnings+deficit))
+  if (nice==1) {
+  
+    return(cat("Total Winnings:", winnings+deficit))
+  }
+  else {
+  
+    return(winnings+deficit)
+  }
 }
 
 ```
@@ -134,6 +154,11 @@ vectorized <- function(num) {
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
+#' Dice Rolls using Vectorization and Tables
+#'
+#' @param num 
+#'
+#' @return Output displaying the total winnings
 tableVectorized <- function(num) {
   
   ## Check if input is numeric
@@ -189,6 +214,11 @@ tableVectorized <- function(num) {
 
 ```{r}
 ## Function takes as input the number of dice rolls to play
+#' Dice Rolls via Apply
+#'
+#' @param num 
+#'
+#' @return Output displying the total winnings
 loopApply <- function(num) {
   
   ## Check if input is numeric
@@ -387,7 +417,13 @@ Thus in order of the fastest to the slowest:
 The idea of a game being fair in my opinion relies upon an equal chance for the player to make money vs lose money. For example, in a game of tossing a coin and calling a side, the player would have an equal chance of both winning and losing.
 
 ```{r}
+
 ## Monte Carlo simulation
+#' Monte Carlo Simulation
+#'
+#' @param reps 
+#'
+#' @return Histogram & Table
 monte <- function(reps) {
   
   ## create an empty Prob(Profit) data.frame
@@ -401,7 +437,7 @@ monte <- function(reps) {
   
     ## cycle through the reps and calculate the total winnings
     for (i in seq_len(reps)) {
-      v[i] <- vectorized(rolls)
+      v[i] <- vectorized(rolls, nice=2)
     }
     
     ## save rolls and their winnings as a table
@@ -413,19 +449,21 @@ monte <- function(reps) {
     pProfit <- rbind(pProfit, list(rolls, profit))
     
   }
-  ## at the very end return the final histogram containing the
-  ## user defined repetitions
-  names(pProfit)[1] <- "Current Roll"
-  names(pProfit)[2] <- "Prob(Profit)"
   
-  return(pProfit)
-  ##return(hist(v, main=paste("Histogram of", reps, "Repetition")))
+  ## at the very end return the final histogram containing the
+  ## user defined repetitions along with this table
+  names(pProfit)[1] <- "Total Rolls"
+  names(pProfit)[2] <- "Prob(Profit)"
+  print(pProfit)
+  
+  return(hist(v, main=paste("Histogram of", reps, "Repetition"), 
+              xlab = "$Winnings"))
 }
 
 ```
 
 ```{r}
-#monte(10)
+monte(10000)
 ```
 
 According to the simulation it seems that this game is very much in favor of the player. If they spend 4 dollar (2 rolls) they will have about a 55% chance of making a profit. That chance will increase to about 90% if they spend 120 dollars (60 rolls). This game isn't very 'fair' for the house since they are very likely to lose money. One way of making the game fair would be to lower the winnings for rolling a 3 or a 5.
@@ -483,7 +521,7 @@ hist(cSub$hMPG)
 
 ## Part D
 
-A linear regression model was created predicting for highway MPG w/ respect to torque and controlling for horsepower, dimensions of the car and the year the car was released set as a categorical variable. Overall, it seems that most of the predictors have a very small impact (positive OR negative) on the highway MPG of the vehicle. Torque has a very small negative impact (.052 decrease in hMPG) while only Horsepower, Height and Year2012 are statistically significant as controls for Torque. Horsepower and Height contribute minimally to increasing the highway MPG, while the year 2012 had the most impact by increasing highway MPG about 1.29. 
+A linear regression model was created predicting for highway MPG w/ respect to torque and controlling for horsepower, dimensions of the car and the year the car was released set as a categorical variable. Overall, it seems that most of the predictors have a very small impact (positive OR negative) on the highway MPG (avg. 32.41) of the vehicle. Torque has a very small negative impact (.052 decrease in hMPG) while only Horsepower, Height and Year2012 are statistically significant as controls for Torque. Horsepower and Height contribute minimally to increasing the highway MPG, while the year 2012 had the most impact by increasing highway MPG about 1.29. 
 
 ```{r}
 ## set 'Year' as.factor to be treated as a categorical variable
@@ -498,21 +536,41 @@ summary(mod1)
 
 ## Part E
 
-Not sure how to approach this, checkout tomorrow's lecture.
+Seeing as Torque and Horsepower are interacting with each other, another model was created to elucidate their interactions. The next step was to identify relevant values for Horsepower that encompass most of the data. This was done by visualizing a plot of Horsepower vs Torque.
+
+```{r}
+plot(cSub$Horsepower, cSub$Torque)
+
+## Select Horsepower values that are +or-2SD from the mean
+hp <- c(100, mean(cSub$Horsepower),
+        mean(cSub$Horsepower)+(2*sd(cSub$Horsepower)))
+
+print(cat("-2SD:", hp[1], "Mean:", hp[2], "+2SD:", hp[3]))
+
+```
+Based on this plot it was determined Horsepower values being 2SD on either side of the mean encompass most of the tightly packed data. However 100 Horsepower was chosen because it the lowest available value. Lastly, Year of 2012 was chosen since the summary of the new model showed that year having the most impact on the hMPD. 
 
 ```{r}
 library(interactions)
 
-mod2 <- lm(hMPG ~ (Torque+Horsepower)*factor(Year), data = cSub)
+## Fit the model by including the Torque*Horsepower interaction
+mod2 <- lm(hMPG ~ Torque + Horsepower + Height + Length + Width 
+           + Year + Torque*Horsepower, data = cSub)
 
-emmip(mod2, factor(Year) ~ Horsepower,
-      at=list(Horsepower=c(100:700)))
+summary(mod2)
+```
 
+```{r}
+## Create the interaction plot w/ Year=2012 
+## and Horsepower as specified above
+interact_plot(mod2, pred = Torque, modx = Horsepower,
+              at = c(cSub$Year==2012), modx.values = hp,
+              modx.labels = c("-2SD", "Mean", "+2SD"))
 ```
 
 ## Part F
 
-Manually fit the model.matrix from Part D. As shown by the code the manual model matrix is equal to mod1$coefficients.
+Manually fit the model.matrix from Part D. As shown by the code the manual model matrix is equal to the coefficients from the original model (mod1).
 
 ```{r}
 ## the formula describing the interactions
