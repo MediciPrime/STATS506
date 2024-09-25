@@ -14,6 +14,7 @@ toc: true
 ## Problem 1 - Dice Game
 
 This problem asks to create a function that codes for a dice game abiding by the following rules: 
+
 - The game uses a 6-sided dice and costs 2 dollars to play per dice rolled 
 - Winning roll requires a 3 or 5; anything else and you lose 
 - Winning value 3 produces 6 dollars; while value 5 produces 10 dollars
