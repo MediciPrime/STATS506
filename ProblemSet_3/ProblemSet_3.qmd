@@ -24,7 +24,9 @@ demo <- read_xpt("DEMO_D.XPT")
 
 ## Merge 'vision' and 'demo' into 'main'
 main <- merge(demo, vision, by = 'SEQN')
-dim(main)[1]
+
+## Show the number of 
+print(dim(main)[1])
 
 
 
