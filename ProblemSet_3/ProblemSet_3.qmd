@@ -1,0 +1,14 @@
+---
+title: "ProblemSet_3"
+author: "Behram Radmanesh"
+format: 
+  html:
+      code-fold: true
+      code-tools: true
+      embed-resources: true
+toc: true
+---
+
+[Github Link](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_3)
+
+## Problem 1 - Vision
