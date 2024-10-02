@@ -12,3 +12,21 @@ toc: true
 [Github Link](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_3)
 
 ## Problem 1 - Vision
+
+```{r}
+library(kableExtra)
+library(haven)
+
+## Read in the XPT files
+setwd("C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data")
+vision <- read_xpt("VIX_D.XPT")
+demo <- read_xpt("DEMO_D.XPT")
+
+## Merge 'vision' and 'demo' into 'main'
+main <- merge(demo, vision, by = 'SEQN')
+dim(main)[1]
+
+
+
+
+```
