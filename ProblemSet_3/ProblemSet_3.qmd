@@ -59,3 +59,47 @@ countsNPercentage %>%
   kable_paper("hover", full_width = F)
 ```
 
+## Part C
+
+Asked to predict whether a respondent wears glasses/contact lenses for distance vision.
+
+```{r}
+## Use RIDRETH1 for Race
+## Use RIAGENDR for Gender
+## Use INDFMPIR for PIR
+## Use RIDAGEYR for Age
+## Use VIQ220 for Glasses/Contact Lenses
+mod1 <- lm(VIQ220==1 ~ RIDAGEYR, data = main)
+summary(mod1)
+AIC(mod1)
+
+mod2 <- lm(VIQ220==1 ~ RIDAGEYR + RIDRETH1 + RIAGENDR, data = main)
+summary(mod2)
+AIC(mod2)
+
+mod3 <- lm(VIQ220==1 ~ RIDAGEYR + RIDRETH1 + RIAGENDR + INDFMPIR,
+           data = main)
+summary(mod3)
+AIC(mod3)
+
+## Is 'pseudo-R^2 the same as adjusted-R^2?
+
+```
+
+## Part D
+
+This part asks to determine if there is a difference between the number of men vs. women who wear distance corrective lenses.
+
+```{r}
+mod4 <- lm(VIQ220==1 ~ RIDAGEYR + RIDRETH1 + as.factor(RIAGENDR) 
+           + INDFMPIR,
+           data = main)
+
+summary(mod4)
+
+## Question: Would it be sufficient to utilize 'as.factor(RIAGENDR)'?
+## Tried it and doesn't make a difference...
+```
+
+
+
