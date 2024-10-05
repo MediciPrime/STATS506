@@ -59,7 +59,7 @@ countsNPercentage %>%
   kable_paper("hover", full_width = F)
 ```
 
-## Part C
+### Part C
 
 Asked to predict whether a respondent wears glasses/contact lenses for distance vision.
 
@@ -86,7 +86,7 @@ AIC(mod3)
 
 ```
 
-## Part D
+### Part D
 
 This part asks to determine if there is a difference between the number of men vs. women who wear distance corrective lenses.
 
@@ -102,4 +102,115 @@ summary(mod4)
 ```
 
 
+## Problem 2 - Sakila
 
+### Part A
+```{r}
+library(DBI)
+library(RSQLite)
+
+sakila <- dbConnect(RSQLite::SQLite(), "data/sakila_master.db")
+
+gg <- function(query) {
+  dbGetQuery(sakila, query)
+}
+
+gg("
+  SELECT release_year
+    FROM film AS f
+  ORDER BY f.release_year DESC
+  LIMIT 4
+   ")
+```
+Seems as though 2006 is the earliest release year. Although all the movies in the database are from that year.
+
+### Part B
+
+#### SQL w/ DataFrame
+
+```{r}
+## Dataframe w/ FID and Genre
+df <- gg("
+          SELECT fl.FID, fl.category
+          FROM film_list AS fl
+         ")
+
+## Count Category in Table and Display the Smallest
+sort(table(df$category))
+
+## Identify total # of UNIQE movies in Music
+length(table(df$FID[df$category=='Music']))
+
+```
+
+Using the dataframe created from the 'film_list' table it was found that the 'Music' category had the smallest inventory at 281. While there are 51 number of unique movies from that category. 
+
+#### SQL Single Query
+
+```{r}
+## Least Common Genre & Total Movies From That Genre
+gg("
+   SELECT fl.category, COUNT(fl.category) AS count
+    FROM film_list AS fl
+    GROUP BY fl.category
+    ORDER BY count
+    LIMIT 1
+  ")
+
+## Total Unique Movies Focused On Music
+gg("
+   SELECT COUNT(DISTINCT fl.FID) AS count, fl.category
+    FROM film_list AS fl
+    WHERE fl.category LIKE 'Music'
+    ORDER BY count
+  ")
+
+## If Total Movies are required then the first query is sufficient
+## However if total unique movies are required then a join function
+## of some sort is needed to assign 'Music' as the unique value needed
+## Perhaps the use of wildcard or something
+
+## Country With 13 Customers
+
+gg("
+    SELECT co.country_id, co.country
+    FROM country AS co
+    RIGHT JOIN (
+       SELECT ci.city_id, cua.address_id, ci.country_id
+       FROM city AS ci
+       RIGHT JOIN (
+          SELECT cu.customer_id, a.address_id, a.city_id
+          FROM address AS a
+          RIGHT JOIN customer AS cu ON cu.address_id = a.address_id
+          ) AS cua ON cua.city_id = ci.city_id
+    ) AS cicua ON cicua.country_id = co.country_id
+        LIMIT 3
+  ")
+
+gg("
+      SELECT cu.customer_id, cu.first_name
+      FROM customer AS cu
+      INNER JOIN (
+       SELECT a.address_id, a.city_id
+       FROM address AS a
+        INNER JOIN(
+          SELECT co.country_id, co.country, c.city_id
+          FROM country AS co
+          INNER JOIN city AS c ON c.country_id = co.country_id
+        ) AS coc ON coc.city_id = a.city_id
+      ) AS ao ON ao.address_id = cu.address_id
+   LIMIT 10
+   ")
+
+```
+
+A single SQL query was used to identify 'Music' and the total movies of that category in the inventory (281).
+
+## Problem 3 - US Records
+
+### Part A
+
+```{r}
+us500 <- read.csv("data/us500.csv", header = TRUE)
+
+```
