@@ -41,16 +41,21 @@ main$ageGroup <- cut(main$RIDAGEYR,
                                 "40-49", "50-59", "60-69", "70-79",
                                 "80-89"))
 
-## Calculate Total Peope in ageGroup
-ageGroupCounts <- table(main$ageGroup[main$VIQ220==1])
-totalPeople <- sum(ageGroupCounts)
+## Calculate Total People in ageGroup
+glasses <- table(main$ageGroup[main$VIQ220==1])
+noGlasses <- table(main$ageGroup[main$VIQ220==2])
+tab <- cbind(as.data.frame(glasses), as.data.frame(noGlasses))
+tab2 <- tab[c(1,2,4)]
+names(tab2) <- c('Age_Group', 'No_Glasses', 'Glasses')
+tab2['Total'] <- tab2$Glasses + tab2$No_Glasses
 
 ## Age Group Percentages
-ageGroupPercentages <- (round(((ageGroupCounts/totalPeople)*100),
-                        digits=1))
+tab2['Percentages'] <- round((tab2$Glasses/tab2$Total)*100, 
+                             digits = 1)
+tab2 <- replace(tab2, is.na(tab2), 0)
 
 countsNPercentage <- table(main$ageGroup[main$VIQ220==1])
-countsNPercentage <- rbind(countsNPercentage, ageGroupPercentages)
+countsNPercentage <- rbind(countsNPercentage, tab2$Percentages)
 rownames(countsNPercentage) <- c("Counts", "Percentages")
 
 ## create a table with the valid proportions
