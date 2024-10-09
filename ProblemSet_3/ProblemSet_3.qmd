@@ -219,8 +219,6 @@ gg("
 
 ```
 
-A single SQL query was used to identify 'Music' and the total movies of that category in the inventory (281).
-
 ## Problem 3 - US Records
 
 ### Part A
