@@ -273,8 +273,24 @@ sort(table(c(phone1, phone2)), decreasing = TRUE)[1:5]
 ### Part D
 
 ```{r}
+## Obtain any address w/ apartment numbers
+apartment <- us500$address[grepl("[0-9]+$", us500$address)]
+
+## Extract apartment numbers using regular expressions
+number <- regmatches(apartment, regexpr("[0-9]+$", apartment))
+
+## Generate Histogram of 'number'
+hist(log(as.numeric(number)))
+```
 
 
+### Part E
+
+```{r}
+## See if the first digit of 'number' follows geometric distribution
+barplot(table(substr(number, 1, 1)))
 
 ```
+
+Looks uniform.
 
