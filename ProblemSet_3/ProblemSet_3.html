@@ -3764,7 +3764,6 @@ Argentina   Nigeria
 2   Nigeria    13</code></pre>
 </div>
 </div>
-<p>A single SQL query was used to identify ‘Music’ and the total movies of that category in the inventory (281).</p>
 </section>
 </section>
 </section>
@@ -4573,86 +4572,84 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-237"><a href="#cb32-237" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-239"><a href="#cb32-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a>A single SQL query was used to identify &#39;Music&#39; and the total movies of that category in the inventory (281).</span>
+<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 3 - US Records</span></span>
 <span id="cb32-241"><a href="#cb32-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 3 - US Records</span></span>
+<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
 <span id="cb32-243"><a href="#cb32-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
-<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in the Data</span></span>
-<span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb32-246"><a href="#cb32-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-247"><a href="#cb32-247" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in the Data</span></span>
+<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a>us500 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;us500.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a>us500 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;us500.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-254"><a href="#cb32-254" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Percent of Email w/ &#39;.com&#39; in the TLD</span></span>
-<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(us500<span class="sc">$</span>email[<span class="fu">grepl</span>(<span class="st">&quot;.com$&quot;</span>, us500<span class="sc">$</span>email)])<span class="sc">/</span><span class="fu">length</span>(us500<span class="sc">$</span>email)</span>
+<span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Percent of Email w/ &#39;.com&#39; in the TLD</span></span>
+<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(us500<span class="sc">$</span>email[<span class="fu">grepl</span>(<span class="st">&quot;.com$&quot;</span>, us500<span class="sc">$</span>email)])<span class="sc">/</span><span class="fu">length</span>(us500<span class="sc">$</span>email)</span>
+<span id="cb32-254"><a href="#cb32-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-256"><a href="#cb32-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
 <span id="cb32-258"><a href="#cb32-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-259"><a href="#cb32-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
-<span id="cb32-260"><a href="#cb32-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract User Names from the Emails</span></span>
-<span id="cb32-265"><a href="#cb32-265" aria-hidden="true" tabindex="-1"></a>email <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(us500<span class="sc">$</span>email, <span class="st">&quot;@&quot;</span>)</span>
-<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a>username <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">1</span>)</span>
-<span id="cb32-267"><a href="#cb32-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify User Names w/out common alpha-numeric</span></span>
-<span id="cb32-269"><a href="#cb32-269" aria-hidden="true" tabindex="-1"></a>username_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, username)</span>
-<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract Domain Names from the Emails</span></span>
-<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">2</span>)</span>
-<span id="cb32-273"><a href="#cb32-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove the TLDs from Domain Names</span></span>
-<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.[a-z]{3}&quot;</span>, <span class="st">&quot;&quot;</span>, domain)</span>
-<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-277"><a href="#cb32-277" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Domain Names w/out common alpha-numeric</span></span>
-<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a>domain_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, domain)</span>
-<span id="cb32-279"><a href="#cb32-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a><span class="do">## Check Length of alpha-numeric in Domain Name</span></span>
-<span id="cb32-281"><a href="#cb32-281" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(domain_wout_alpha_numeric))</span>
-<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-283"><a href="#cb32-283" aria-hidden="true" tabindex="-1"></a><span class="do">## Since none of the Domains Have alpha-numeric</span></span>
-<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a><span class="do">## Use only the Usernames</span></span>
-<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">length</span>(<span class="fu">which</span>(username_wout_alpha_numeric[]<span class="sc">==</span><span class="cn">TRUE</span>))<span class="sc">/</span><span class="fu">length</span>(username_wout_alpha_numeric))</span>
+<span id="cb32-261"><a href="#cb32-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-262"><a href="#cb32-262" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract User Names from the Emails</span></span>
+<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a>email <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(us500<span class="sc">$</span>email, <span class="st">&quot;@&quot;</span>)</span>
+<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a>username <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb32-265"><a href="#cb32-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify User Names w/out common alpha-numeric</span></span>
+<span id="cb32-267"><a href="#cb32-267" aria-hidden="true" tabindex="-1"></a>username_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, username)</span>
+<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-269"><a href="#cb32-269" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract Domain Names from the Emails</span></span>
+<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove the TLDs from Domain Names</span></span>
+<span id="cb32-273"><a href="#cb32-273" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.[a-z]{3}&quot;</span>, <span class="st">&quot;&quot;</span>, domain)</span>
+<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Domain Names w/out common alpha-numeric</span></span>
+<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a>domain_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, domain)</span>
+<span id="cb32-277"><a href="#cb32-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a><span class="do">## Check Length of alpha-numeric in Domain Name</span></span>
+<span id="cb32-279"><a href="#cb32-279" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(domain_wout_alpha_numeric))</span>
+<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-281"><a href="#cb32-281" aria-hidden="true" tabindex="-1"></a><span class="do">## Since none of the Domains Have alpha-numeric</span></span>
+<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a><span class="do">## Use only the Usernames</span></span>
+<span id="cb32-283"><a href="#cb32-283" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">length</span>(<span class="fu">which</span>(username_wout_alpha_numeric[]<span class="sc">==</span><span class="cn">TRUE</span>))<span class="sc">/</span><span class="fu">length</span>(username_wout_alpha_numeric))</span>
+<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-286"><a href="#cb32-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-287"><a href="#cb32-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-287"><a href="#cb32-287" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
 <span id="cb32-288"><a href="#cb32-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-289"><a href="#cb32-289" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
-<span id="cb32-290"><a href="#cb32-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-293"><a href="#cb32-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a><span class="do">## Use &#39;substr&#39; function to extract area codes</span></span>
-<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a>phone1 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone1, <span class="dv">1</span>, <span class="dv">3</span>)</span>
-<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a>phone2 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone2, <span class="dv">1</span>, <span class="dv">3</span>)</span>
-<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a><span class="do">## Sort the phone numbers and identify most popular area codes</span></span>
-<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(<span class="fu">c</span>(phone1, phone2)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb32-291"><a href="#cb32-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-292"><a href="#cb32-292" aria-hidden="true" tabindex="-1"></a><span class="do">## Use &#39;substr&#39; function to extract area codes</span></span>
+<span id="cb32-293"><a href="#cb32-293" aria-hidden="true" tabindex="-1"></a>phone1 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone1, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a>phone2 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone2, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a><span class="do">## Sort the phone numbers and identify most popular area codes</span></span>
+<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(<span class="fu">c</span>(phone1, phone2)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-300"><a href="#cb32-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part D</span></span>
 <span id="cb32-302"><a href="#cb32-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-303"><a href="#cb32-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part D</span></span>
-<span id="cb32-304"><a href="#cb32-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a><span class="do">## Obtain any address w/ apartment numbers</span></span>
-<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a>apartment <span class="ot">&lt;-</span> us500<span class="sc">$</span>address[<span class="fu">grepl</span>(<span class="st">&quot;[0-9]+$&quot;</span>, us500<span class="sc">$</span>address)]</span>
-<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract apartment numbers using regular expressions</span></span>
-<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">regmatches</span>(apartment, <span class="fu">regexpr</span>(<span class="st">&quot;[0-9]+$&quot;</span>, apartment))</span>
-<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-314"><a href="#cb32-314" aria-hidden="true" tabindex="-1"></a><span class="do">## Generate Histogram of &#39;number&#39;</span></span>
-<span id="cb32-315"><a href="#cb32-315" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(<span class="fu">as.numeric</span>(number)))</span>
-<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-305"><a href="#cb32-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-306"><a href="#cb32-306" aria-hidden="true" tabindex="-1"></a><span class="do">## Obtain any address w/ apartment numbers</span></span>
+<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a>apartment <span class="ot">&lt;-</span> us500<span class="sc">$</span>address[<span class="fu">grepl</span>(<span class="st">&quot;[0-9]+$&quot;</span>, us500<span class="sc">$</span>address)]</span>
+<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract apartment numbers using regular expressions</span></span>
+<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">regmatches</span>(apartment, <span class="fu">regexpr</span>(<span class="st">&quot;[0-9]+$&quot;</span>, apartment))</span>
+<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a><span class="do">## Generate Histogram of &#39;number&#39;</span></span>
+<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(<span class="fu">as.numeric</span>(number)))</span>
+<span id="cb32-314"><a href="#cb32-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-315"><a href="#cb32-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part E</span></span>
 <span id="cb32-318"><a href="#cb32-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-319"><a href="#cb32-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part E</span></span>
-<span id="cb32-320"><a href="#cb32-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-323"><a href="#cb32-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-324"><a href="#cb32-324" aria-hidden="true" tabindex="-1"></a><span class="do">## See if the first digit of &#39;number&#39; follows geometric distribution</span></span>
-<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">substr</span>(number, <span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb32-321"><a href="#cb32-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-322"><a href="#cb32-322" aria-hidden="true" tabindex="-1"></a><span class="do">## See if the first digit of &#39;number&#39; follows geometric distribution</span></span>
+<span id="cb32-323"><a href="#cb32-323" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">substr</span>(number, <span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb32-324"><a href="#cb32-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-326"><a href="#cb32-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-328"><a href="#cb32-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-329"><a href="#cb32-329" aria-hidden="true" tabindex="-1"></a>Looks uniform.</span>
+<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a>Looks uniform.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
