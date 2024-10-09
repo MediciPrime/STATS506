@@ -257,3 +257,24 @@ length(which(domain_wout_alpha_numeric))
 print(length(which(username_wout_alpha_numeric[]==TRUE))/length(username_wout_alpha_numeric))
 
 ```
+
+### Part C
+
+```{r}
+## Use 'substr' function to extract area codes
+phone1 <- substr(us500$phone1, 1, 3)
+phone2 <- substr(us500$phone2, 1, 3)
+
+## Sort the phone numbers and identify most popular area codes
+sort(table(c(phone1, phone2)), decreasing = TRUE)[1:5]
+
+```
+
+### Part D
+
+```{r}
+
+
+
+```
+
