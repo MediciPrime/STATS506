@@ -222,6 +222,10 @@ A single SQL query was used to identify 'Music' and the total movies of that cat
 ### Part A
 
 ```{r}
-us500 <- read.csv("data/us500.csv", header = TRUE)
+## Read in the Data
+us500 <- read.csv("us500.csv", header = TRUE)
+
+## Identify Percent of Email w/ '.com' in the TLD
+length(us500$email[grepl(".com$", us500$email)])/length(us500$email)
 
 ```
