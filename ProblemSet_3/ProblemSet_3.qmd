@@ -46,7 +46,7 @@ glasses <- table(main$ageGroup[main$VIQ220==1])
 noGlasses <- table(main$ageGroup[main$VIQ220==2])
 tab <- cbind(as.data.frame(glasses), as.data.frame(noGlasses))
 tab2 <- tab[c(1,2,4)]
-names(tab2) <- c('Age_Group', 'No_Glasses', 'Glasses')
+names(tab2) <- c('Age_Group', 'Glasses', 'No_Glasses')
 tab2['Total'] <- tab2$Glasses + tab2$No_Glasses
 
 ## Age Group Percentages
@@ -69,42 +69,44 @@ countsNPercentage %>%
 Asked to predict whether a respondent wears glasses/contact lenses for distance vision.
 
 ```{r}
-## Use RIDRETH1 for Race
-## Use RIAGENDR for Gender
-## Use INDFMPIR for PIR
-## Use RIDAGEYR for Age
-## Use VIQ220 for Glasses/Contact Lenses
-mod1 <- lm(VIQ220==1 ~ RIDAGEYR, data = main)
+## Extract Required Data
+p1DF <- main[c('RIDRETH1', 'RIAGENDR', 'INDFMPIR', 'RIDAGEYR', 
+               'VIQ220')]
+names(p1DF) <- c('race', 'gender', 'pir', 'age', 'glasses')
+
+## Remove value of '9' from 'glasses' column
+p1DF$glasses[1155] <- NA
+p1DF$glasses[1828] <- NA
+
+## Modify values in 'glasses' by -1
+p1DF$glasses <- p1DF$glasses-1
+
+## Run GLM logit
+mod1 <- glm(glasses ~ age, family = binomial(link='logit'), 
+            data = p1DF)
 summary(mod1)
-AIC(mod1)
 
-mod2 <- lm(VIQ220==1 ~ RIDAGEYR + RIDRETH1 + RIAGENDR, data = main)
+mod2 <- glm(glasses ~ age + as.factor(gender) + as.factor(race),
+            family = binomial(link = 'logit'), data = p1DF)
 summary(mod2)
-AIC(mod2)
 
-mod3 <- lm(VIQ220==1 ~ RIDAGEYR + RIDRETH1 + RIAGENDR + INDFMPIR,
-           data = main)
+mod3 <- glm(glasses ~ age + as.factor(gender) + as.factor(race) +
+              pir, family = binomial(link='logit'), data = p1DF)
 summary(mod3)
-AIC(mod3)
-
-## Is 'pseudo-R^2 the same as adjusted-R^2?
 
 ```
+
+The summary table for each of the models display the relevant information. 
 
 ### Part D
 
-This part asks to determine if there is a difference between the number of men vs. women who wear distance corrective lenses.
+This part asks to determine if there is a difference between the number of men vs. women who wear distance corrective lenses. 
 
 ```{r}
-mod4 <- lm(VIQ220==1 ~ RIDAGEYR + RIDRETH1 + as.factor(RIAGENDR) 
-           + INDFMPIR,
-           data = main)
-
-summary(mod4)
-
-## Question: Would it be sufficient to utilize 'as.factor(RIAGENDR)'?
-## Tried it and doesn't make a difference...
+summary(mod3)
 ```
+
+Looking at the summary table for the 3rd model it seems that women 'as.factor(race)2' are way less likely to wear corrective lenses (-.516) than men. 
 
 
 ## Problem 2 - Sakila
