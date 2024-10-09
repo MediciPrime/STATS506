@@ -135,7 +135,7 @@ Seems as though 2006 is the earliest release year. Although all the movies in th
 
 ```{r}
 ## Dataframe w/ FID and Genre
-fC <- gg("
+filmCat <- gg("
           SELECT fc.film_id, fc.category_id
           FROM film_category AS fc
          ")
@@ -145,7 +145,7 @@ cat <- gg("
           FROM category AS c
         ")
 
-cCount <- table(fC$category_id)
+cCount <- table(filmCat$category_id)
 minCount <- which.min(cCount)
 
 cat(cat$name[cat$category_id == minCount], cCount[minCount], "\n")
@@ -171,6 +171,30 @@ gg("
 
 ### Part C
 
+#### SQL w/ DataFrame
+```{r}
+## Obtain Relevant Tables
+customer <- gg("SELECT address_id FROM customer")
+address <- gg("SELECT address_id, city_id FROM address")
+city <- gg("SELECT city_id, country_id FROM city")
+country <- gg("SELECT country_id, country FROM country")
+
+## Identify Customer's city using their address
+cities <- address$city_id[match(customer$address_id, 
+                                address$address_id)]
+
+## Connect the City to the Country
+countries <- city$country_id[match(cities, city$city_id)]
+
+## Aggregate Data into a Table
+countryTable <- table(country$country[match(countries,
+                                            country$country_id)])
+
+## Identify Country w/ 13 Customers
+countryTable[countryTable == 13]
+
+```
+
 #### SQL Single Query
 ```{r}
 ## Country With 13 Customers
@@ -188,7 +212,6 @@ gg("
     ) AS cicua ON cicua.country_id = co.country_id
     GROUP BY co.country
     HAVING count == 13")
-
 
 ```
 
