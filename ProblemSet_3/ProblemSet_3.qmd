@@ -135,16 +135,20 @@ Seems as though 2006 is the earliest release year. Although all the movies in th
 
 ```{r}
 ## Dataframe w/ FID and Genre
-df <- gg("
-          SELECT fl.FID, fl.category
-          FROM film_list AS fl
+fC <- gg("
+          SELECT fc.film_id, fc.category_id
+          FROM film_category AS fc
          ")
 
-## Count Category in Table and Display the Smallest
-sort(table(df$category))
+cat <- gg("
+          SELECT c.category_id, c.name
+          FROM category AS c
+        ")
 
-## Identify total # of UNIQE movies in Music
-length(table(df$FID[df$category=='Music']))
+cCount <- table(fC$category_id)
+minCount <- which.min(cCount)
+
+cat(cat$name[cat$category_id == minCount], cCount[minCount], "\n")
 
 ```
 
