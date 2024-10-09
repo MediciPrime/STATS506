@@ -3306,6 +3306,22 @@ border: 0;
   <ul class="collapse">
   <li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part A</a></li>
   <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part B</a></li>
+  <li><a href="#part-c" id="toc-part-c" class="nav-link" data-scroll-target="#part-c">Part C</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part D</a></li>
+  </ul></li>
+  <li><a href="#problem-2---sakila" id="toc-problem-2---sakila" class="nav-link" data-scroll-target="#problem-2---sakila">Problem 2 - Sakila</a>
+  <ul class="collapse">
+  <li><a href="#part-a-1" id="toc-part-a-1" class="nav-link" data-scroll-target="#part-a-1">Part A</a></li>
+  <li><a href="#part-b-1" id="toc-part-b-1" class="nav-link" data-scroll-target="#part-b-1">Part B</a></li>
+  <li><a href="#part-c-1" id="toc-part-c-1" class="nav-link" data-scroll-target="#part-c-1">Part C</a></li>
+  </ul></li>
+  <li><a href="#problem-3---us-records" id="toc-problem-3---us-records" class="nav-link" data-scroll-target="#problem-3---us-records">Problem 3 - US Records</a>
+  <ul class="collapse">
+  <li><a href="#part-a-2" id="toc-part-a-2" class="nav-link" data-scroll-target="#part-a-2">Part A</a></li>
+  <li><a href="#part-b-2" id="toc-part-b-2" class="nav-link" data-scroll-target="#part-b-2">Part B</a></li>
+  <li><a href="#part-c-2" id="toc-part-c-2" class="nav-link" data-scroll-target="#part-c-2">Part C</a></li>
+  <li><a href="#part-d-1" id="toc-part-d-1" class="nav-link" data-scroll-target="#part-d-1">Part D</a></li>
+  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part E</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -3376,22 +3392,27 @@ border: 0;
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;40-49&quot;</span>, <span class="st">&quot;50-59&quot;</span>, <span class="st">&quot;60-69&quot;</span>, <span class="st">&quot;70-79&quot;</span>,</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;80-89&quot;</span>))</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate Total Peope in ageGroup</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ageGroupCounts <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>totalPeople <span class="ot">&lt;-</span> <span class="fu">sum</span>(ageGroupCounts)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Age Group Percentages</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>ageGroupPercentages <span class="ot">&lt;-</span> (<span class="fu">round</span>(((ageGroupCounts<span class="sc">/</span>totalPeople)<span class="sc">*</span><span class="dv">100</span>),</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">digits=</span><span class="dv">1</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate Total People in ageGroup</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>glasses <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>noGlasses <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">2</span>])</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">as.data.frame</span>(glasses), <span class="fu">as.data.frame</span>(noGlasses))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> tab[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tab2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Age_Group&#39;</span>, <span class="st">&#39;Glasses&#39;</span>, <span class="st">&#39;No_Glasses&#39;</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>tab2[<span class="st">&#39;Total&#39;</span>] <span class="ot">&lt;-</span> tab2<span class="sc">$</span>Glasses <span class="sc">+</span> tab2<span class="sc">$</span>No_Glasses</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">rbind</span>(countsNPercentage, ageGroupPercentages)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(countsNPercentage) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Counts&quot;</span>, <span class="st">&quot;Percentages&quot;</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table with the valid proportions</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="sc">%&gt;%</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">&quot;hover&quot;</span>, <span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Age Group Percentages</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>tab2[<span class="st">&#39;Percentages&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">round</span>((tab2<span class="sc">$</span>Glasses<span class="sc">/</span>tab2<span class="sc">$</span>Total)<span class="sc">*</span><span class="dv">100</span>, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                             <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">replace</span>(tab2, <span class="fu">is.na</span>(tab2), <span class="dv">0</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">rbind</span>(countsNPercentage, tab2<span class="sc">$</span>Percentages)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(countsNPercentage) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Counts&quot;</span>, <span class="st">&quot;Percentages&quot;</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table with the valid proportions</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="sc">%&gt;%</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">&quot;hover&quot;</span>, <span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="lightable-paper lightable-hover caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -3415,7 +3436,7 @@ border: 0;
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">687.0</td>
 <td style="text-align: right;">321.0</td>
-<td style="text-align: right;">268.0</td>
+<td style="text-align: right;">268</td>
 <td style="text-align: right;">291.0</td>
 <td style="text-align: right;">342.0</td>
 <td style="text-align: right;">391.0</td>
@@ -3425,14 +3446,14 @@ border: 0;
 <tr class="even">
 <td style="text-align: left;">Percentages</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">24.8</td>
-<td style="text-align: right;">11.6</td>
-<td style="text-align: right;">9.7</td>
-<td style="text-align: right;">10.5</td>
-<td style="text-align: right;">12.4</td>
-<td style="text-align: right;">14.1</td>
-<td style="text-align: right;">10.4</td>
-<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">31.7</td>
+<td style="text-align: right;">34.1</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">56.2</td>
+<td style="text-align: right;">63.4</td>
+<td style="text-align: right;">67.7</td>
+<td style="text-align: right;">65.4</td>
 </tr>
 </tbody>
 </table>
@@ -3440,6 +3461,430 @@ border: 0;
 
 </div>
 </div>
+</section>
+<section id="part-c" class="level3">
+<h3 class="anchored" data-anchor-id="part-c">Part C</h3>
+<p>Asked to predict whether a respondent wears glasses/contact lenses for distance vision.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract Required Data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p1DF <span class="ot">&lt;-</span> main[<span class="fu">c</span>(<span class="st">&#39;RIDRETH1&#39;</span>, <span class="st">&#39;RIAGENDR&#39;</span>, <span class="st">&#39;INDFMPIR&#39;</span>, <span class="st">&#39;RIDAGEYR&#39;</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;VIQ220&#39;</span>)]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(p1DF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;race&#39;</span>, <span class="st">&#39;gender&#39;</span>, <span class="st">&#39;pir&#39;</span>, <span class="st">&#39;age&#39;</span>, <span class="st">&#39;glasses&#39;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove value of &#39;9&#39; from &#39;glasses&#39; column</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>p1DF<span class="sc">$</span>glasses[<span class="dv">1155</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>p1DF<span class="sc">$</span>glasses[<span class="dv">1828</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Modify values in &#39;glasses&#39; by -1</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>p1DF<span class="sc">$</span>glasses <span class="ot">&lt;-</span> p1DF<span class="sc">$</span>glasses<span class="dv">-1</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Run GLM logit</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(glasses <span class="sc">~</span> age, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&#39;logit&#39;</span>), </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> p1DF)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = glasses ~ age, family = binomial(link = &quot;logit&quot;), 
+    data = p1DF)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  1.260970   0.053448   23.59   &lt;2e-16 ***
+age         -0.024673   0.001206  -20.47   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 8915.3  on 6544  degrees of freedom
+Residual deviance: 8471.9  on 6543  degrees of freedom
+  (435 observations deleted due to missingness)
+AIC: 8475.9
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(glasses <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">as.factor</span>(gender) <span class="sc">+</span> <span class="fu">as.factor</span>(race),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>), <span class="at">data =</span> p1DF)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = glasses ~ age + as.factor(gender) + as.factor(race), 
+    family = binomial(link = &quot;logit&quot;), data = p1DF)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)         1.836666   0.077923  23.570  &lt; 2e-16 ***
+age                -0.022574   0.001262 -17.882  &lt; 2e-16 ***
+as.factor(gender)2 -0.502090   0.053011  -9.471  &lt; 2e-16 ***
+as.factor(race)2   -0.156322   0.164284  -0.952 0.341332    
+as.factor(race)3   -0.668931   0.070023  -9.553  &lt; 2e-16 ***
+as.factor(race)4   -0.261872   0.076580  -3.420 0.000627 ***
+as.factor(race)5   -0.650992   0.135407  -4.808 1.53e-06 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 8915.3  on 6544  degrees of freedom
+Residual deviance: 8273.8  on 6538  degrees of freedom
+  (435 observations deleted due to missingness)
+AIC: 8287.8
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(glasses <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">as.factor</span>(gender) <span class="sc">+</span> <span class="fu">as.factor</span>(race) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>              pir, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&#39;logit&#39;</span>), <span class="at">data =</span> p1DF)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = glasses ~ age + as.factor(gender) + as.factor(race) + 
+    pir, family = binomial(link = &quot;logit&quot;), data = p1DF)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)         2.016160   0.087788  22.966  &lt; 2e-16 ***
+age                -0.022188   0.001295 -17.135  &lt; 2e-16 ***
+as.factor(gender)2 -0.516271   0.054305  -9.507  &lt; 2e-16 ***
+as.factor(race)2   -0.116023   0.168265  -0.690 0.490495    
+as.factor(race)3   -0.501529   0.075149  -6.674 2.49e-11 ***
+as.factor(race)4   -0.207385   0.079217  -2.618 0.008847 ** 
+as.factor(race)5   -0.532727   0.140152  -3.801 0.000144 ***
+pir                -0.113598   0.017707  -6.415 1.41e-10 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 8519.1  on 6246  degrees of freedom
+Residual deviance: 7893.8  on 6239  degrees of freedom
+  (733 observations deleted due to missingness)
+AIC: 7909.8
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>The summary table for each of the models display the relevant information.</p>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
+<p>This part asks to determine if there is a difference between the number of men vs. women who wear distance corrective lenses.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = glasses ~ age + as.factor(gender) + as.factor(race) + 
+    pir, family = binomial(link = &quot;logit&quot;), data = p1DF)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)         2.016160   0.087788  22.966  &lt; 2e-16 ***
+age                -0.022188   0.001295 -17.135  &lt; 2e-16 ***
+as.factor(gender)2 -0.516271   0.054305  -9.507  &lt; 2e-16 ***
+as.factor(race)2   -0.116023   0.168265  -0.690 0.490495    
+as.factor(race)3   -0.501529   0.075149  -6.674 2.49e-11 ***
+as.factor(race)4   -0.207385   0.079217  -2.618 0.008847 ** 
+as.factor(race)5   -0.532727   0.140152  -3.801 0.000144 ***
+pir                -0.113598   0.017707  -6.415 1.41e-10 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 8519.1  on 6246  degrees of freedom
+Residual deviance: 7893.8  on 6239  degrees of freedom
+  (733 observations deleted due to missingness)
+AIC: 7909.8
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>Looking at the summary table for the 3rd model it seems that women ‘as.factor(race)2’ are way less likely to wear corrective lenses (-.516) than men.</p>
+</section>
+</section>
+<section id="problem-2---sakila" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---sakila">Problem 2 - Sakila</h2>
+<section id="part-a-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RSQLite)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>sakila <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">&quot;sakila_master.db&quot;</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>gg <span class="ot">&lt;-</span> <span class="cf">function</span>(query) {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbGetQuery</span>(sakila, query)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT release_year</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM film AS f</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="st">  ORDER BY f.release_year DESC</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="st">  LIMIT 4</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="st">   &quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  release_year
+1         2006
+2         2006
+3         2006
+4         2006</code></pre>
+</div>
+</div>
+<p>Seems as though 2006 is the earliest release year. Although all the movies in the database are from that year.</p>
+</section>
+<section id="part-b-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
+<section id="sql-w-dataframe" class="level4">
+<h4 class="anchored" data-anchor-id="sql-w-dataframe">SQL w/ DataFrame</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Dataframe w/ FID and Genre</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>filmCat <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">          SELECT fc.film_id, fc.category_id</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">          FROM film_category AS fc</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">         &quot;</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>cat <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">          SELECT c.category_id, c.name</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">          FROM category AS c</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>cCount <span class="ot">&lt;-</span> <span class="fu">table</span>(filmCat<span class="sc">$</span>category_id)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>minCount <span class="ot">&lt;-</span> <span class="fu">which.min</span>(cCount)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(cat<span class="sc">$</span>name[cat<span class="sc">$</span>category_id <span class="sc">==</span> minCount], cCount[minCount], <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Music 51 </code></pre>
+</div>
+</div>
+<p>Using the dataframe created from the ‘film_list’ table it was found that the ‘Music’ category had the smallest inventory at 281. While there are 51 number of unique movies from that category.</p>
+</section>
+<section id="sql-single-query" class="level4">
+<h4 class="anchored" data-anchor-id="sql-single-query">SQL Single Query</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Least Common Genre</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="st">   SELECT c.name, count(c.category_id) AS count</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM category AS c</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">    RIGHT JOIN film_category AS fc ON fc.category_id = c.category_id</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">    GROUP BY c.category_id</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">    ORDER BY count</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">    LIMIT 1</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">  &quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name count
+1 Music    51</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="part-c-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-1">Part C</h3>
+<section id="sql-w-dataframe-1" class="level4">
+<h4 class="anchored" data-anchor-id="sql-w-dataframe-1">SQL w/ DataFrame</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Obtain Relevant Tables</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>customer <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT address_id FROM customer&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>address <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT address_id, city_id FROM address&quot;</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>city <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT city_id, country_id FROM city&quot;</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>country <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT country_id, country FROM country&quot;</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Customer&#39;s city using their address</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>cities <span class="ot">&lt;-</span> address<span class="sc">$</span>city_id[<span class="fu">match</span>(customer<span class="sc">$</span>address_id, </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                                address<span class="sc">$</span>address_id)]</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Connect the City to the Country</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> city<span class="sc">$</span>country_id[<span class="fu">match</span>(cities, city<span class="sc">$</span>city_id)]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Aggregate Data into a Table</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>countryTable <span class="ot">&lt;-</span> <span class="fu">table</span>(country<span class="sc">$</span>country[<span class="fu">match</span>(countries,</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>                                            country<span class="sc">$</span>country_id)])</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Country w/ 13 Customers</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>countryTable[countryTable <span class="sc">==</span> <span class="dv">13</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Argentina   Nigeria 
+       13        13 </code></pre>
+</div>
+</div>
+</section>
+<section id="sql-single-query-1" class="level4">
+<h4 class="anchored" data-anchor-id="sql-single-query-1">SQL Single Query</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Country With 13 Customers</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT co.country, count(co.country) AS count</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM country AS co</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">    RIGHT JOIN (</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">       SELECT country_id</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM city AS ci</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">       RIGHT JOIN (</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">       SELECT city_id</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM customer AS cu</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="st">       LEFT JOIN address AS a ON cu.address_id = a.address_id</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="st">          ) AS cua ON cua.city_id = ci.city_id</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="st">    ) AS cicua ON cicua.country_id = co.country_id</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="st">    GROUP BY co.country</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="st">    HAVING count == 13&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    country count
+1 Argentina    13
+2   Nigeria    13</code></pre>
+</div>
+</div>
+<p>A single SQL query was used to identify ‘Music’ and the total movies of that category in the inventory (281).</p>
+</section>
+</section>
+</section>
+<section id="problem-3---us-records" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---us-records">Problem 3 - US Records</h2>
+<section id="part-a-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-2">Part A</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in the Data</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>us500 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;us500.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Percent of Email w/ &#39;.com&#39; in the TLD</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(us500<span class="sc">$</span>email[<span class="fu">grepl</span>(<span class="st">&quot;.com$&quot;</span>, us500<span class="sc">$</span>email)])<span class="sc">/</span><span class="fu">length</span>(us500<span class="sc">$</span>email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.732</code></pre>
+</div>
+</div>
+</section>
+<section id="part-b-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-2">Part B</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract User Names from the Emails</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>email <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(us500<span class="sc">$</span>email, <span class="st">&quot;@&quot;</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>username <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify User Names w/out common alpha-numeric</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>username_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, username)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract Domain Names from the Emails</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove the TLDs from Domain Names</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.[a-z]{3}&quot;</span>, <span class="st">&quot;&quot;</span>, domain)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Domain Names w/out common alpha-numeric</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>domain_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, domain)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Check Length of alpha-numeric in Domain Name</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(domain_wout_alpha_numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Since none of the Domains Have alpha-numeric</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Use only the Usernames</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">length</span>(<span class="fu">which</span>(username_wout_alpha_numeric[]<span class="sc">==</span><span class="cn">TRUE</span>))<span class="sc">/</span><span class="fu">length</span>(username_wout_alpha_numeric))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.506</code></pre>
+</div>
+</div>
+</section>
+<section id="part-c-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-2">Part C</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Use &#39;substr&#39; function to extract area codes</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>phone1 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone1, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>phone2 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone2, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Sort the phone numbers and identify most popular area codes</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(<span class="fu">c</span>(phone1, phone2)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+973 212 215 410 201 
+ 36  28  28  28  24 </code></pre>
+</div>
+</div>
+</section>
+<section id="part-d-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-d-1">Part D</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Obtain any address w/ apartment numbers</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>apartment <span class="ot">&lt;-</span> us500<span class="sc">$</span>address[<span class="fu">grepl</span>(<span class="st">&quot;[0-9]+$&quot;</span>, us500<span class="sc">$</span>address)]</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract apartment numbers using regular expressions</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">regmatches</span>(apartment, <span class="fu">regexpr</span>(<span class="st">&quot;[0-9]+$&quot;</span>, apartment))</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Generate Histogram of &#39;number&#39;</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(<span class="fu">as.numeric</span>(number)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data:image/png;base64,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" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="part-e" class="level3">
+<h3 class="anchored" data-anchor-id="part-e">Part E</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## See if the first digit of &#39;number&#39; follows geometric distribution</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">substr</span>(number, <span class="dv">1</span>, <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABUAAAAPACAMAAADDuCPrAAAAulBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrY6AAA6OgA6Ojo6OmY6ZmY6ZpA6ZrY6kNtmAABmOgBmOjpmZjpmZmZmkJBmkLZmkNtmtttmtv+QOgCQOjqQZgCQZjqQkDqQtraQttuQtv+Q2/+2ZgC2Zjq2kGa2kLa2tpC2tra2ttu229u22/+2//++vr7bkDrbkGbbtmbbtpDbtrbb25Db27bb29vb2//b////tmb/25D/27b/29v//7b//9v///8T7oFhAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO3dcXfchXEuYImQOGkTAnVzgdvcpnFoHZLrhlwIxkF8/691tbIlLxj1oHFmfsPM8/xFfI79ZndmXmmltXzxDQAhF0f/HwD4sVKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAskush33yA5LBlZIr08FCkx1cfF/cylQYCoFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAJ9W1d/ffrHv5UkAc0o0Ii/f3FbmZ+9f3Fy+asv08KArhRowNe/vnjnz6f/uPrDxa3Lj7LSgK4UaMBdgT45Nec/P378walCNShso0ADbgv0+XVtvnzt/uLji1edCuyhQANuC/T6E9Cfvfqlq+sGfS8rD+hJgQa8KtBTad69br/+bPSnvpEEuyjQgFcFevel0LNfAxZRoAEKFDhRoAGvvwZ6+fvbX/vqkQKFbRRowKlAT835/OwbR74GCvso0IDrAr32k3/99N/uPgU9/ZLvwsMyCjTgZYG+dPO6/eq/H3kfKOyjQEOuPv/kg0evC/TUqK+/HAosoUDjblr0tkDf/VNyGtCOAv1HuPpP9QkLKdASF296q9/8j5X3uPkexjmIAi3xFnuefW4urpZxjqJAD/KAAp07oY2y52mcpSafZ+tNUqBLKdBRJp9n601SoEsp0FEmn2frTVKgSynQUSafZ+tNUqBLKdBRJp9nyV/lPPOgv8upQJdSoKNMPk8F2n1CGynQUSafZ17yi/cVKDEKdJTJ55n5w0Te+t+QU6BLKdBRJp9nZvK3/kG5CAW6lAIdZfJ5pia/7b+BpECXUqCjTD7P3OTnb/ciXoEupUBHmXyeucnXL+Lf5lNQBbqUAh1l8nkmJ3/1+PF/xH+3Al1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb5ICXUqBjjL5PFtvkgJdSoGOMvk8W2+SAl1KgY4y+Txbb1LzAr1I9o98Kn9cFOgoCvQgrQs0uz43H7kCHUWBHqR5gZZHruG5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBLuW5HUWBHkSBfk9qrh6Zawo0+6nt8TgV6EEU6BuZ9Qd3TGb9c3uA/Ke2y+PMHacCvYcClVmWeYDJxXJu8uPs8QzfQ4HKLMs8wORiOTf5cfZ4hu+hQGWWZR5gcrGcm/w4ezzD91CgMssyDzC5WM5Nfpw9nuF7KFCZZZkHmFws5yY/zh7P8D0UqMyyzANMLpZzkx9nj2f4HgpUZlnmASYXy7nJj7PHM3wPBSqzLPMAk4vl3OTH2eMZvocClVmWeYDJxXJu8uPs8QzfQ4HKLMs8wORiOTf5cfZ4hu+hQGWWZR5gcrGcm/w4ezzD91CgMssyDzC5WM5Nfpw9nuF7KFCZZZkHmFws5yY/zh7P8D0UqMyyzANMLpZzkx9nj2f4HgpUZlnmASYXy7nJj7PHM3wPBSqzLPMAk4vl3OTH2eMZvocClVmWeYDJxXJu8uPs8QzfQ4HKLMs8wORiOTf5cfZ4hu+hQGWWZR5gcrGcm/w4ezzD91CgMssyDzC5WM5Nfpw9nuF7KFCZZZkHmFws5yY/zh7P8D0UqMyyzANMLpZzkx9nj2f4HgpUZlnmASYXy7nJj7PHM3wPBSqzLPMAk4vl3OTH2eMZvocClVmWeYDJxXJu8uPs8QzfQ4HKLMs8wORiOTf5cfZ4hu+hQGWWZR5gcrGcm/w4ezzD91CgMssyDzC5WM5Nfpw9nuF7KFCZZZkHmFws5yY/zh7P8D0UqMyyzANMLpZzkx9nj2f4HgpUZlnmASYXy7nJj7PHM3wPBSqzLPMAk4vl3OTH2eMZvocClVmWeYDJxXJu8uPs8QzfQ4HKLMs8peZqsbb5D7PL46yhQKMT2lIsezJXFEv+w+zxOKso0OiE9hSLzKTMiWvbJbOKAo1OaMmRy8zLnLi2XTKrKNDohJYcucy8zIlr2yWzigKNTmjJkcvMy5y4tl0yqyjQ6ISWHLnMvMyJa9sls4oCjU5oyZHLzMucuLZdMqso0OiElhy5zLzMiWvbJbOKAo1OaMmRy8zLnLi2XTKrKNDohJYcucy8zIlr2yWzigKNTmjJkcvMy5y4tl0yqyjQ6ISWHLnMvMyJa9sls4oCjU5oyZHLzMucuLZdMqso0OiElhy5zLzMiWvbJbOKAo1OaMmRy8zLnLi2XTKrKNDohJYcucy8zIlr2yWzigKNTmjJkcvMy5y4tl0yqyjQ6ISWHLnMvMyJa9sls0p68tUXf3369Okfv/gy8HsVqMzJmRPXtktmldzkz3979pP+f/npQ3+7ApU5OXPi2nbJrJKZ/OL97/xjKe/+/mF/gAKVOTlz4tp2yaySmPz80ak0f/H4pZ+f/sflRw/6ExSozMmZE9e2S2aVvOSvf31dmL87+4XPrgv1nT8/5I9QoDInZ05c2y6ZVfKSn71Rl6dKfe8hf4QClTk5c+LadsmskpZ89fHFxXdfsD+/uPjpQ74br0BlTs6cuLZdMqukJV9/uvnG6/Xv+7X/iQKVOTlz4tp2yayiQKMTWnLkMvMyJ65tl8wqmS/hL7/7riUv4d8uUuaszIlr2yWzSl7ykzfa8vRl0Z895I9QoDInZ05c2y6ZVfKSv3p03aB/OvuFF9f9+cYnpf8jBSpzcubEte2SWSUx+dnNW+cf//vTk/96+U76B72LSYHKHJ05cW27ZFbJTP7Lo+/8Vc7LDx/2ByhQmZMzJ65tl8wqqclXn5xX6OVvHvoTmRSozMmZE9e2S2aV7OSrz59+8vjx4988/TTw8+wUqMzJmRPXtktmleOS33DxPX7wb62f0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmlUYF+iYFKnNy5sS17ZJZRYFGJ7TkyGXmZU5c2y6ZVRRodEJLjlxmXubEte2SWUWBRie05Mhl5mVOXNsumVUUaHRCS45cZl7mxLXtklklLfn04+e/hx9n9xaRMmdlTlzbLplVFGh0QkuOXGZe5sS17ZJZJS/5jX/UWIG+baTMWZkT17ZLZpXE5NOP/3zYT1/6LgUqc3LmxLXtklklM/n7/l25B1GgMidnTlzbLplVUpMf+m8gfZcClTk5c+Ladsmskpv8/O1exCtQmZMzJ65tl8wqucnXL+Lf5lNQBSpzcubEte2SWSU5+avHj/8j/rsVqMzJmRPXtktmFX8TKTqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKgo0OqElRy4zL3Pi2nbJrKJAoxNacuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yayiQKMTWnLkMvMyJ65tl8wqCjQ6oSVHLjMvc+LadsmsokCjE1py5DLzMieubZfMKjXJV399+se/Pfy3KVCZkzMnrm2XzCp5yX//4rYyP3v/4uTyV18+8I9QoDInZ05c2y6ZVdKSv/71xTt/Pv3H1R8ubl1+9LA/Q4HKnJw5cW27ZFbJL9Anp+b858ePPzhV6MMaVIHKnJw5cW27ZFZJL9Dn17X58rX7i48vXnXqD6VAZU7OnLi2XTKrpBfo9SegP3v1S1fXDfreQ/4MBSpzcubEte2SWSW7QE+lefe6/fqz0Z8+5BtJClTm5MyJa9sls0p2gd59KfTs1+77v/I9fmDYxK1ocuQy8zInrm2XzCoKNDqhJUcuMy9z4tp2yaxS8DXQy9/f/tpXjx72XSQFKnNy5sS17ZJZJbVAT835/OwbR74G+naRMmdlTlzbLplVMgv02k/+9dN/u/sU9PRLvgv/FpEyZ2VOXNsumVWSC/Slm9ftV//9yPtA3y5S5qzMiWvbJbNKYvLV55988Oh1gZ4a9fWXQ38QBSpzcubEte2SWSU7+aZFbwv03T897DcrUJmTMyeubZfMKnXJV//5wPpUoDJnZ05c2y6ZVY5L/gEUqMzJmRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbSAf190AAAzJSURBVLtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2YVBRqd0JIjl5mXOXFtu2RWUaDRCS05cpl5mRPXtktmFQUandCSI5eZlzlxbbtkVlGg0QktOXKZeZkT17ZLZhUFGp3QkiOXmZc5cW27ZFZRoNEJLTlymXmZE9e2S2aV9OSrL/769OnTP37xZeD3KlCZkzMnrm2XzCq5yZ//9uK1X3760N+uQGVOzpy4tl0yq2Qmv3j/4tve/f3D/gAFKnNy5sS17ZJZJTH5+aNTaf7i8Us/P/2Py48e9CcoUJmTMyeubZfMKnnJX//6ujB/d/YLn10X6jt/fsgfoUBlTs6cuLZdMqvkJT97oy5PlfreQ/4IBSpzcubEte2SWSUt+erji4vvvmB/fnHx04d8N16BypycOXFtu2RWSUu+/nTzjdfr3/drZ/9XvscPDPu+3/oPdkDmEY9TZmFmfuTezCoKNDqhAyJlzsrMj9ybWSXzJfzld9+19NCX8ACd5VX3kzfa8vRl0Z+l5QEUyyvQrx5dN+ifzn7hxXV/vvFJKcCPVuIXD56dvjZx+fjfn57818t30j/oXUwArWV+9fUvj77zld7LDxPTAIqlfvvq6pPzCr38jW8gAZNkf///6vOnnzx+/Pg3Tz/VnsAwrX+gMkBnChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQtLRAv/71O38ujLv65BcXFxc/+eWfCjO/+eyDU+ZvvqzMvPHVo4uPysKuPr64U5j6l9NAf/Fh1ZP77OJb3iuK/ebz3z66uLhcsrchOwv0+uoqC/Qvj243/1dlmXfFcllXKy99/evKKjullRfoV7cDfbdoi44p0Ks/lDf22d7+vizzbaws0KsnF5UF+vxs9X9WlHnMJ2Y3npRGnj+5Val3/Xlx8dOaT5SOKdAn9Z/zHri3MRsL9GZIdQV6+hzp3U+v/+Pz9+s+rl5f3OXpVdD/e7/syF95Xrv7z+oP7TTQyw9PX5h5VPm52SvPyj4Knz5OnF69v/i4dG/vMku/yha1sEA/u/n8oW46z+82/tTcNct/nfRq5a+vvfTF0MuX1HWd9qT+zp7dbc/z6o9OpZGvq/pJ1QeK0/a8V5z5dtYV6Iv3Tx/j3i88uyev++T6Y3rN9l8H3TZ17adop68u/5/CxOu86gp7/cHp/D+LVH48fHIX9bzqA//Zh4frR/pj+BR0XYGeXtt+WPxNpDvXS1F97uf9XeBU15WVff2MVn1Z+dbZB6d6lZ+XHVCgz84e3pMfxfeR9hXo5a++rP4u/J0DCrT2A/l1ubxX+jnv9Wl/9OL0vpd/+l1h5GGvLUu/ZvCtl/A1Ez1fnQO+uh2wrkD/ftq/owq07CP5rZvvc5S+KfP6vis3/9nF5b+8+qbtL+u+NPjRNy9Ob5D8yYc1iXdqv2Rw+oLkzTd0flv5boO71flxfBF0XYHeOKhAq7+hc/M2lMvCK3/5qquyQM/eaVN15KcHefu2oqr3gb5S9x34GzffLyh9nGefYZx9P6kzBVqY+qT4E9CbdvlJ2V+XuX1xW1igp/c13Lxd6/RZUtG9PXn9SW/xW22qPwDfvJmo8pP7m9Z89QH/Wen798MUaF1o7dv3rwP/9y8+eFT3mdndV3gLC/SsUp4VPbsv3+p9emn79z8U/s2Ik+qvAL1++37Zy5jTx/xf/e3VB0QF2tURBXpV+HbkM6eXYUVXd/uWzGO++n96fitibwr01WU/Lx1p9Zumnr0qs5sPFEUTPfubuY8VaFsHFOiLwr+G9C1lr/vuevOgb58+Kzq4J2ef05e+R6zsXcQvnf1Mg7/UvXa6/brr5YdHvtvhh1OgNU4/T6T4Ow63iorl9dsjDyrQqoM7/+5w6ZFXfYR45fwLBoUfKK7+8vPr+rz+zNfbmPoqL9CbV0MH/YCuoiP/zs+7qP/soarMnh1UoAe8gj9/T2b5PL2Rvq/qAv3DkV8Q31KgVZ+xnH9mVlksxa/gv/V8HvBy2l/lbKy4QJ+Vf/nz238lrqRYDinQs8dZ9rXe6yK7W57Kr4FWfxZ4xEv4sw8S5X/pJEaB5rtehXdKf6b3zSJWv73ntcIvXr0us8I32Z6SXl554TdX6l/SfvX6L7GVvdvg9VspXpT+WO44BZqu/O3P37x6z9SHtW8wv1P9RvrT46z8WaunZjn9gNe/l35lpv4bn7fvyax8v+uzVz9q9fRN1x/DJ6AKNN+3X9sWXfmLs3/ponoRK799evbD4eu67GyidV+VrP9BNOf/WkrVO0jOMn8MXwFVoCVZBxTo2d9jLv/uf+n7T766fZyX/6ss85v/vq3tsr/jWP89pG/OV7cu+W5v3y3+qleQAs12/nG8sEBv/3XD2n9R8Ubxj3B+9a84/q0u8vpV7SenNyv+06eFkYf8GNLPP7j5VzkrH+fV6akt/OmEb2lngQL8AyhQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCFKgAEEKFCBIgQIEKVCAIAUKEKRAAYIUKECQAgUIUqAAQQoUIEiBAgQpUIAgBQoQpEABghQoQJACBQhSoABBChQgSIECBClQgCAFChCkQAGCFChAkAIFCPr/iMGbkC98SHwAAAAASUVORK5CYII=" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looks uniform.</p>
 <!-- -->
 
 </section>
@@ -3907,66 +4352,307 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;ProblemSet_3&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Behram Radmanesh&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">      code-fold: true</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">      code-tools: true</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">      embed-resources: true</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Github Link</span><span class="co">](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_3)</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 1 - Vision</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in the XPT files</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>vision <span class="ot">&lt;-</span> <span class="fu">read_xpt</span>(<span class="st">&quot;VIX_D.XPT&quot;</span>)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">read_xpt</span>(<span class="st">&quot;DEMO_D.XPT&quot;</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge &#39;vision&#39; and &#39;demo&#39; into &#39;main&#39;</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>main <span class="ot">&lt;-</span> <span class="fu">merge</span>(demo, vision, <span class="at">by =</span> <span class="st">&#39;SEQN&#39;</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="do">## Show the number of entries after merging</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Number of entries:&quot;</span>, <span class="fu">dim</span>(main)[<span class="dv">1</span>])</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="do">## Create Column &#39;ageGroup&#39; and subdivide &#39;RIDAGEYR&#39; into it</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>main<span class="sc">$</span>ageGroup <span class="ot">&lt;-</span> <span class="fu">cut</span>(main<span class="sc">$</span>RIDAGEYR, </span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(main<span class="sc">$</span>RIDAGEYR) <span class="sc">+</span> <span class="dv">10</span>, <span class="at">by=</span><span class="dv">10</span>),</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-9&quot;</span>, <span class="st">&quot;10-19&quot;</span>, <span class="st">&quot;20-29&quot;</span>, <span class="st">&quot;30-39&quot;</span>,</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;40-49&quot;</span>, <span class="st">&quot;50-59&quot;</span>, <span class="st">&quot;60-69&quot;</span>, <span class="st">&quot;70-79&quot;</span>,</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;80-89&quot;</span>))</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate Total Peope in ageGroup</span></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>ageGroupCounts <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>totalPeople <span class="ot">&lt;-</span> <span class="fu">sum</span>(ageGroupCounts)</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="do">## Age Group Percentages</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>ageGroupPercentages <span class="ot">&lt;-</span> (<span class="fu">round</span>(((ageGroupCounts<span class="sc">/</span>totalPeople)<span class="sc">*</span><span class="dv">100</span>),</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>                        <span class="at">digits=</span><span class="dv">1</span>))</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">rbind</span>(countsNPercentage, ageGroupPercentages)</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(countsNPercentage) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Counts&quot;</span>, <span class="st">&quot;Percentages&quot;</span>)</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table with the valid proportions</span></span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="sc">%&gt;%</span></span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">&quot;hover&quot;</span>, <span class="at">full_width =</span> F)</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;ProblemSet_3&quot;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Behram Radmanesh&quot;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">      code-fold: true</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">      code-tools: true</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">      embed-resources: true</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Github Link</span><span class="co">](https://github.com/MediciPrime/STATS506/tree/main/ProblemSet_3)</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 1 - Vision</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in the XPT files</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>vision <span class="ot">&lt;-</span> <span class="fu">read_xpt</span>(<span class="st">&quot;VIX_D.XPT&quot;</span>)</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">read_xpt</span>(<span class="st">&quot;DEMO_D.XPT&quot;</span>)</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a><span class="do">## Merge &#39;vision&#39; and &#39;demo&#39; into &#39;main&#39;</span></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>main <span class="ot">&lt;-</span> <span class="fu">merge</span>(demo, vision, <span class="at">by =</span> <span class="st">&#39;SEQN&#39;</span>)</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="do">## Show the number of entries after merging</span></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Number of entries:&quot;</span>, <span class="fu">dim</span>(main)[<span class="dv">1</span>])</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="do">## Create Column &#39;ageGroup&#39; and subdivide &#39;RIDAGEYR&#39; into it</span></span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>main<span class="sc">$</span>ageGroup <span class="ot">&lt;-</span> <span class="fu">cut</span>(main<span class="sc">$</span>RIDAGEYR, </span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(main<span class="sc">$</span>RIDAGEYR) <span class="sc">+</span> <span class="dv">10</span>, <span class="at">by=</span><span class="dv">10</span>),</span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-9&quot;</span>, <span class="st">&quot;10-19&quot;</span>, <span class="st">&quot;20-29&quot;</span>, <span class="st">&quot;30-39&quot;</span>,</span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;40-49&quot;</span>, <span class="st">&quot;50-59&quot;</span>, <span class="st">&quot;60-69&quot;</span>, <span class="st">&quot;70-79&quot;</span>,</span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;80-89&quot;</span>))</span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculate Total People in ageGroup</span></span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>glasses <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>noGlasses <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">2</span>])</span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">as.data.frame</span>(glasses), <span class="fu">as.data.frame</span>(noGlasses))</span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> tab[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)]</span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tab2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Age_Group&#39;</span>, <span class="st">&#39;Glasses&#39;</span>, <span class="st">&#39;No_Glasses&#39;</span>)</span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>tab2[<span class="st">&#39;Total&#39;</span>] <span class="ot">&lt;-</span> tab2<span class="sc">$</span>Glasses <span class="sc">+</span> tab2<span class="sc">$</span>No_Glasses</span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a><span class="do">## Age Group Percentages</span></span>
+<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>tab2[<span class="st">&#39;Percentages&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">round</span>((tab2<span class="sc">$</span>Glasses<span class="sc">/</span>tab2<span class="sc">$</span>Total)<span class="sc">*</span><span class="dv">100</span>, </span>
+<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>                             <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">replace</span>(tab2, <span class="fu">is.na</span>(tab2), <span class="dv">0</span>)</span>
+<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">table</span>(main<span class="sc">$</span>ageGroup[main<span class="sc">$</span>VIQ220<span class="sc">==</span><span class="dv">1</span>])</span>
+<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="ot">&lt;-</span> <span class="fu">rbind</span>(countsNPercentage, tab2<span class="sc">$</span>Percentages)</span>
+<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(countsNPercentage) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Counts&quot;</span>, <span class="st">&quot;Percentages&quot;</span>)</span>
+<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a><span class="do">## create a table with the valid proportions</span></span>
+<span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a>countsNPercentage <span class="sc">%&gt;%</span></span>
+<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">&quot;hover&quot;</span>, <span class="at">full_width =</span> F)</span>
+<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
+<span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a>Asked to predict whether a respondent wears glasses/contact lenses for distance vision.</span>
+<span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract Required Data</span></span>
+<span id="cb32-79"><a href="#cb32-79" aria-hidden="true" tabindex="-1"></a>p1DF <span class="ot">&lt;-</span> main[<span class="fu">c</span>(<span class="st">&#39;RIDRETH1&#39;</span>, <span class="st">&#39;RIAGENDR&#39;</span>, <span class="st">&#39;INDFMPIR&#39;</span>, <span class="st">&#39;RIDAGEYR&#39;</span>, </span>
+<span id="cb32-80"><a href="#cb32-80" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;VIQ220&#39;</span>)]</span>
+<span id="cb32-81"><a href="#cb32-81" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(p1DF) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;race&#39;</span>, <span class="st">&#39;gender&#39;</span>, <span class="st">&#39;pir&#39;</span>, <span class="st">&#39;age&#39;</span>, <span class="st">&#39;glasses&#39;</span>)</span>
+<span id="cb32-82"><a href="#cb32-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-83"><a href="#cb32-83" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove value of &#39;9&#39; from &#39;glasses&#39; column</span></span>
+<span id="cb32-84"><a href="#cb32-84" aria-hidden="true" tabindex="-1"></a>p1DF<span class="sc">$</span>glasses[<span class="dv">1155</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb32-85"><a href="#cb32-85" aria-hidden="true" tabindex="-1"></a>p1DF<span class="sc">$</span>glasses[<span class="dv">1828</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb32-86"><a href="#cb32-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-87"><a href="#cb32-87" aria-hidden="true" tabindex="-1"></a><span class="do">## Modify values in &#39;glasses&#39; by -1</span></span>
+<span id="cb32-88"><a href="#cb32-88" aria-hidden="true" tabindex="-1"></a>p1DF<span class="sc">$</span>glasses <span class="ot">&lt;-</span> p1DF<span class="sc">$</span>glasses<span class="dv">-1</span></span>
+<span id="cb32-89"><a href="#cb32-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-90"><a href="#cb32-90" aria-hidden="true" tabindex="-1"></a><span class="do">## Run GLM logit</span></span>
+<span id="cb32-91"><a href="#cb32-91" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(glasses <span class="sc">~</span> age, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&#39;logit&#39;</span>), </span>
+<span id="cb32-92"><a href="#cb32-92" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> p1DF)</span>
+<span id="cb32-93"><a href="#cb32-93" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span>
+<span id="cb32-94"><a href="#cb32-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-95"><a href="#cb32-95" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(glasses <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">as.factor</span>(gender) <span class="sc">+</span> <span class="fu">as.factor</span>(race),</span>
+<span id="cb32-96"><a href="#cb32-96" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>), <span class="at">data =</span> p1DF)</span>
+<span id="cb32-97"><a href="#cb32-97" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span>
+<span id="cb32-98"><a href="#cb32-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-99"><a href="#cb32-99" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(glasses <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">as.factor</span>(gender) <span class="sc">+</span> <span class="fu">as.factor</span>(race) <span class="sc">+</span></span>
+<span id="cb32-100"><a href="#cb32-100" aria-hidden="true" tabindex="-1"></a>              pir, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">&#39;logit&#39;</span>), <span class="at">data =</span> p1DF)</span>
+<span id="cb32-101"><a href="#cb32-101" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span>
+<span id="cb32-102"><a href="#cb32-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-103"><a href="#cb32-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-104"><a href="#cb32-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-105"><a href="#cb32-105" aria-hidden="true" tabindex="-1"></a>The summary table for each of the models display the relevant information. </span>
+<span id="cb32-106"><a href="#cb32-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-107"><a href="#cb32-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part D</span></span>
+<span id="cb32-108"><a href="#cb32-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-109"><a href="#cb32-109" aria-hidden="true" tabindex="-1"></a>This part asks to determine if there is a difference between the number of men vs. women who wear distance corrective lenses. </span>
+<span id="cb32-110"><a href="#cb32-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-113"><a href="#cb32-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-114"><a href="#cb32-114" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod3)</span>
+<span id="cb32-115"><a href="#cb32-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-116"><a href="#cb32-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a>Looking at the summary table for the 3rd model it seems that women &#39;as.factor(race)2&#39; are way less likely to wear corrective lenses (-.516) than men. </span>
+<span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 2 - Sakila</span></span>
+<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
+<span id="cb32-125"><a href="#cb32-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-126"><a href="#cb32-126" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RSQLite)</span>
+<span id="cb32-128"><a href="#cb32-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-129"><a href="#cb32-129" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb32-130"><a href="#cb32-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-131"><a href="#cb32-131" aria-hidden="true" tabindex="-1"></a>sakila <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">&quot;sakila_master.db&quot;</span>)</span>
+<span id="cb32-132"><a href="#cb32-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-133"><a href="#cb32-133" aria-hidden="true" tabindex="-1"></a>gg <span class="ot">&lt;-</span> <span class="cf">function</span>(query) {</span>
+<span id="cb32-134"><a href="#cb32-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbGetQuery</span>(sakila, query)</span>
+<span id="cb32-135"><a href="#cb32-135" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-136"><a href="#cb32-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-137"><a href="#cb32-137" aria-hidden="true" tabindex="-1"></a><span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb32-138"><a href="#cb32-138" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT release_year</span></span>
+<span id="cb32-139"><a href="#cb32-139" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM film AS f</span></span>
+<span id="cb32-140"><a href="#cb32-140" aria-hidden="true" tabindex="-1"></a><span class="st">  ORDER BY f.release_year DESC</span></span>
+<span id="cb32-141"><a href="#cb32-141" aria-hidden="true" tabindex="-1"></a><span class="st">  LIMIT 4</span></span>
+<span id="cb32-142"><a href="#cb32-142" aria-hidden="true" tabindex="-1"></a><span class="st">   &quot;</span>)</span>
+<span id="cb32-143"><a href="#cb32-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-144"><a href="#cb32-144" aria-hidden="true" tabindex="-1"></a>Seems as though 2006 is the earliest release year. Although all the movies in the database are from that year.</span>
+<span id="cb32-145"><a href="#cb32-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-146"><a href="#cb32-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
+<span id="cb32-147"><a href="#cb32-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-148"><a href="#cb32-148" aria-hidden="true" tabindex="-1"></a><span class="fu">#### SQL w/ DataFrame</span></span>
+<span id="cb32-149"><a href="#cb32-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-152"><a href="#cb32-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-153"><a href="#cb32-153" aria-hidden="true" tabindex="-1"></a><span class="do">## Dataframe w/ FID and Genre</span></span>
+<span id="cb32-154"><a href="#cb32-154" aria-hidden="true" tabindex="-1"></a>filmCat <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb32-155"><a href="#cb32-155" aria-hidden="true" tabindex="-1"></a><span class="st">          SELECT fc.film_id, fc.category_id</span></span>
+<span id="cb32-156"><a href="#cb32-156" aria-hidden="true" tabindex="-1"></a><span class="st">          FROM film_category AS fc</span></span>
+<span id="cb32-157"><a href="#cb32-157" aria-hidden="true" tabindex="-1"></a><span class="st">         &quot;</span>)</span>
+<span id="cb32-158"><a href="#cb32-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-159"><a href="#cb32-159" aria-hidden="true" tabindex="-1"></a>cat <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb32-160"><a href="#cb32-160" aria-hidden="true" tabindex="-1"></a><span class="st">          SELECT c.category_id, c.name</span></span>
+<span id="cb32-161"><a href="#cb32-161" aria-hidden="true" tabindex="-1"></a><span class="st">          FROM category AS c</span></span>
+<span id="cb32-162"><a href="#cb32-162" aria-hidden="true" tabindex="-1"></a><span class="st">        &quot;</span>)</span>
+<span id="cb32-163"><a href="#cb32-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-164"><a href="#cb32-164" aria-hidden="true" tabindex="-1"></a>cCount <span class="ot">&lt;-</span> <span class="fu">table</span>(filmCat<span class="sc">$</span>category_id)</span>
+<span id="cb32-165"><a href="#cb32-165" aria-hidden="true" tabindex="-1"></a>minCount <span class="ot">&lt;-</span> <span class="fu">which.min</span>(cCount)</span>
+<span id="cb32-166"><a href="#cb32-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-167"><a href="#cb32-167" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(cat<span class="sc">$</span>name[cat<span class="sc">$</span>category_id <span class="sc">==</span> minCount], cCount[minCount], <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb32-168"><a href="#cb32-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-169"><a href="#cb32-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-170"><a href="#cb32-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-171"><a href="#cb32-171" aria-hidden="true" tabindex="-1"></a>Using the dataframe created from the &#39;film_list&#39; table it was found that the &#39;Music&#39; category had the smallest inventory at 281. While there are 51 number of unique movies from that category. </span>
+<span id="cb32-172"><a href="#cb32-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-173"><a href="#cb32-173" aria-hidden="true" tabindex="-1"></a><span class="fu">#### SQL Single Query</span></span>
+<span id="cb32-174"><a href="#cb32-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-177"><a href="#cb32-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-178"><a href="#cb32-178" aria-hidden="true" tabindex="-1"></a><span class="do">## Least Common Genre</span></span>
+<span id="cb32-179"><a href="#cb32-179" aria-hidden="true" tabindex="-1"></a><span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb32-180"><a href="#cb32-180" aria-hidden="true" tabindex="-1"></a><span class="st">   SELECT c.name, count(c.category_id) AS count</span></span>
+<span id="cb32-181"><a href="#cb32-181" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM category AS c</span></span>
+<span id="cb32-182"><a href="#cb32-182" aria-hidden="true" tabindex="-1"></a><span class="st">    RIGHT JOIN film_category AS fc ON fc.category_id = c.category_id</span></span>
+<span id="cb32-183"><a href="#cb32-183" aria-hidden="true" tabindex="-1"></a><span class="st">    GROUP BY c.category_id</span></span>
+<span id="cb32-184"><a href="#cb32-184" aria-hidden="true" tabindex="-1"></a><span class="st">    ORDER BY count</span></span>
+<span id="cb32-185"><a href="#cb32-185" aria-hidden="true" tabindex="-1"></a><span class="st">    LIMIT 1</span></span>
+<span id="cb32-186"><a href="#cb32-186" aria-hidden="true" tabindex="-1"></a><span class="st">  &quot;</span>)</span>
+<span id="cb32-187"><a href="#cb32-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-188"><a href="#cb32-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-189"><a href="#cb32-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-190"><a href="#cb32-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
+<span id="cb32-191"><a href="#cb32-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-192"><a href="#cb32-192" aria-hidden="true" tabindex="-1"></a><span class="fu">#### SQL w/ DataFrame</span></span>
+<span id="cb32-195"><a href="#cb32-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-196"><a href="#cb32-196" aria-hidden="true" tabindex="-1"></a><span class="do">## Obtain Relevant Tables</span></span>
+<span id="cb32-197"><a href="#cb32-197" aria-hidden="true" tabindex="-1"></a>customer <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT address_id FROM customer&quot;</span>)</span>
+<span id="cb32-198"><a href="#cb32-198" aria-hidden="true" tabindex="-1"></a>address <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT address_id, city_id FROM address&quot;</span>)</span>
+<span id="cb32-199"><a href="#cb32-199" aria-hidden="true" tabindex="-1"></a>city <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT city_id, country_id FROM city&quot;</span>)</span>
+<span id="cb32-200"><a href="#cb32-200" aria-hidden="true" tabindex="-1"></a>country <span class="ot">&lt;-</span> <span class="fu">gg</span>(<span class="st">&quot;SELECT country_id, country FROM country&quot;</span>)</span>
+<span id="cb32-201"><a href="#cb32-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-202"><a href="#cb32-202" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Customer&#39;s city using their address</span></span>
+<span id="cb32-203"><a href="#cb32-203" aria-hidden="true" tabindex="-1"></a>cities <span class="ot">&lt;-</span> address<span class="sc">$</span>city_id[<span class="fu">match</span>(customer<span class="sc">$</span>address_id, </span>
+<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a>                                address<span class="sc">$</span>address_id)]</span>
+<span id="cb32-205"><a href="#cb32-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-206"><a href="#cb32-206" aria-hidden="true" tabindex="-1"></a><span class="do">## Connect the City to the Country</span></span>
+<span id="cb32-207"><a href="#cb32-207" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> city<span class="sc">$</span>country_id[<span class="fu">match</span>(cities, city<span class="sc">$</span>city_id)]</span>
+<span id="cb32-208"><a href="#cb32-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-209"><a href="#cb32-209" aria-hidden="true" tabindex="-1"></a><span class="do">## Aggregate Data into a Table</span></span>
+<span id="cb32-210"><a href="#cb32-210" aria-hidden="true" tabindex="-1"></a>countryTable <span class="ot">&lt;-</span> <span class="fu">table</span>(country<span class="sc">$</span>country[<span class="fu">match</span>(countries,</span>
+<span id="cb32-211"><a href="#cb32-211" aria-hidden="true" tabindex="-1"></a>                                            country<span class="sc">$</span>country_id)])</span>
+<span id="cb32-212"><a href="#cb32-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-213"><a href="#cb32-213" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Country w/ 13 Customers</span></span>
+<span id="cb32-214"><a href="#cb32-214" aria-hidden="true" tabindex="-1"></a>countryTable[countryTable <span class="sc">==</span> <span class="dv">13</span>]</span>
+<span id="cb32-215"><a href="#cb32-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-216"><a href="#cb32-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-217"><a href="#cb32-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a><span class="fu">#### SQL Single Query</span></span>
+<span id="cb32-221"><a href="#cb32-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-222"><a href="#cb32-222" aria-hidden="true" tabindex="-1"></a><span class="do">## Country With 13 Customers</span></span>
+<span id="cb32-223"><a href="#cb32-223" aria-hidden="true" tabindex="-1"></a><span class="fu">gg</span>(<span class="st">&quot;</span></span>
+<span id="cb32-224"><a href="#cb32-224" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT co.country, count(co.country) AS count</span></span>
+<span id="cb32-225"><a href="#cb32-225" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM country AS co</span></span>
+<span id="cb32-226"><a href="#cb32-226" aria-hidden="true" tabindex="-1"></a><span class="st">    RIGHT JOIN (</span></span>
+<span id="cb32-227"><a href="#cb32-227" aria-hidden="true" tabindex="-1"></a><span class="st">       SELECT country_id</span></span>
+<span id="cb32-228"><a href="#cb32-228" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM city AS ci</span></span>
+<span id="cb32-229"><a href="#cb32-229" aria-hidden="true" tabindex="-1"></a><span class="st">       RIGHT JOIN (</span></span>
+<span id="cb32-230"><a href="#cb32-230" aria-hidden="true" tabindex="-1"></a><span class="st">       SELECT city_id</span></span>
+<span id="cb32-231"><a href="#cb32-231" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM customer AS cu</span></span>
+<span id="cb32-232"><a href="#cb32-232" aria-hidden="true" tabindex="-1"></a><span class="st">       LEFT JOIN address AS a ON cu.address_id = a.address_id</span></span>
+<span id="cb32-233"><a href="#cb32-233" aria-hidden="true" tabindex="-1"></a><span class="st">          ) AS cua ON cua.city_id = ci.city_id</span></span>
+<span id="cb32-234"><a href="#cb32-234" aria-hidden="true" tabindex="-1"></a><span class="st">    ) AS cicua ON cicua.country_id = co.country_id</span></span>
+<span id="cb32-235"><a href="#cb32-235" aria-hidden="true" tabindex="-1"></a><span class="st">    GROUP BY co.country</span></span>
+<span id="cb32-236"><a href="#cb32-236" aria-hidden="true" tabindex="-1"></a><span class="st">    HAVING count == 13&quot;</span>)</span>
+<span id="cb32-237"><a href="#cb32-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-238"><a href="#cb32-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-239"><a href="#cb32-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-240"><a href="#cb32-240" aria-hidden="true" tabindex="-1"></a>A single SQL query was used to identify &#39;Music&#39; and the total movies of that category in the inventory (281).</span>
+<span id="cb32-241"><a href="#cb32-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-242"><a href="#cb32-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem 3 - US Records</span></span>
+<span id="cb32-243"><a href="#cb32-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-244"><a href="#cb32-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A</span></span>
+<span id="cb32-245"><a href="#cb32-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-248"><a href="#cb32-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-249"><a href="#cb32-249" aria-hidden="true" tabindex="-1"></a><span class="do">## Read in the Data</span></span>
+<span id="cb32-250"><a href="#cb32-250" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data&quot;</span>)</span>
+<span id="cb32-251"><a href="#cb32-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-252"><a href="#cb32-252" aria-hidden="true" tabindex="-1"></a>us500 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;us500.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-253"><a href="#cb32-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-254"><a href="#cb32-254" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Percent of Email w/ &#39;.com&#39; in the TLD</span></span>
+<span id="cb32-255"><a href="#cb32-255" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(us500<span class="sc">$</span>email[<span class="fu">grepl</span>(<span class="st">&quot;.com$&quot;</span>, us500<span class="sc">$</span>email)])<span class="sc">/</span><span class="fu">length</span>(us500<span class="sc">$</span>email)</span>
+<span id="cb32-256"><a href="#cb32-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-257"><a href="#cb32-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-258"><a href="#cb32-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-259"><a href="#cb32-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B</span></span>
+<span id="cb32-260"><a href="#cb32-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-263"><a href="#cb32-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-264"><a href="#cb32-264" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract User Names from the Emails</span></span>
+<span id="cb32-265"><a href="#cb32-265" aria-hidden="true" tabindex="-1"></a>email <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(us500<span class="sc">$</span>email, <span class="st">&quot;@&quot;</span>)</span>
+<span id="cb32-266"><a href="#cb32-266" aria-hidden="true" tabindex="-1"></a>username <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb32-267"><a href="#cb32-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-268"><a href="#cb32-268" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify User Names w/out common alpha-numeric</span></span>
+<span id="cb32-269"><a href="#cb32-269" aria-hidden="true" tabindex="-1"></a>username_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, username)</span>
+<span id="cb32-270"><a href="#cb32-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-271"><a href="#cb32-271" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract Domain Names from the Emails</span></span>
+<span id="cb32-272"><a href="#cb32-272" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">sapply</span>(email, <span class="st">&quot;[[&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb32-273"><a href="#cb32-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-274"><a href="#cb32-274" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove the TLDs from Domain Names</span></span>
+<span id="cb32-275"><a href="#cb32-275" aria-hidden="true" tabindex="-1"></a>domain <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">.[a-z]{3}&quot;</span>, <span class="st">&quot;&quot;</span>, domain)</span>
+<span id="cb32-276"><a href="#cb32-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-277"><a href="#cb32-277" aria-hidden="true" tabindex="-1"></a><span class="do">## Identify Domain Names w/out common alpha-numeric</span></span>
+<span id="cb32-278"><a href="#cb32-278" aria-hidden="true" tabindex="-1"></a>domain_wout_alpha_numeric <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">&quot;[^a-zA-Z0-9]&quot;</span>, domain)</span>
+<span id="cb32-279"><a href="#cb32-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-280"><a href="#cb32-280" aria-hidden="true" tabindex="-1"></a><span class="do">## Check Length of alpha-numeric in Domain Name</span></span>
+<span id="cb32-281"><a href="#cb32-281" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(domain_wout_alpha_numeric))</span>
+<span id="cb32-282"><a href="#cb32-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-283"><a href="#cb32-283" aria-hidden="true" tabindex="-1"></a><span class="do">## Since none of the Domains Have alpha-numeric</span></span>
+<span id="cb32-284"><a href="#cb32-284" aria-hidden="true" tabindex="-1"></a><span class="do">## Use only the Usernames</span></span>
+<span id="cb32-285"><a href="#cb32-285" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">length</span>(<span class="fu">which</span>(username_wout_alpha_numeric[]<span class="sc">==</span><span class="cn">TRUE</span>))<span class="sc">/</span><span class="fu">length</span>(username_wout_alpha_numeric))</span>
+<span id="cb32-286"><a href="#cb32-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-287"><a href="#cb32-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-288"><a href="#cb32-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-289"><a href="#cb32-289" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C</span></span>
+<span id="cb32-290"><a href="#cb32-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-293"><a href="#cb32-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-294"><a href="#cb32-294" aria-hidden="true" tabindex="-1"></a><span class="do">## Use &#39;substr&#39; function to extract area codes</span></span>
+<span id="cb32-295"><a href="#cb32-295" aria-hidden="true" tabindex="-1"></a>phone1 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone1, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb32-296"><a href="#cb32-296" aria-hidden="true" tabindex="-1"></a>phone2 <span class="ot">&lt;-</span> <span class="fu">substr</span>(us500<span class="sc">$</span>phone2, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb32-297"><a href="#cb32-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-298"><a href="#cb32-298" aria-hidden="true" tabindex="-1"></a><span class="do">## Sort the phone numbers and identify most popular area codes</span></span>
+<span id="cb32-299"><a href="#cb32-299" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(<span class="fu">c</span>(phone1, phone2)), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb32-300"><a href="#cb32-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-301"><a href="#cb32-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-302"><a href="#cb32-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-303"><a href="#cb32-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part D</span></span>
+<span id="cb32-304"><a href="#cb32-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-307"><a href="#cb32-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-308"><a href="#cb32-308" aria-hidden="true" tabindex="-1"></a><span class="do">## Obtain any address w/ apartment numbers</span></span>
+<span id="cb32-309"><a href="#cb32-309" aria-hidden="true" tabindex="-1"></a>apartment <span class="ot">&lt;-</span> us500<span class="sc">$</span>address[<span class="fu">grepl</span>(<span class="st">&quot;[0-9]+$&quot;</span>, us500<span class="sc">$</span>address)]</span>
+<span id="cb32-310"><a href="#cb32-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-311"><a href="#cb32-311" aria-hidden="true" tabindex="-1"></a><span class="do">## Extract apartment numbers using regular expressions</span></span>
+<span id="cb32-312"><a href="#cb32-312" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">regmatches</span>(apartment, <span class="fu">regexpr</span>(<span class="st">&quot;[0-9]+$&quot;</span>, apartment))</span>
+<span id="cb32-313"><a href="#cb32-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-314"><a href="#cb32-314" aria-hidden="true" tabindex="-1"></a><span class="do">## Generate Histogram of &#39;number&#39;</span></span>
+<span id="cb32-315"><a href="#cb32-315" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">log</span>(<span class="fu">as.numeric</span>(number)))</span>
+<span id="cb32-316"><a href="#cb32-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-317"><a href="#cb32-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-318"><a href="#cb32-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-319"><a href="#cb32-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part E</span></span>
+<span id="cb32-320"><a href="#cb32-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-323"><a href="#cb32-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb32-324"><a href="#cb32-324" aria-hidden="true" tabindex="-1"></a><span class="do">## See if the first digit of &#39;number&#39; follows geometric distribution</span></span>
+<span id="cb32-325"><a href="#cb32-325" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">substr</span>(number, <span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb32-326"><a href="#cb32-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-327"><a href="#cb32-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb32-328"><a href="#cb32-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-329"><a href="#cb32-329" aria-hidden="true" tabindex="-1"></a>Looks uniform.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

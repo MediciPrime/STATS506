@@ -116,6 +116,8 @@ Looking at the summary table for the 3rd model it seems that women 'as.factor(ra
 library(DBI)
 library(RSQLite)
 
+setwd("C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data")
+
 sakila <- dbConnect(RSQLite::SQLite(), "sakila_master.db")
 
 gg <- function(query) {
@@ -225,6 +227,8 @@ A single SQL query was used to identify 'Music' and the total movies of that cat
 
 ```{r}
 ## Read in the Data
+setwd("C:/Users/beh_2/Documents/STATS506/ProblemSet_3/data")
+
 us500 <- read.csv("us500.csv", header = TRUE)
 
 ## Identify Percent of Email w/ '.com' in the TLD
