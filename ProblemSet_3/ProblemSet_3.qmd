@@ -114,7 +114,7 @@ summary(mod4)
 library(DBI)
 library(RSQLite)
 
-sakila <- dbConnect(RSQLite::SQLite(), "data/sakila_master.db")
+sakila <- dbConnect(RSQLite::SQLite(), "sakila_master.db")
 
 gg <- function(query) {
   dbGetQuery(sakila, query)
@@ -153,59 +153,38 @@ Using the dataframe created from the 'film_list' table it was found that the 'Mu
 #### SQL Single Query
 
 ```{r}
-## Least Common Genre & Total Movies From That Genre
+## Least Common Genre
 gg("
-   SELECT fl.category, COUNT(fl.category) AS count
-    FROM film_list AS fl
-    GROUP BY fl.category
+   SELECT c.name, count(c.category_id) AS count
+    FROM category AS c
+    RIGHT JOIN film_category AS fc ON fc.category_id = c.category_id
+    GROUP BY c.category_id
     ORDER BY count
     LIMIT 1
   ")
 
-## Total Unique Movies Focused On Music
-gg("
-   SELECT COUNT(DISTINCT fl.FID) AS count, fl.category
-    FROM film_list AS fl
-    WHERE fl.category LIKE 'Music'
-    ORDER BY count
-  ")
+```
 
-## If Total Movies are required then the first query is sufficient
-## However if total unique movies are required then a join function
-## of some sort is needed to assign 'Music' as the unique value needed
-## Perhaps the use of wildcard or something
+### Part C
 
+#### SQL Single Query
+```{r}
 ## Country With 13 Customers
-
 gg("
-    SELECT co.country_id, co.country
+    SELECT co.country, count(co.country) AS count
     FROM country AS co
     RIGHT JOIN (
-       SELECT ci.city_id, cua.address_id, ci.country_id
+       SELECT country_id
        FROM city AS ci
        RIGHT JOIN (
-          SELECT cu.customer_id, a.address_id, a.city_id
-          FROM address AS a
-          RIGHT JOIN customer AS cu ON cu.address_id = a.address_id
+       SELECT city_id
+       FROM customer AS cu
+       LEFT JOIN address AS a ON cu.address_id = a.address_id
           ) AS cua ON cua.city_id = ci.city_id
     ) AS cicua ON cicua.country_id = co.country_id
-        LIMIT 3
-  ")
+    GROUP BY co.country
+    HAVING count == 13")
 
-gg("
-      SELECT cu.customer_id, cu.first_name
-      FROM customer AS cu
-      INNER JOIN (
-       SELECT a.address_id, a.city_id
-       FROM address AS a
-        INNER JOIN(
-          SELECT co.country_id, co.country, c.city_id
-          FROM country AS co
-          INNER JOIN city AS c ON c.country_id = co.country_id
-        ) AS coc ON coc.city_id = a.city_id
-      ) AS ao ON ao.address_id = cu.address_id
-   LIMIT 10
-   ")
 
 ```
 
