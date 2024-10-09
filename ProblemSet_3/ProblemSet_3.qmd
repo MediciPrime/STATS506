@@ -229,3 +229,31 @@ us500 <- read.csv("us500.csv", header = TRUE)
 length(us500$email[grepl(".com$", us500$email)])/length(us500$email)
 
 ```
+
+### Part B
+
+```{r}
+## Extract User Names from the Emails
+email <- strsplit(us500$email, "@")
+username <- sapply(email, "[[", 1)
+
+## Identify User Names w/out common alpha-numeric
+username_wout_alpha_numeric <- grepl("[^a-zA-Z0-9]", username)
+
+## Extract Domain Names from the Emails
+domain <- sapply(email, "[[", 2)
+
+## Remove the TLDs from Domain Names
+domain <- gsub("\\.[a-z]{3}", "", domain)
+
+## Identify Domain Names w/out common alpha-numeric
+domain_wout_alpha_numeric <- grepl("[^a-zA-Z0-9]", domain)
+
+## Check Length of alpha-numeric in Domain Name
+length(which(domain_wout_alpha_numeric))
+
+## Since none of the Domains Have alpha-numeric
+## Use only the Usernames
+print(length(which(username_wout_alpha_numeric[]==TRUE))/length(username_wout_alpha_numeric))
+
+```
