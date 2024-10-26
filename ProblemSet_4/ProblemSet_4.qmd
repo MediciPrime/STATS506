@@ -64,8 +64,93 @@ flights %>%
 ## Problem 2 - get_temp()
 
 ```{r}
+## Load nnmaps dataset
+nnmaps <- read_csv("data/chicago-nmmaps.csv")
 
+#' Obtain Average Monthly Temperature
+#'
+#' @param month Month in Numeric (1-12) OR String
+#' @param year Year
+#' @param data Data
+#' @param celsius Logical for Celsius vs. Fahrenheit; Default: Celsius 
+#' @param average_fn Function to compute mean. Default: mean
+#'
+#' @return Average temperature
+get_temp <- function(month, year, data, 
+                     celsius = FALSE, average_fn = mean) {
+  
+  ## Handle exception for month
+  if (month %>% is.numeric) {
+    ## Ensure it's between 1 - 12
+    if (month < 1 | month > 12) {
+      stop("Please Use Gregorian Calendar, eg. 1, 2, 3,...,12")
+    }
+  }
+  else if (month %>% is.character) {
+    ## Attempt to match user inputs w/ 'months' vector
+    months <- c("January", "February", "March", "April", "May",
+                "June", "July", "August", "September", "October",
+                "November", "December")
+    
+    ## Use 'match.arg' to match the months
+    month %>%
+      match.arg(months) %>%
+      `==`(months) %>%
+      which -> month
+  } else {
+    stop("Please Use Gregorian Calender, eg. January, February,...")
+  }
+  
+  ## Handle exception if user doesn't input year between 1997-2000
+  if (year >2000 | year < 1997) {
+    stop("Please select year between 1997 - 2000")
+  }
+  
+  ## Handle exception if users doesn't input a function
+  if (!(average_fn %>% is.function)) {
+    stop("'average_fn' must be an R Function")
+  }
+  
+   ## Handle exception if user doesn't input numeric year
+  if (!year %>% is.numeric) {
+    stop("Enter Numeric Year, eg. 2024")
+  }
+  
+  data %>%
+    select(year, temp, month_numeric) %>%
+    ## Rename to avoid w/ user and data 'year'
+    rename(tmp_year = year) %>%
+    filter(tmp_year == year,
+           month_numeric == month) %>%
+    summarise(avg_tmp = average_fn(temp)) %>%
+    mutate(avg_tmp = ifelse(isTRUE(celsius), 
+                            5/9*(avg_tmp - 32), avg_tmp)) %>%
+    ## Problem request numeric to be used
+    as.numeric -> out
+  
+  return(out)
+}
 
+```
+
+```{r}
+#| error: true
+
+get_temp("Apr", 1999, data = nnmaps)
+
+get_temp("Apr", 1999, data = nnmaps, celsius = TRUE)
+
+get_temp(10, 1998, data = nnmaps, average_fn = median)
+
+get_temp(13, 1998, data = nnmaps)
+
+get_temp(2, 2005, data = nnmaps)
+
+get_temp("November", 1999, data =nnmaps, celsius = TRUE,
+         average_fn = function(x) {
+           x %>% sort -> x
+           x[2:(length(x) - 1)] %>% mean %>% return
+         })
 ```
 
 
