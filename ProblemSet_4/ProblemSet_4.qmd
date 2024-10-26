@@ -17,7 +17,18 @@ toc: true
 library(nycflights13)
 library(tidyverse)
 
-
+# Mean & Median Departure Delay
+flights %>%
+  group_by(origin) %>%
+  summarise(mean_dep_delay = mean(dep_delay, na.rm = TRUE),
+            median_dep_delay = median(dep_delay, na.rm = TRUE),
+            num_of_flights = n()) %>%
+  ungroup() %>%
+  filter(num_of_flights >= 10) %>%
+  rename(faa = origin) %>%
+  left_join(airports, by = "faa") %>%
+  select(name, mean_dep_delay, median_dep_delay) %>%
+  arrange(desc(mean_dep_delay))
 
 ```
 
