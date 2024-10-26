@@ -48,3 +48,19 @@ flights %>%
 
 ### Part B
 
+```{r}
+flights %>%
+  left_join(planes, by = "tailnum") %>%
+  group_by(model) %>%
+  summarize(avg_MPH = mean(distance/(air_time/60), na.rm = TRUE),
+            num_of_flights = n()) %>%
+  ungroup() %>%
+  select(model, num_of_flights, avg_MPH) %>%
+  arrange(desc(avg_MPH)) %>%
+  slice(1)
+
+```
+
+
+
+
