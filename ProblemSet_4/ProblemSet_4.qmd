@@ -61,6 +61,11 @@ flights %>%
 
 ```
 
+## Problem 2 - get_temp()
 
+```{r}
+
+
+```
 
 
