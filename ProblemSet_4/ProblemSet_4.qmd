@@ -153,4 +153,50 @@ get_temp("November", 1999, data =nnmaps, celsius = TRUE,
          })
 ```
 
+## Problem 3 - Visualization
 
+### Part A - Change In Sales Price Over Time
+```{r}
+library(ggplot2)
+
+artsales <- read.csv("data/df_for_ml_improved_new_market.csv")
+
+## Use 'medianprice_year' since there are large outliers
+## affecting the mean price
+ggplot(artsales, aes(x = year, y = medianprice_year)) +
+  geom_point()
+
+```
+
+Median yearly price was used rather than mean because there are large outliers that affect the mean yearly price. There is an overall increase in the median sales price over the years. 
+
+### Part B - Distribution of Genre Of Sales
+```{r}
+library(ggplot2)
+
+artsales <- read.csv("data/df_for_ml_improved_new_market.csv")
+
+ggplot(artsales, aes(x = year, y = medianprice_year)) +
+  geom_point()
+
+ggplot(artsales, aes(x = year, y=fest_biennal)) +
+  geom_point()
+
+ggplot(artsales, aes(x = year, y=private_inst)) +
+  geom_point()
+
+ggplot(artsales, aes(x = year, y=public_inst)) +
+  geom_point()
+
+ggplot(artsales, aes(x = year, y=solo_show)) +
+  geom_point()
+
+ggplot(artsales, aes(x = year, y=group_show)) +
+  geom_point()
+```
+
+### Part C - Genre Affect Change In Sales Price
+```{r}
+
+
+```
