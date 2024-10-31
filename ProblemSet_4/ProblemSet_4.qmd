@@ -164,39 +164,46 @@ artsales <- read.csv("data/df_for_ml_improved_new_market.csv")
 ## Use 'medianprice_year' since there are large outliers
 ## affecting the mean price
 ggplot(artsales, aes(x = year, y = medianprice_year)) +
-  geom_point()
+  geom_point() + geom_count() + ggtitle("Median Price") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_y_continuous(name = "Price in USD") +
+  scale_x_continuous(name = "Year")
 
 ```
 
-Median yearly price was used rather than mean because there are large outliers that affect the mean yearly price. There is an overall increase in the median sales price over the years. 
+Median yearly price was used rather than mean because there are large outliers that affect the mean yearly price. There is a slight overall increase in the median sales price over the years. 
 
 ### Part B - Distribution of Genre Of Sales
 ```{r}
 library(ggplot2)
+library(tidyverse)
 
 artsales <- read.csv("data/df_for_ml_improved_new_market.csv")
 
-ggplot(artsales, aes(x = year, y = medianprice_year)) +
-  geom_point()
+artsales %>%
+  pivot_longer(cols = 102:106) %>%
+  ggplot(aes(year, value)) +
+  geom_count() + facet_wrap(~name) + theme_bw()
 
-ggplot(artsales, aes(x = year, y=fest_biennal)) +
-  geom_point()
-
-ggplot(artsales, aes(x = year, y=private_inst)) +
-  geom_point()
-
-ggplot(artsales, aes(x = year, y=public_inst)) +
-  geom_point()
-
-ggplot(artsales, aes(x = year, y=solo_show)) +
-  geom_point()
-
-ggplot(artsales, aes(x = year, y=group_show)) +
-  geom_point()
 ```
+
+Aside from 'Print' not having any sales prior to 2000, all the genres had some art sales.
 
 ### Part C - Genre Affect Change In Sales Price
 ```{r}
+artsales <- read.csv("data/df_for_ml_improved_new_market.csv")
+
+ggplot(artsales, aes(x = Genre___Photography, 
+                     y = medianprice_year)) +
+  geom_count() + ggtitle("Photography")
+
+mod1 <- lm(medianprice_year ~ as.factor(Genre___Photography) +
+             as.factor(Genre___Print) + as.factor(Genre___Sculpture) +
+             as.factor(Genre___Painting) + as.factor(Genre___Others),
+           data=artsales)
+summary(mod1)
+
 
 
 ```
+
