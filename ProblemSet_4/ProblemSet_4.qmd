@@ -193,17 +193,12 @@ Aside from 'Print' not having any sales prior to 2000, all the genres had some a
 ```{r}
 artsales <- read.csv("data/df_for_ml_improved_new_market.csv")
 
-ggplot(artsales, aes(x = Genre___Photography, 
-                     y = medianprice_year)) +
-  geom_count() + ggtitle("Photography")
-
-mod1 <- lm(medianprice_year ~ as.factor(Genre___Photography) +
-             as.factor(Genre___Print) + as.factor(Genre___Sculpture) +
-             as.factor(Genre___Painting) + as.factor(Genre___Others),
-           data=artsales)
-summary(mod1)
-
-
+artsales %>%
+  pivot_longer(cols = 102:106) %>%
+  ggplot(aes(year, medianprice_year)) +
+  geom_count() + facet_wrap(~name) + theme_bw()
 
 ```
+
+There is no affect in the overall sale price when considering the different genres. 
 
