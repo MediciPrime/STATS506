@@ -13,10 +13,15 @@ toc: true
 
 ## Problem 1 - OOP Programming
 
+### Part A
 ```{r}
+## Create the gcd and lcm function using Rcpp
 library(Rcpp)
+
+## Include these functions
 sourceCpp("gcd_lcm.cpp")
 
+## Create the 'rational' class
 setClass("rational",
          contains = "numeric",
          slots = c(
@@ -27,15 +32,20 @@ setClass("rational",
            if (object@denominator == 0) {
              stop("Denominator cannot be zero.")
            }
+           if (is.complex(object@numerator) || is.complex(object@denominator)) {
+             stop("Numerator and denominator cannot be complex numbers.")
+           }
            TRUE
          })
+
 
 setMethod("show", "rational",
           function(object) {
             cat(object@numerator, "/", object@denominator, "\n")
           })
 
-setGeneric("simplify", function(object) standardGeneric("simplify"))
+setGeneric("simplify", 
+           function(object) standardGeneric("simplify"))
 
 setMethod("simplify", "rational",
           function(object) {
@@ -45,7 +55,8 @@ setMethod("simplify", "rational",
                 denominator = object@denominator %/% gcd)
           })
 
-setGeneric("quotient", function(object, digits = 7) standardGeneric("quotient"))
+setGeneric("quotient", 
+           function(object, digits = 7) standardGeneric("quotient"))
 
 setMethod("quotient", "rational",
           function(object, digits) {
@@ -89,7 +100,7 @@ setMethod("/", signature(e1 = "rational", e2 = "rational"),
 
 ```
 
-
+### Part B
 ```{r}
 #| error: true
 
@@ -119,6 +130,15 @@ simplify(r1)
 simplify(r2)
 simplify(r3)
 
+```
+
+
+### Part C
+
+```{r}
+#| error: true
+
+r4 <- new("rational", numerator = 24, denominator = 0)
 ```
 
 
