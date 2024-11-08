@@ -31,6 +31,16 @@ setMethod("show", "rational",
           function(object) {
             cat(object@numerator, "/", object@denominator, "\n")
           })
+
+setGeneric("simplify", function(object) standardGeneric("simplify"))
+
+setMethod("simplify", "rational",
+          function(object) {
+            gcd <- gcd(object@numerator, object@denominator)
+            new("rational",
+                numerator = object@numerator %/% gcd,
+                denominator = object@denominator %/% gcd)
+          })
 ```
 
 
