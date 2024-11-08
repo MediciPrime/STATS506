@@ -21,32 +21,34 @@ library(Rcpp)
 ## Include these functions
 sourceCpp("gcd_lcm.cpp")
 
-## Create the 'rational' class
+## Create the 'rational' constructor
 setClass("rational",
          contains = "numeric",
          slots = c(
            numerator = "numeric",
            denominator = "numeric"
          ),
+         ## check to ensure 0 isn't in denominator
          validity = function(object) {
            if (object@denominator == 0) {
              stop("Denominator cannot be zero.")
            }
+           ## check to ensure complex numbers aren't used
            if (is.complex(object@numerator) || is.complex(object@denominator)) {
              stop("Numerator and denominator cannot be complex numbers.")
            }
            TRUE
          })
 
-
+## 'show' method for clean outputs
 setMethod("show", "rational",
           function(object) {
             cat(object@numerator, "/", object@denominator, "\n")
           })
 
-setGeneric("simplify", 
-           function(object) standardGeneric("simplify"))
+ 
 
+## Streamlined 'simplify' method for rational objects
 setMethod("simplify", "rational",
           function(object) {
             gcd <- gcd(object@numerator, object@denominator)
@@ -55,6 +57,7 @@ setMethod("simplify", "rational",
                 denominator = object@denominator %/% gcd)
           })
 
+## Create quotient and various dependent arithmetic methods
 setGeneric("quotient", 
            function(object, digits = 7) standardGeneric("quotient"))
 
@@ -69,7 +72,8 @@ setMethod("+", signature(e1 = "rational", e2 = "rational"),
             common_denom <- lcm(e1@denominator, e2@denominator)
             new_numerator <- (e1@numerator * (common_denom / e1@denominator)) +
                              (e2@numerator * (common_denom / e2@denominator))
-            new_rational <- new("rational", numerator = new_numerator, denominator = common_denom)
+            new_rational <- new("rational", numerator = new_numerator,
+                                denominator = common_denom)
             return(simplify(new_rational))
           })
 
@@ -78,7 +82,8 @@ setMethod("-", signature(e1 = "rational", e2 = "rational"),
             common_denom <- lcm(e1@denominator, e2@denominator)
             new_numerator <- (e1@numerator * (common_denom / e1@denominator)) -
                              (e2@numerator * (common_denom / e2@denominator))
-            new_rational <- new("rational", numerator = new_numerator, denominator = common_denom)
+            new_rational <- new("rational", numerator = new_numerator,
+                                denominator = common_denom)
             return(simplify(new_rational))
           })
 
@@ -86,7 +91,8 @@ setMethod("*", signature(e1 = "rational", e2 = "rational"),
           function(e1, e2) {
             new_numerator <- e1@numerator * e2@numerator
             new_denominator <- e1@denominator * e2@denominator
-            new_rational <- new("rational", numerator = new_numerator, denominator = new_denominator)
+            new_rational <- new("rational", numerator = new_numerator,
+                                denominator = new_denominator)
             return(simplify(new_rational))
           })
 
@@ -94,7 +100,8 @@ setMethod("/", signature(e1 = "rational", e2 = "rational"),
           function(e1, e2) {
             new_numerator <- e1@numerator * e2@denominator
             new_denominator <- e1@denominator * e2@numerator
-            new_rational <- new("rational", numerator = new_numerator, denominator = new_denominator)
+            new_rational <- new("rational", numerator = new_numerator,
+                                denominator = new_denominator)
             return(simplify(new_rational))
           })
 
@@ -139,6 +146,7 @@ simplify(r3)
 #| error: true
 
 r4 <- new("rational", numerator = 24, denominator = 0)
+r5 <- new("rational", numerator = 2i, denominator = 1)
 ```
 
 
