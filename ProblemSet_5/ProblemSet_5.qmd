@@ -14,6 +14,37 @@ toc: true
 ## Problem 1 - OOP Programming
 
 ```{r}
+setClass("rational",
+         contains = "numeric",
+         slots = c(
+           numerator = "integer",
+           denominator = "integer"
+         ),
+         validity = function(object) {
+           if (object@denominator == 0) {
+             stop("Denominator cannot be zero.")
+           }
+           TRUE
+         })
 
-
+setMethod("show", "rational",
+          function(object) {
+            cat(object@numerator, "/", object@denominator, "\n")
+          })
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
