@@ -49,6 +49,9 @@ setMethod("show", "rational",
  
 
 ## Streamlined 'simplify' method for rational objects
+setGeneric("simplify", 
+           function(object) standardGeneric("simplify"))
+
 setMethod("simplify", "rational",
           function(object) {
             gcd <- gcd(object@numerator, object@denominator)
