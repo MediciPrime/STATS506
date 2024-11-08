@@ -41,6 +41,16 @@ setMethod("simplify", "rational",
                 numerator = object@numerator %/% gcd,
                 denominator = object@denominator %/% gcd)
           })
+
+setGeneric("quotient", function(object, digits = 7) standardGeneric("quotient"))
+
+setMethod("quotient", "rational",
+          function(object, digits) {
+            result <- object@numerator / object@denominator
+            cat(rount(result, digits), "\n")
+          })
+
+
 ```
 
 
