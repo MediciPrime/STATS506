@@ -14,11 +14,14 @@ toc: true
 ## Problem 1 - OOP Programming
 
 ```{r}
+library(Rcpp)
+sourceCpp("gcd_lcm.cpp")
+
 setClass("rational",
          contains = "numeric",
          slots = c(
-           numerator = "integer",
-           denominator = "integer"
+           numerator = "numeric",
+           denominator = "numeric"
          ),
          validity = function(object) {
            if (object@denominator == 0) {
@@ -47,9 +50,74 @@ setGeneric("quotient", function(object, digits = 7) standardGeneric("quotient"))
 setMethod("quotient", "rational",
           function(object, digits) {
             result <- object@numerator / object@denominator
-            cat(rount(result, digits), "\n")
+            cat(round(result, digits), "\n")
           })
 
+setMethod("+", signature(e1 = "rational", e2 = "rational"),
+          function(e1, e2) {
+            common_denom <- lcm(e1@denominator, e2@denominator)
+            new_numerator <- (e1@numerator * (common_denom / e1@denominator)) +
+                             (e2@numerator * (common_denom / e2@denominator))
+            new_rational <- new("rational", numerator = new_numerator, denominator = common_denom)
+            return(simplify(new_rational))
+          })
+
+setMethod("-", signature(e1 = "rational", e2 = "rational"),
+          function(e1, e2) {
+            common_denom <- lcm(e1@denominator, e2@denominator)
+            new_numerator <- (e1@numerator * (common_denom / e1@denominator)) -
+                             (e2@numerator * (common_denom / e2@denominator))
+            new_rational <- new("rational", numerator = new_numerator, denominator = common_denom)
+            return(simplify(new_rational))
+          })
+
+setMethod("*", signature(e1 = "rational", e2 = "rational"),
+          function(e1, e2) {
+            new_numerator <- e1@numerator * e2@numerator
+            new_denominator <- e1@denominator * e2@denominator
+            new_rational <- new("rational", numerator = new_numerator, denominator = new_denominator)
+            return(simplify(new_rational))
+          })
+
+setMethod("/", signature(e1 = "rational", e2 = "rational"),
+          function(e1, e2) {
+            new_numerator <- e1@numerator * e2@denominator
+            new_denominator <- e1@denominator * e2@numerator
+            new_rational <- new("rational", numerator = new_numerator, denominator = new_denominator)
+            return(simplify(new_rational))
+          })
+
+```
+
+
+```{r}
+#| error: true
+
+# Examples
+r1 <- new("rational", numerator = 24, denominator = 6)
+r2 <- new("rational", numerator = 7, denominator = 230)
+r3 <- new("rational", numerator = 0, denominator = 4)
+
+r1
+r3
+r1 + r2
+r1 - r2
+r1 * r2
+r1 / r2
+r1 + r3
+r1 * r3
+r2 / r3
+quotient(r1)
+quotient(r2)
+quotient(r2, digits = 3)
+quotient(r2, digits = 3.14)
+quotient(r2, digits = "avocado")
+q2 <- quotient(r2, digits = 3)
+q2
+quotient(r3)
+simplify(r1)
+simplify(r2)
+simplify(r3)
 
 ```
 
