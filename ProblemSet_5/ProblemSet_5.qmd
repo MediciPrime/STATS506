@@ -267,5 +267,27 @@ ggplotly(g2)
 There is a change in sales price overtime w/ respect to outliers but not median. If mean was used then the outliers would have affected the mean price because they are so dramatic.
 
 
+## Problem 3 - data.table
 
+### Part A
+```{r}
+library(data.table)
+library(nycflights13)
 
+## Read in 'flights' data w/ data.table function
+flights <- data.table(flights)
+
+## Obtain departures
+mergeDep <- merge(flights[, faa := origin],
+                  airports,
+                  by = "faa",
+                  all.x = TRUE)
+## Group by name
+depart <- mergeDep[, .(.N,
+                     meanDelay = mean(dep_delay, na.rm = TRUE),
+                     medianDelay = median(dep_delay, na.rm = TRUE)),
+                 by = name]
+
+depart[, c(1,3,4)]
+
+```
