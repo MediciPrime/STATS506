@@ -214,12 +214,57 @@ g <- ggplot(ygpercm, aes(y = Freq, x = year, fill = genre)) +
 ggplotly(g)
 ```
 
-### Part B: Change in Art Sales Price and Genre's Affect On That Change
+### Part B: Genre's Affect On Sales Price
 
+```{r}
+library(dplyr)
 
+## Median art sale prices
+artmedian <- aggregate(art$price_usd, by = list(art$year, art$genre),
+                       FUN = median, na.rm = TRUE)
+names(artmedian) <- c("year", "genre", "price_usd")
 
+## 97.5% art sale prices
+art975 <- aggregate(art$price_usd, by = list(art$year, art$genre),
+                   FUN = quantile, .975, na.rm = TRUE)
+names(art975) <- c("year", "genre", "price_usd")
 
+## Factorize Genre for ggplot
+artmedian$genre <- factor(artmedian$genre, 
+                          levels = rev(unique(artmedian$genre)))
+art975$genre <- factor(art975$genre, levels = rev(unique(art975$genre)))
+artcombine <- bind_rows(artmedian %>% mutate(measure = "Median"),
+                        art975 %>% mutate(measure = "97.5%"))
 
+## Create gg object
+g2 <- ggplot(artcombine, aes(x = year, y = price_usd, color = genre,
+                             linetype = measure)) +
+  geom_line() +
+  scale_y_continuous(
+    name = "Price in Thousands USD",
+    breaks = seq(0, 350000, by = 50000),
+    labels = paste(seq(0, 350, by = 50), "k", sep = "")
+  ) +
+  scale_x_continuous(
+    name = NULL,
+    breaks = seq(1997, 2012, by = 2),
+    limits = c(1997, 2012)
+  ) +
+  labs(title = "Changes in Price by Genre") +
+  scale_color_manual(values = 1:5) +
+  scale_linetype_manual(values = c("97.5%" = "dotted", "Median" = "solid")) +
+  theme(
+    legend.position = "inside",
+    legend.position.inside = c(.1, .75),
+    legend.background = element_blank(),
+    legend.title = element_blank()
+  )
+
+## Push gg object into plotly
+ggplotly(g2)
+```
+
+There is a change in sales price overtime w/ respect to outliers but not median. If mean was used then the outliers would have affected the mean price because they are so dramatic.
 
 
 
