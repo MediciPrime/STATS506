@@ -190,6 +190,25 @@ ygperc <- ygperc[, c("Painting", "Sculpture", "Photography", "Print", "Other")]
 ygpercm <- as.data.frame(ygperc)
 ygpercm$genre <- factor(ygpercm$genre, 
                         levels = rev(unique(ygpercm$genre)))
+
+## Create the ggplot object
+g <- ggplot(ygpercm, aes(y = Freq, x = year, fill = genre)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  labs(y = NULL, x = NULL, title = "Proportion of Genre of Art Sales") +
+  theme(legend.position = "off") +
+  geom_text(data = ygpercm[ygpercm$year == 2012 & ygpercm$genre != "Other", ],
+            aes(label = genre),
+            position = position_stack(vjust = 0.5),
+            color = "white",
+            size = 4) +
+  # Add the Other label
+  geom_segment(aes(xend = 16, yend = 1, x = 15, y = 1.02),
+               arrow = arrow(length = unit(0.15, "inches")),
+               linewidth = .5, color = "black") +
+  annotate("text", x = 14.9, y = 1.02, label = "Other", hjust = 0, angle = 270)
+
+ggplotly(g)
 ```
 
 
