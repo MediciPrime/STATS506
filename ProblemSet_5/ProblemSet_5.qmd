@@ -288,6 +288,8 @@ depart <- mergeDep[, .(meanDelay = mean(dep_delay, na.rm = TRUE),
                        medianDelay = median(dep_delay, na.rm = TRUE)),
                    by = name]
 
+depart
+
 ## Obtain arrivals
 mergeArr <- merge(flights[, faa := dest],
                   airports,
@@ -295,6 +297,10 @@ mergeArr <- merge(flights[, faa := dest],
                   all.x = TRUE)
 
 ## Group by name
+arrival <- mergeArr[, .(meanDelay = mean(arr_delay, na.rm = TRUE),
+                        medianDelay = median(arr_delay, na.rm = TRUE)),
+                    by = name]
 
+arrival |> _[order(meanDelay, decreasing = TRUE)] |> print(n=102)
 
 ```
