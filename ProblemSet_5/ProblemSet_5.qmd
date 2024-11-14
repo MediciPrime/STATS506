@@ -301,7 +301,8 @@ arrival <- mergeArr[, .(meanDelay = mean(arr_delay, na.rm = TRUE),
                         medianDelay = median(arr_delay, na.rm = TRUE)),
                     by = name]
 
-arrival |> _[order(meanDelay, decreasing = TRUE)] |> print(n=102)
+arrival |> _[order(meanDelay, decreasing = TRUE)] |>
+  print(x = _, nrows = 102)
 
 ```
 
