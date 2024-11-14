@@ -161,6 +161,8 @@ r5 <- new("rational", numerator = 2i, denominator = 1)
 ### Part A: Any Change in the Distribution of Genre Of Sales?
 
 Note: Professor Errickson's plot was used for this analysis as allowed by the problem instructions.
+
+As such the 'gg' object will be passed into the 'ggplotly' function.
 ```{r}
 library(plotly)
 library(ggplot2)
@@ -208,10 +210,11 @@ g <- ggplot(ygpercm, aes(y = Freq, x = year, fill = genre)) +
                linewidth = .5, color = "black") +
   annotate("text", x = 14.9, y = 1.02, label = "Other", hjust = 0, angle = 270)
 
+## Pass the ggplot object into ggplotly
 ggplotly(g)
 ```
 
-
+### Part B: Change in Art Sales Price and Genre's Affect On That Change
 
 
 
