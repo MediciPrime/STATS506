@@ -282,12 +282,21 @@ mergeDep <- merge(flights[, faa := origin],
                   airports,
                   by = "faa",
                   all.x = TRUE)
-## Group by name
-depart <- mergeDep[, .(.N,
-                     meanDelay = mean(dep_delay, na.rm = TRUE),
-                     medianDelay = median(dep_delay, na.rm = TRUE)),
-                 by = name]
+
+## Group by name and finalize table
+depart <- mergeDep[, .(meanDelay = mean(dep_delay, na.rm = TRUE),
+                       medianDelay = median(dep_delay, na.rm = TRUE)),
+                   by = name]
 
 depart[, c(1,3,4)]
+
+## Obtain arrivals
+mergeArr <- merge(flights[, faa := dest],
+                  airports,
+                  by = "faa",
+                  all.x = TRUE)
+
+## Group by name
+
 
 ```
