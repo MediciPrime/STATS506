@@ -288,8 +288,6 @@ depart <- mergeDep[, .(meanDelay = mean(dep_delay, na.rm = TRUE),
                        medianDelay = median(dep_delay, na.rm = TRUE)),
                    by = name]
 
-depart[, c(1,3,4)]
-
 ## Obtain arrivals
 mergeArr <- merge(flights[, faa := dest],
                   airports,
