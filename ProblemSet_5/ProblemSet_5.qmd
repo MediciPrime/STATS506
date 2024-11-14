@@ -148,14 +148,21 @@ simplify(r3)
 ```{r}
 #| error: true
 
+## Check for Zero in denominator
 r4 <- new("rational", numerator = 24, denominator = 0)
+
+## Check for Complex number
 r5 <- new("rational", numerator = 2i, denominator = 1)
 ```
 
 
+## Problem 2 - plotly
+
+### Part A: Any Change in the Distribution of Genre Of Sales?
+```{r}
 
 
-
+```
 
 
 
