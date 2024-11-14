@@ -304,3 +304,18 @@ arrival <- mergeArr[, .(meanDelay = mean(arr_delay, na.rm = TRUE),
 arrival |> _[order(meanDelay, decreasing = TRUE)] |> print(n=102)
 
 ```
+
+### Part B
+```{r}
+planes <- data.table(planes)
+
+mergeFP <- merge(flights, planes, by = "tailnum", all.x = TRUE)
+
+calculated <- mergeFP[, .(numFlights = .N,
+                          avgmph = mean(distance/(air_time/60), 
+                                        na.rm = TRUE)),
+                      by = model]
+
+calculated[calculated[, which.max(avgmph)], .(model, avgmph,
+                                              numFlights)]
+```
