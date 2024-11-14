@@ -159,9 +159,37 @@ r5 <- new("rational", numerator = 2i, denominator = 1)
 ## Problem 2 - plotly
 
 ### Part A: Any Change in the Distribution of Genre Of Sales?
+
+Note: Professor Errickson's plot was used for this analysis as allowed by the problem instructions.
 ```{r}
+library(plotly)
+library(ggplot2)
 
+## Professor Errickson's Plot was used
+art <- read.csv("data/art.csv")
 
+## Cleanup Data
+art$Genre___Others[art$Genre___Painting == 1] <- 0
+unique(art[, grep("^Genre", names(art))])
+
+## Rename Table Headers
+art$genre <- "Photography"
+art$genre[art$Genre___Print == 1] <- "Print"
+art$genre[art$Genre___Sculpture == 1] <- "Sculpture"
+art$genre[art$Genre___Painting == 1] <- "Painting"
+art$genre[art$Genre___Others == 1] <- "Other"
+
+## Subset Genre w/ respect to year
+(yeargenre <- with(art, table(year, genre)))
+
+## Obtain the proportions
+ygperc <- yeargenre/apply(yeargenre, 1, sum)
+ygperc <- ygperc[, c("Painting", "Sculpture", "Photography", "Print", "Other")]
+
+## Convert to DataFrame and reverse levels of factor for ggplot
+ygpercm <- as.data.frame(ygperc)
+ygpercm$genre <- factor(ygpercm$genre, 
+                        levels = rev(unique(ygpercm$genre)))
 ```
 
 
